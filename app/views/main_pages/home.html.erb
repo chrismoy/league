@@ -1,8 +1,20 @@
+<% provide(:pending, nil) %>
 
-<% provide(:title, "Home") %>
-<h1>Sample App</h1>
-<p>
-  This is the home page for the
-  <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-  sample application.
-</p>
+<main id="main-content">
+  <ul class="location-grid">
+    <% for i in 1..5 %>
+      <% for j in 2..3 %>
+        <li class="location-panel" style="background-image: url('/assets/court<%= j %>.jpg')">
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</main>
+
+<div id="mapbar">
+  <h6><i class="fa fa-map-marker fa-2x"></i></h6>
+</div>
+
+<div id="signup">
+  <%= link_to "Sign up, now!", signup_path, class: "button expand" %>
+</div>

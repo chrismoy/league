@@ -1,0 +1,7 @@
+<% if content_for?(:pending) %>
+  <section id="game-div">
+    <h2><%= "#{yield(:pending)}" %></h2>
+  </section>
+<% else %>
+  <section id="game-div" style="height: 0;"></section>
+<% end %>

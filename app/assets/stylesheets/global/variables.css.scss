@@ -1,0 +1,18 @@
+// Fonts
+
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400);
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// Color Variables
+
+$lightening-factor: 10%;
+$app-red: scale-color( #E32739, $lightness: $lightening-factor );
+$app-orange: scale-color( #F57215, $lightness: $lightening-factor );
+$app-yellow: scale-color( #FEE011, $lightness: $lightening-factor );
+$app-green: scale-color( #007F55, $lightness: $lightening-factor );
+$app-blue: scale-color( #1C418C, $lightness: $lightening-factor );
+$app-purple: scale-color( #803462, $lightness: $lightening-factor );
+
+// Menu Variables
+

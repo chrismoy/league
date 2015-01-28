@@ -1,0 +1,35 @@
+<!-- Add class "hide-for-large-up" to nav to hide on desktop -->
+
+<nav class="tab-bar hide-for-large-up" id="mobile-top-bar">
+  <section class="left-small">
+    <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+  </section>
+
+  <section class="right tab-bar-section">
+    <h1 class="title">League</h1>
+  </section>
+</nav>
+
+<aside class="left-off-canvas-menu">
+  <ul class="off-canvas-list">
+    <li>
+      <label>
+        <div class="row profile">
+          <div class="small-6 columns">
+            <%= image_tag( "brianScalabrine.jpeg",
+                            alt: "Profile Picture",
+                            class: "profile-pic") %>
+          </div>
+          <div class="small-6 columns">
+            <h5 class="profile-name">Brian</h5>
+          </div>
+        </div>
+      </label>
+    </li>
+    <li><a href=
+      >Settings</a></li>
+    <li><%= link_to "About",  about_path %></li>
+    <li><%= link_to "Help",  help_path %></li>
+    <li><%= link_to "Contact",  contact_path %></li>
+  </ul>
+</aside>

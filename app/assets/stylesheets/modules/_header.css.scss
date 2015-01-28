@@ -1,0 +1,76 @@
+h1.title {
+  font-size: $topbar-height * 1.2;
+}
+
+#game-div {
+  text-align: center;
+  height: $home-page-spacing;
+  background-color: rgba( $success-color, .2 );
+  border-bottom: 1px solid rgba( $success-color, .4 );
+  h2 {
+    line-height: $home-page-spacing;
+    margin: 0;
+  }
+}
+
+#desktop-top-bar, #mobile-top-bar {
+  overflow-y: hidden;
+}
+
+.profile {
+  height: 1.5 * $home-page-spacing;
+  .profile-pic {
+    height: rem-calc(70);
+    width: rem-calc(70);
+    border-radius: 51%;
+  }
+
+  .profile-name {
+    display: block;
+    line-height: 1.5 * $home-page-spacing;
+    margin: 0 auto;
+  }
+}
+
+#main-content {
+  width: 100%;
+  height: 400px;
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+  overflow-y: scroll;
+  background-color: red;
+}
+
+.location-grid {
+  @include block-grid(
+    $per-row: 1,
+    $spacing: 0,
+    $base-style: true
+  );
+
+  .location-panel {
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 75% center;
+  }
+}
+
+#mapbar {
+  height: $home-page-spacing;
+  background-color: $smoke;
+  h6 {
+    line-height: $home-page-spacing;
+    margin: 0 rem-calc(20);
+    i {
+      vertical-align: middle;
+    }
+  }
+}
+
+#signup {
+  a{
+    font-weight: bold;
+  }
+}
