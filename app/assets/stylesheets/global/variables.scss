@@ -14,5 +14,11 @@ $app-green: scale-color( #007F55, $lightness: $lightening-factor );
 $app-blue: scale-color( #1C418C, $lightness: $lightening-factor );
 $app-purple: scale-color( #803462, $lightness: $lightening-factor );
 
-// Menu Variables
+// Mixins
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
 

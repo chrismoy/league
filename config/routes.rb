@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'about'     => 'main_pages#about'
   get 'contact'   => 'main_pages#contact'
   get 'signup'    => 'users#new'
+  resources :users
 end

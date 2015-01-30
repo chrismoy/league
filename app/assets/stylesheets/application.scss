@@ -1,0 +1,28 @@
+// Globals
+
+@import "global/variables";
+@import "global/foundation_and_overrides";
+
+// Modules
+
+@import "modules/header";
+@import "modules/footer";
+@import "modules/errors";
+
+// Pages
+
+@import "pages/home";
+@import "pages/users/show";
+
+// Debug Box
+
+.debug_dump {
+  clear: both;
+  float: left;
+  margin: 45px;
+  padding: 10px;
+  background: $smoke;
+  border: 1px solid $oil;
+  @include box_sizing;
+  @include radius;
+}

@@ -8,7 +8,7 @@ $(document).ready(function() {
   var signupHeight = $('#signup').height()
 
   var mainHeight = viewportHeight -  gameAlertHeight - topbarHeight
-                      - mapbarHeight - signupHeight;
+                      - mapbarHeight - signupHeight - 100;
 
   $(window).resize(function(){
     console.log( mainHeight )
