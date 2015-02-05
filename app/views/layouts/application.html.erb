@@ -16,9 +16,8 @@
     <%= render 'layouts/notification' %>
 
     <% flash.each do |message_type, message| %>
-      <div class="alert-box <%= message_type %> radius">
-        <%= message %>
-      </div>
+      <%= content_tag(:div, message, 
+                        class: "alert-box #{message_type} radius") %>
     <% end %>
 
     <%= render 'layouts/desktop_menu' %>
