@@ -1,0 +1,15 @@
+court1:
+  park_id: 1
+  img: "string1"
+
+court2:
+  park_id: 2
+  img: "string2"
+
+court3:
+  park_id: 3
+  img: "string3"
+
+court4:
+  park_id: 4
+  img: "string4"
