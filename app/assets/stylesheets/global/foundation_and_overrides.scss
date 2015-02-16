@@ -152,7 +152,7 @@ $shiny-edge-color: rgba($white, .5);
 $shiny-edge-active-color: rgba($black, .2);
 
 // We use this to define make sure that spacing a header size match up
-$home-page-spacing: rem-calc(50);
+$main-page-spacing: rem-calc(50);
 
 // d. Media Query Ranges
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -809,7 +809,7 @@ $button-margin-bottom: rem-calc(0);
 // $include-html-off-canvas-classes: $include-html-classes;
 
 $tabbar-bg: rgba($smoke, .9);
-$tabbar-height: $home-page-spacing;
+$tabbar-height: $main-page-spacing;
 $tabbar-icon-width: $tabbar-height;
 $tabbar-line-height: $tabbar-height;
 $tabbar-color: $oil;
@@ -1371,7 +1371,7 @@ $topbar-bg-color: rgba($smoke, .9);
 $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-$topbar-height: $home-page-spacing;
+$topbar-height: $main-page-spacing;
 $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar

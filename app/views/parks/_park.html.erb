@@ -1,0 +1,9 @@
+<%= link_to park do %>
+<li class="location-panel">
+  <h2 class="park-name"><%= park.name.titleize %></h2>
+  <h2 class="court-number">
+    <%= pluralize(park.court_count, 'court').titleize %>
+  </h2>
+  <h3 class="address"><%= park.address.titleize %></h3>
+</li>
+<% end %>

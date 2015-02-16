@@ -1,0 +1,17 @@
+<% provide(:pending, nil) %>
+
+<main id="location-content" class="content">
+  <ul class="location-grid">
+    <%= render @parks %>
+  </ul>
+</main>
+
+<div id="mapbar">
+  <h6><i class="fa fa-map-marker fa-2x"></i></h6>
+</div>
+
+<% unless logged_in? %>
+<div id="signup">
+  <%= link_to "Sign up, now!", signup_path, class: "button expand" %>
+</div>
+<% end %>

@@ -11,22 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206220142) do
+ActiveRecord::Schema.define(version: 20150213195710) do
 
   create_table "courts", force: true do |t|
     t.integer  "park_id"
     t.string   "img"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "court_number", default: 0
   end
 
   add_index "courts", ["park_id"], name: "index_courts_on_park_id"
 
   create_table "games", force: true do |t|
     t.integer  "court_id"
-    t.datetime "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "time"
   end
 
   add_index "games", ["court_id"], name: "index_games_on_court_id"
@@ -42,8 +43,9 @@ ActiveRecord::Schema.define(version: 20150206220142) do
   create_table "parks", force: true do |t|
     t.string   "name"
     t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "court_count", default: 0
   end
 
   create_table "users", force: true do |t|
@@ -59,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150206220142) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

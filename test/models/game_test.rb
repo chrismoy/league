@@ -22,6 +22,6 @@ class GameTest < ActiveSupport::TestCase
   end
 
   test "order should be latest game first" do
-    assert_equal Game.first, games(:latest_game)
+    assert_equal Game.first, games(:earliest_game)
   end
 end

@@ -4,11 +4,11 @@ h1.title {
 
 #game-div {
   text-align: center;
-  height: $home-page-spacing;
+  height: $main-page-spacing;
   background-color: rgba( $success-color, .2 );
   border-bottom: 1px solid rgba( $success-color, .4 );
   h2 {
-    line-height: $home-page-spacing;
+    line-height: $main-page-spacing;
     margin: 0;
   }
 }
@@ -18,7 +18,7 @@ h1.title {
 }
 
 .profile {
-  height: 1.5 * $home-page-spacing;
+  height: 1.5 * $main-page-spacing;
   .profile-pic {
     height: rem-calc(70);
     width: rem-calc(70);
@@ -27,7 +27,7 @@ h1.title {
 
   .profile-name {
     display: block;
-    line-height: 1.5 * $home-page-spacing;
+    line-height: 1.5 * $main-page-spacing;
     margin: 0 auto;
   }
 }

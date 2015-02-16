@@ -3,7 +3,8 @@ require 'test_helper'
 class ParkTest < ActiveSupport::TestCase
   
   def setup
-    @park = parks(:park1)
+    # Park666 has no associated courts in fixtures
+    @park = parks(:park666)
   end
 
   test "should be valid park" do
