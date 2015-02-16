@@ -1,4 +1,6 @@
 class GameParticipationsController < ApplicationController
+  before_action :logged_in_user
+
   def update
     game = Game.find(params[:id])
     unless game.users.include?(current_user) || game.users.count >= 6
