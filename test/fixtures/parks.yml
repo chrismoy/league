@@ -1,0 +1,14 @@
+park1:
+  id: 1
+  name: "Ada"
+  address: "11250 South Ada Street, Chicago, IL, 60643"
+
+park2:
+  id: 2
+  name: "Seward"
+  address: "375 West Elm Street, Chicago, IL, 60610"
+
+park666:
+  id: 666
+  name: "Lincoln"
+  address: "500-5700 N. Lake Shore Drive, Chicago, IL, 60614"

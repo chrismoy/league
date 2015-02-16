@@ -1,0 +1,15 @@
+game1:
+  court_id: 1
+  time: <%= 3.hours.ago %>
+
+game2:
+  court_id: 1
+  time: <%= 1.minute.ago %>
+
+earliest_game:
+  court_id: 1
+  time: <%= 2.years.ago %>
+
+latest_game:
+  court_id: 1
+  time: <%= Time.zone.now %>

@@ -5,15 +5,18 @@
 
 // Modules
 
-@import "modules/header";
-@import "modules/footer";
 @import "modules/errors";
+@import "modules/footer";
+@import "modules/header";
 
 // Pages
 
-@import "pages/home";
-@import "pages/users/show";
+@import "pages/games/index";
+@import "pages/games/show";
+@import "pages/parks/index";
+@import "pages/parks/show";
 @import "pages/users/index";
+@import "pages/users/show";
 
 // Debug Box
 

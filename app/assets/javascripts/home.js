@@ -6,13 +6,13 @@ $(document).ready(function() {
                       || $('#desktop-top-bar').height();
   var mapbarHeight = $('#mapbar').height();
   var signupHeight = $('#signup').height()
+  var joinGameHeight = $('#join-game').height()
 
   var mainHeight = viewportHeight -  gameAlertHeight - topbarHeight
-                      - mapbarHeight - signupHeight - 100;
+                      - mapbarHeight - signupHeight - joinGameHeight;
 
   $(window).resize(function(){
-    console.log( mainHeight )
-    $("#main-content").css( "height", mainHeight);
+    $(".content").css( "height", mainHeight);
   });
 
 });

@@ -1,0 +1,16 @@
+<%= link_to game do %>
+<li class="time-panel">
+  <% Time.zone = "Central Time (US & Canada)" %>
+  <h2 class="time"><%= game.time.in_time_zone.strftime("%-I:%M%p") %></h2>
+  <h2 class="court-number">
+    Court <%= game.court.court_number + 1 %>
+  </h2>
+  <ul class="game-player-grid">
+    <% game.users.each do |player| %>
+      <li class="game-player-panel">
+        <%= image_tag(player.image, class: "game-player-image") %>
+      </li>
+    <% end %>
+  </ul>
+</li>
+<% end %>

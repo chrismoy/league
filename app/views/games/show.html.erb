@@ -1,0 +1,30 @@
+<% provide(:pending, nil) %>
+
+<main id="game-content" class="content">
+  <h2 class="park-name"><%= @park.name %></h2>
+  <% Time.zone = "Central Time (US & Canada)" %>
+  <h2 class="game-time"><%= @game.time.in_time_zone.strftime("%-I:%M%p") %></h2>
+  <h3 class="game-court">Court <%= @court.court_number + 1 %> ID: <%= @court.id %> Game: <%= @game.id %></h3>
+  <h4 class="game-address"><%= @park.address %></h4>
+
+  <% unless @game.users.empty? %>
+    <ul class="player-grid">
+    <% @game.users.each do |player| %>
+      <li class="player-panel">
+        <%= image_tag(player.image, class: "player-image") %>
+        <h4 class="player-name"><%= player.name %></h4>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
+</main>
+
+<% if @game.users.include?(current_user) %>
+<div id="join-game">
+  <%= link_to "Leave Game", game_participation_path, method: :delete, class: "button alert expand" %>
+</div>
+<% else %>
+<div id="join-game">
+  <%= link_to "Join Game!", game_participation_path, method: :patch, class: "button expand" %>
+</div>
+<% end %>

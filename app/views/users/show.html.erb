@@ -10,6 +10,12 @@
   </aside>
 
   <main class="medium-8 columns">
-    Holding
+    <% if @user.games.any? %>
+      <h3>Games (<%= @user.games.count %>)</h3>
+      <ol class="games">
+        <%= render @games %>
+      </ol>
+      <%= will_paginate @games %>
+    <% end %>
   </main>
 </div>
