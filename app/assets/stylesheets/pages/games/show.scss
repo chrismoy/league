@@ -2,10 +2,10 @@
   width: 100%;
   height: 600px;
   padding: rem-calc(5) rem-calc(10);
-  display: block;
   margin: 0 auto;
   overflow-y: scroll;
   background-color: $vapor;
+  position: relative;
   .park-name {
     font-size: rem-calc(25);
     line-height: 1;
@@ -50,5 +50,11 @@
         float: right;
       }
     }
+  }
+  .home-button {
+    position: absolute;
+    color: $oil;
+    bottom: .1 * $main-page-spacing;
+    right: .1 * $main-page-spacing;
   }
 }

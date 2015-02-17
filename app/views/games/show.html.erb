@@ -17,6 +17,10 @@
     <% end %>
     </ul>
   <% end %>
+
+  <%= link_to root_url, class: "button secondary radius home-button" do %>
+    <i class="fa fa-home"></i>
+  <% end %>
 </main>
 
 <% if @game.users.include?(current_user) %>
