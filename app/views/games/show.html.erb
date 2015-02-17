@@ -7,16 +7,20 @@
   <h3 class="game-court">Court <%= @court.court_number + 1 %> ID: <%= @court.id %> Game: <%= @game.id %></h3>
   <h4 class="game-address"><%= @park.address %></h4>
 
-  <% unless @game.users.empty? %>
-    <ul class="player-grid">
+  <ul class="player-grid">
+  <% if @game.users.empty? %>
+    <li class="player-panel">
+        <h4 class="player-name">No Current Players</h4>
+      </li>
+  <% else %>
     <% @game.users.each do |player| %>
       <li class="player-panel">
         <%= image_tag(player.image, class: "player-image") %>
         <h4 class="player-name"><%= player.name %></h4>
       </li>
     <% end %>
-    </ul>
   <% end %>
+  </ul>
 
   <%= link_to root_url, class: "button secondary radius home-button" do %>
     <i class="fa fa-home"></i>
