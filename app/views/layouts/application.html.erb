@@ -6,6 +6,7 @@
 
     <title><%= content_for?(:title) ? "#{yield(:title)} | The D-League" : "The D-League" %></title>
 
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -14,19 +15,17 @@
 
   <body>
 
-    <%#= render 'layouts/notification' %>
-
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, 
-                        class: "alert-box #{message_type} radius") %>
+                        class: "alert-box #{message_type}") %>
     <% end %>
 
-    <%= render 'layouts/desktop_menu' %>
+    <%= render 'shared/desktop_menu' %>
 
     <div class="off-canvas-wrap" data-offcanvas>
       <div class="inner-wrap">
 
-        <%= render 'layouts/mobile_menu' %>
+        <%= render 'shared/mobile_menu' %>
 
         <section class="main-section">
           <%= yield %>
@@ -37,7 +36,7 @@
       </div>
     </div>
 
-    <%= render 'layouts/footer' %>
+    <%= render 'shared/footer' %>
 
     <!-- <%= debug(params) if Rails.env.development? %> -->
   </body>

@@ -1,5 +1,6 @@
 <%= link_to park do %>
-<li class="location-panel">
+<li class="location-panel" style="background-image: url(/assets/<%= park.name.camelize(:lower).gsub(' ', '') %>.jpg);">
+  <div class="image-filter"></div>
   <h2 class="park-name"><%= park.name.titleize %></h2>
   <h2 class="court-number">
     <%= pluralize(park.court_count, 'court').titleize %>

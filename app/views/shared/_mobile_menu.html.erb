@@ -17,26 +17,27 @@
     <li>
       <label>
         <div class="row profile">
-          <div class="small-6 columns">
-            <%= image_tag( "brianScalabrine.jpeg",
-                            alt: "Profile Picture",
-                            class: "profile-pic") %>
-          </div>
-          <div class="small-6 columns">
-            <h5 class="profile-name">Brian</h5>
-          </div>
+          <% if logged_in? %>
+          <%= link_to current_user do %>
+            <div class="small-6 columns">
+                <%= image_tag( "brianScalabrine.jpeg",
+                                alt: "Profile Picture",
+                                class: "profile-pic") %>
+            </div>
+            <div class="small-6 columns">
+              <h5 class="profile-name"><%= current_user.name.split[0] %></h5>
+            </div>
+          <% end %>
+          <% else %>
+            <h5 class="profile-name">League</h5>
+          <% end %>
         </div>
       </label>
     </li>
-    <li><a href=
-      >Settings</a></li>
     <li><%= link_to "About",  about_path %></li>
     <li><%= link_to "Help",  help_path %></li>
     <li><%= link_to "Contact",  contact_path %></li>
     <% if logged_in? %>
-      <li><%= link_to "Users", users_path %></li>
-      <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-      <li><%= link_to "Profile", current_user %></li>
       <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
     <% else %>
       <li><%= link_to "Log in", login_path %></li>

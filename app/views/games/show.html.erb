@@ -28,11 +28,11 @@
 </main>
 
 <% if @game.users.include?(current_user) %>
-<div id="join-game">
+<div id="main-button">
   <%= link_to "Leave Game", game_participation_path, method: :delete, class: "button alert expand" %>
 </div>
 <% else %>
-<div id="join-game">
+<div id="main-button">
   <%= link_to "Join Game!", game_participation_path, method: :patch, class: "button expand" %>
 </div>
 <% end %>

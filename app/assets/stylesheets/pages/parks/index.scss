@@ -17,8 +17,21 @@
       background-color: $vapor;
       border-top: 1px solid $oil;
       position: relative;
+      background-image: image-url('lincolnPark.jpg');
+      background-size: cover;
+      color: white;
+
+      .image-filter {
+        background-color: rgba(0,0,0,0.5);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
 
       $padding: 5;
+      $font-color: $white;
 
       .park-name, {
         position: absolute;
@@ -26,6 +39,7 @@
         left: rem-calc($padding);
         font-size: rem-calc(25);
         line-height: 1;
+        color: $font-color;
       }
       .court-number {
         position: absolute;
@@ -33,6 +47,7 @@
         right: rem-calc(2 * $padding);
         font-size: rem-calc(20);
         line-height: 1;
+        color: $font-color;
       }
       .address {
         position: absolute;
@@ -40,6 +55,7 @@
         left: rem-calc($padding);
         font-size: rem-calc(15);
         line-height: 1;
+        color: $font-color;
       }
     }
   }
@@ -57,7 +73,7 @@
   }
 }
 
-#signup {
+#main-button {
   a{
     font-weight: bold;
   }

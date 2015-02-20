@@ -4,7 +4,7 @@ class CreateTableGamesUsers < ActiveRecord::Migration
       t.belongs_to :game, index: true
       t.belongs_to :user, index: true
     end
-    # add_foreign_key :table_games_users, :games
-    # add_foreign_key :table_games_users, :users
+    add_foreign_key :table_games_users, :games, column: :game_id
+    add_foreign_key :table_games_users, :users, column: :user_id
   end
 end

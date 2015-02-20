@@ -1,20 +1,22 @@
-<% provide(:pending, nil) %>
-
-<main id="main-content">
-  <ul class="location-grid">
-    <% for i in 1..5 %>
-      <% for j in 2..3 %>
-        <li class="location-panel" style="background-image: url('/assets/court<%= j %>.jpg')">
-        </li>
-      <% end %>
-    <% end %>
+<main id="main-content" class="content">
+  <ul class="example-orbit" data-orbit>
+    <li>
+      <%= image_tag "court1.jpg", alt: "slide 1" %>
+      <div class="orbit-caption">
+        Caption One.
+      </div>
+    </li>
+    <li class="active">
+      <%= image_tag "court1.jpg", alt: "slide 1" %>
+      <div class="orbit-caption">
+        Caption Two.
+      </div>
+    </li>
+    <li>
+      <%= image_tag "court1.jpg", alt: "slide 1" %>
+      <div class="orbit-caption">
+        Caption Three.
+      </div>
+    </li>
   </ul>
 </main>
-
-<div id="mapbar">
-  <h6><i class="fa fa-map-marker fa-2x"></i></h6>
-</div>
-
-<div id="signup">
-  <%= link_to "Sign up, now!", signup_path, class: "button expand" %>
-</div>
