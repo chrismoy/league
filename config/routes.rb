@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root                   'main_pages#home'
+  root                   'parks#index'
   get     'help'      => 'main_pages#help'
   get     'about'     => 'main_pages#about'
   get     'contact'   => 'main_pages#contact'

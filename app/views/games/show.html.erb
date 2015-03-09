@@ -1,23 +1,18 @@
-<% provide(:pending, nil) %>
-
 <main id="game-content" class="content">
   <h2 class="park-name"><%= @park.name %></h2>
   <% Time.zone = "Central Time (US & Canada)" %>
   <h2 class="game-time"><%= @game.time.in_time_zone.strftime("%-I:%M%p") %></h2>
-  <h3 class="game-court">Court <%= @court.court_number + 1 %> ID: <%= @court.id %> Game: <%= @game.id %></h3>
+  <h3 class="game-court">Court <%= @court.court_number + 1 %></h3>
   <h4 class="game-address"><%= @park.address %></h4>
 
   <ul class="player-grid">
   <% if @game.users.empty? %>
     <li class="player-panel">
-        <h4 class="player-name">No Current Players</h4>
-      </li>
+      <h4 class="player-name">No Current Players</h4>
+    </li>
   <% else %>
     <% @game.users.each do |player| %>
-      <li class="player-panel">
-        <%= image_tag(player.image, class: "player-image") %>
-        <h4 class="player-name"><%= player.name %></h4>
-      </li>
+      <%= render 'player', { player: player } %>
     <% end %>
   <% end %>
   </ul>
@@ -29,10 +24,10 @@
 
 <% if @game.users.include?(current_user) %>
 <div id="main-button">
-  <%= link_to "Leave Game", game_participation_path, method: :delete, class: "button alert expand" %>
+  <%= link_to "Leave Game", game_participation_path, method: :delete, class: "button alert expand", remote: true %>
 </div>
 <% else %>
 <div id="main-button">
-  <%= link_to "Join Game!", game_participation_path, method: :patch, class: "button expand" %>
+  <%= link_to "Join Game!", game_participation_path, method: :patch, class: "button expand", remote: true %>
 </div>
 <% end %>

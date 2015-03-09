@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218203021) do
+ActiveRecord::Schema.define(version: 20150304221952) do
 
   create_table "courts", force: true do |t|
     t.integer  "park_id"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20150218203021) do
     t.datetime "updated_at",              null: false
     t.integer  "court_count", default: 0
     t.string   "img"
+    t.string   "latitude"
+    t.string   "longitude"
   end
 
   create_table "users", force: true do |t|

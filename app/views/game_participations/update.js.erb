@@ -1,0 +1,3 @@
+$self = $("<%= j(render '/games/player', { player: current_user }) %>");
+
+$self.appendTo(".player-grid").hide().slideDown(200);
