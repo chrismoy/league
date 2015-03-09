@@ -7,9 +7,7 @@
 
   <ul class="player-grid">
   <% if @game.users.empty? %>
-    <li class="player-panel">
-      <h4 class="player-name">No Current Players</h4>
-    </li>
+    <%= render 'empty_panel' %>
   <% else %>
     <% @game.users.each do |player| %>
       <%= render 'player', { player: player } %>
@@ -22,12 +20,10 @@
   <% end %>
 </main>
 
+<div id="join-leave-div">
 <% if @game.users.include?(current_user) %>
-<div id="main-button">
-  <%= link_to "Leave Game", game_participation_path, method: :delete, class: "button alert expand", remote: true %>
-</div>
+  <%= render '/shared/buttons/leave_game_button' %>
 <% else %>
-<div id="main-button">
-  <%= link_to "Join Game!", game_participation_path, method: :patch, class: "button expand", remote: true %>
-</div>
+  <%= render '/shared/buttons/join_game_button' %>
 <% end %>
+</div>

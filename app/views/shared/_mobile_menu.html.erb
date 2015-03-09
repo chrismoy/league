@@ -38,9 +38,9 @@
     <li><%= link_to "Help",  help_path %></li>
     <li><%= link_to "Contact",  contact_path %></li>
     <% if logged_in? %>
-      <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+      <li id="logout-btn"><%= link_to "Log Out", logout_path, method: "delete" %></li>
     <% else %>
-      <li><%= link_to "Log in", login_path %></li>
+      <li id="login-btn"><%= link_to "Log in", login_path %></li>
     <% end %>
   </ul>
 </aside>

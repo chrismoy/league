@@ -35,3 +35,17 @@ h1.title {
     }
   }
 }
+
+#login-btn {
+  background-color: $primary-color;
+  a:hover {
+    background-color: $primary-color;
+  }
+}
+
+#logout-btn {
+  background-color: $alert-color;
+  a:hover {
+    background-color: $alert-color;
+  }
+}

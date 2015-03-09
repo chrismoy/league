@@ -2,9 +2,9 @@ class GameParticipationsController < ApplicationController
   before_action :logged_in_user
 
   def update
-    game = Game.find(params[:id])
-    unless game.users.include?(current_user) || game.users.count >= 6
-      game.users << current_user
+    @game = Game.find(params[:id])
+    unless @game.users.include?(current_user) || @game.users.count >= 6
+      @game.users << current_user
     end
 
     respond_to do |format|

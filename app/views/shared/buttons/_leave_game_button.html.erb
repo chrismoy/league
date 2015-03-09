@@ -1,0 +1,15 @@
+<% if logged_in? %>
+<div id="main-button">
+  <%= link_to "Leave Game", game_participation_path,
+                            method: :delete,
+                            class: "button alert expand",
+                            remote: true %>
+</div>
+<% else %>
+<div id="main-button">
+  <%= link_to "Leave Game", game_participation_path,
+                            method: :delete,
+                            class: "button alert expand",
+                            remote: true %>
+</div>
+<% end %>

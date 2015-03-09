@@ -1,6 +1,6 @@
 <section class="navigation-section show-for-large-up contain-to-grid"
   id="desktop-top-bar">
-  
+
 
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
@@ -23,9 +23,9 @@
         <% if logged_in? %>
           <li><%= link_to "Settings", edit_user_path(current_user) %></li>
           <li><%= link_to "Profile", current_user %></li>
-          <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+          <li id="logout-btn"><%= link_to "Log Out", logout_path, method: "delete" %></li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li id="login-btn"><%= link_to "Log in", login_path %></li>
         <% end %>
       </ul>
     </section>

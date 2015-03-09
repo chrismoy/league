@@ -1,9 +1,20 @@
-<% provide(:pending, nil) %>
+<main id="location-content" class="content row">
 
-<main id="location-content" class="content">
-  <ul class="location-grid">
-    <%= render @parks %>
-  </ul>
+    <div class="small-12 medium-6 medium-push-6 columns help">
+      <p>
+        Where would you like to play today?
+      </p>
+      <p>
+        Pick your favorite court!
+      </p>
+    </div>
+
+    <div class="small-12 medium-6 medium-pull-6 columns parks">
+      <ul class="location-grid">
+        <%= render @parks %>
+      </ul>
+    </div>
+
 </main>
 
 <div id="mapbar">

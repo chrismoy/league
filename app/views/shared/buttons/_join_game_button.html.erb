@@ -1,0 +1,14 @@
+<% if logged_in? %>
+<div id="main-button">
+  <%= link_to "Join Game!", game_participation_path,
+                            method: :patch,
+                            class: "button expand",
+                            remote: true %>
+</div>
+<% else %>
+<div id="main-button">
+  <%= link_to "Join Game!", game_participation_path,
+                            method: :patch,
+                            class: "button expand"%>
+</div>
+<% end %>

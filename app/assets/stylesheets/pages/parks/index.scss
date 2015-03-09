@@ -6,57 +6,70 @@
   margin: 0 auto;
   overflow-y: scroll;
   background-color: $white;
-  .location-grid {
-    @include block-grid(
-      $per-row: 1,
-      $spacing: 0,
-      $base-style: true
-    );
-    .location-panel {
-      height: 150px;
-      background-color: $vapor;
-      border-top: 1px solid $oil;
-      position: relative;
-      background-image: image-url('lincolnPark.jpg');
-      background-size: cover;
-      color: white;
+  .parks {
+    padding: 0;
+    overflow-y: auto;
+    height: 100%;
+    .location-grid {
+      @include block-grid(
+        $per-row: 1,
+        $spacing: 0,
+        $base-style: true
+      );
+      .location-panel {
+        height: 150px;
+        background-color: $vapor;
+        border-top: 1px solid $oil;
+        position: relative;
+        background-image: image-url('lincolnPark.jpg');
+        background-size: cover;
+        color: white;
 
-      .image-filter {
-        background-color: rgba(0,0,0,0.5);
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
+        .image-filter {
+          background-color: rgba(0,0,0,0.5);
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
 
-      $padding: 5;
-      $font-color: $white;
+        $padding: 5;
+        $font-color: $white;
 
-      .park-name, {
-        position: absolute;
-        top: rem-calc($padding);
-        left: rem-calc($padding);
-        font-size: rem-calc(25);
-        line-height: 1;
-        color: $font-color;
+        .park-name, {
+          position: absolute;
+          top: rem-calc($padding);
+          left: rem-calc($padding);
+          font-size: rem-calc(25);
+          line-height: 1;
+          color: $font-color;
+        }
+        .court-number {
+          position: absolute;
+          top: rem-calc($padding);
+          right: rem-calc(2 * $padding);
+          font-size: rem-calc(20);
+          line-height: 1;
+          color: $font-color;
+        }
+        .address {
+          position: absolute;
+          bottom: rem-calc($padding);
+          left: rem-calc($padding);
+          font-size: rem-calc(15);
+          line-height: 1;
+          color: $font-color;
+        }
       }
-      .court-number {
-        position: absolute;
-        top: rem-calc($padding);
-        right: rem-calc(2 * $padding);
-        font-size: rem-calc(20);
-        line-height: 1;
-        color: $font-color;
-      }
-      .address {
-        position: absolute;
-        bottom: rem-calc($padding);
-        left: rem-calc($padding);
-        font-size: rem-calc(15);
-        line-height: 1;
-        color: $font-color;
-      }
+    }
+  }
+  .help {
+    @media #{$medium-up} { height: 100%; }
+    p{
+      font-size: rem-calc(40);
+      text-align: center;
+      vertical-align: middle;
     }
   }
 }
