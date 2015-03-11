@@ -1,12 +1,31 @@
+<%= hidden_field_tag :latitude, "", id: "latitude" %>
+<%= hidden_field_tag :longitude, "", id: "longitude" %>
+
+<script type="text/javascript">
+  var $latitudeField = $("#latitude");
+  var $longitudeField = $("#longitude");
+  getLocation();
+</script>
+
 <main id="location-content" class="content row">
 
     <div class="small-12 medium-6 medium-push-6 columns help">
-      <p>
-        Where would you like to play today?
-      </p>
-      <p>
-        Pick your favorite court!
-      </p>
+      <% if logged_in? %>
+        <div class="reminder">
+          <% Time.zone = "Central Time (US & Canada)" %>
+          <h2>
+            Remember your game at <%= @next_game.time.in_time_zone.strftime("%-I:%M%p") %>.
+          </h2>
+        </div>
+      <% end %>
+      <div class="prompt-text">
+        <p>
+          Where are you playing today?
+        </p>
+        <p>
+          Pick your favorite park!
+        </p>
+      </div>
     </div>
 
     <div class="small-12 medium-6 medium-pull-6 columns parks">

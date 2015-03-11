@@ -66,10 +66,21 @@
   }
   .help {
     @media #{$medium-up} { height: 100%; }
-    p{
-      font-size: rem-calc(40);
+    padding: 0;
+    .reminder {
       text-align: center;
-      vertical-align: middle;
+      margin: rem-calc(20);
+      border: 2px solid $oil;
+      background-color: $smoke;
+    }
+    .prompt-text {
+      margin: rem-calc(40) 0;
+      @media #{$medium-up} { margin-top: 50%; }
+      p{
+        font-size: rem-calc(40);
+        text-align: center;
+        margin: 0;
+      }
     }
   }
 }

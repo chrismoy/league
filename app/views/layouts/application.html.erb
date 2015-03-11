@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
-    <title><%= content_for?(:title) ? "#{yield(:title)} | The D-League" : "The D-League" %></title>
+    <title><%= content_for?(:title) ? "#{yield(:title)} | Got Next." : "Got Next." %></title>
 
     <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application" %>
@@ -16,7 +16,7 @@
   <body>
 
     <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message, 
+      <%= content_tag(:div, message,
                         class: "alert-box #{message_type}") %>
     <% end %>
 
