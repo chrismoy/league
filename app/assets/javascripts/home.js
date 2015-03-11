@@ -26,7 +26,7 @@ function addPositionsToForm(position) {
 
 function refreshParks(position) {
   if ($.cookie("location") == null) {
-    var latitude = null, longitude = null
+    var location = [null, null];
   }
   else {
     var location = $.cookie("location").split("|");
