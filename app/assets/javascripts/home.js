@@ -47,6 +47,10 @@ function refreshParks(position) {
 $(document).ready(function(){
   resizeViewPort();
 
+  $(document).on("page:change", function() {
+    resizeViewPort();
+  });
+
   $(window).resize(function() {
     resizeViewPort();
   });
