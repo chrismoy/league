@@ -1,4 +1,4 @@
-class AddLatitudeAndLongitudeToParks < ActiveRecord::Migration
+class RemoveLatitudeAndLongitudeFromParks < ActiveRecord::Migration
   def change
     add_column :parks, :latitude, :float
     add_column :parks, :longitude, :float
