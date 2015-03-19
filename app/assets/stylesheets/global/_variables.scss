@@ -2,11 +2,13 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700);
+// @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700);
+// @import url(http://fonts.googleapis.com/css?family=Cabin);
+@import url(http://fonts.googleapis.com/css?family=Abel);
 
 // Color Variables
 
-$lightening-factor: 10%;
+$lightening-factor: 20%;
 $app-red: scale-color( #E32739, $lightness: $lightening-factor );
 $app-orange: scale-color( #F57215, $lightness: $lightening-factor );
 $app-yellow: scale-color( #FEE011, $lightness: $lightening-factor );
@@ -20,5 +22,14 @@ $app-purple: scale-color( #803462, $lightness: $lightening-factor );
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
+}
+
+// Declare fonts
+
+@font-face {
+  font-family: 'League Gothic';
+  src: url(asset-path('fonts/LeagueGothic-Regular.otf')) format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 

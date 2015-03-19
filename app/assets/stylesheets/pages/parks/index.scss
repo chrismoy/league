@@ -1,104 +1,238 @@
+@font-face {
+  font-family: 'ecoico';
+  src:url(asset-path('fonts/timelineicons/ecoico.eot'));
+  src:url(asset-path('fonts/timelineicons/ecoico.eot?#iefix')) format('embedded-opentype'),
+    url(asset-path('fonts/timelineicons/ecoico.woff')) format('woff'),
+    url(asset-path('fonts/timelineicons/ecoico.ttf')) format('truetype'),
+    url(asset-path('fonts/timelineicons/ecoico.svg#ecoico')) format('svg');
+  font-weight: normal;
+  font-style: normal;
+} /* Made with http://icomoon.io/ */
+
+$color-1: gray; //#3594cb;
+$color-2: black; //#6cbfee;
+$mapline-align: 20%;
+$label-height: 40rem;
+$distance-offset: ($label-height / 2) - 2.5rem; // 2.5 accounts for pointer offset
+
 #location-content {
-  width: 100%;
+  width: 90%;
   height: 400px;
   padding: 0;
-  display: block;
   margin: 0 auto;
   overflow-y: scroll;
-  background-color: $white;
-  .parks {
+  background-color: transparent;
+  // @include grid-row();
+  .mapline {
+    margin: 3rem 0 0 0;
     padding: 0;
-    overflow-y: auto;
-    height: 100%;
-    .location-grid {
-      @include block-grid(
-        $per-row: 1,
-        $spacing: 0,
-        $base-style: true
-      );
-      .location-panel {
-        height: 150px;
-        background-color: $vapor;
-        border-top: 1px solid $oil;
+    list-style: none;
+    position: relative;
+    // The line
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1rem;
+      background: $app-red; //#afdcf8;
+      left: $mapline-align;
+      margin-left: -1rem;
+    }
+    // The distance
+    > li {
+      .distance {
+        position: absolute;
+        display: block;
+        width: 25%;
+        padding-right: 10rem;
+        padding-top: $distance-offset;
+        span {
+          display: block;
+          text-align: right;
+          &:first-child {
+            font-size: 0.9rem;
+            color: #bdd0db;
+          }
+          &:last-child {
+            font-size: 2.9rem;
+            color: $color-1;
+          }
+        }
+      }
+      &:nth-child(odd) {
+        .distance {
+          span:last-child {
+            color: $color-2;
+          }
+        }
+        // Right content
+        .park-label {
+          background: $color-2;
+          &:after {
+            border-right-color: $color-2;
+          }
+        }
+      }
+      // Right content
+      .park-label {
+        margin: 0 0 1.5rem 25%;
+        background: $color-1;
+        color: #fff;
+        padding: 2rem;
+        font-size: 1.2rem;
+        font-weight: 300;
+        line-height: 1.4;
         position: relative;
-        background-image: image-url('lincolnPark.jpg');
+        border-radius: .1rem;
+        height: $label-height;
         background-size: cover;
-        color: white;
-
         .image-filter {
-          background-color: rgba(0,0,0,0.5);
-          height: 100%;
-          width: 100%;
           position: absolute;
           top: 0;
           left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0,0,0,.4);
         }
-
-        $padding: 5;
-        $font-color: $white;
-
-        .park-name, {
+        h2 {
           position: absolute;
-          top: rem-calc($padding);
-          left: rem-calc($padding);
-          font-size: rem-calc(25);
-          line-height: 1;
-          color: $font-color;
+          top: 0;
+          left: 0;
+          margin: 0 0 0 1rem;
+          padding: 0;
+          color: white;
         }
-        .court-number {
+        // The triangle
+        &:after {
           position: absolute;
-          top: rem-calc($padding);
-          right: rem-calc(2 * $padding);
-          font-size: rem-calc(20);
-          line-height: 1;
-          color: $font-color;
+          top: 2rem + $distance-offset;
+          right: 100%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          pointer-events: none;
+          border-right-color: $color-1;
+          border-width: 1rem;
         }
-        .address {
+        .active-games {
           position: absolute;
-          bottom: rem-calc($padding);
-          left: rem-calc($padding);
-          font-size: rem-calc(15);
-          line-height: 1;
-          color: $font-color;
+          bottom: 1rem;
+          left: 1rem;
+          margin: 0;
+          .game {
+            display: inline-block;
+            margin-right: 2rem;
+            .time {
+              text-align: center;
+            }
+            .roster {
+              text-align: center;
+              border-top: 1px solid gray;
+            }
+          }
         }
       }
-    }
-  }
-  .help {
-    @media #{$medium-up} { height: 100%; }
-    padding: 0;
-    .reminder {
-      text-align: center;
-      margin: rem-calc(20);
-      border: 2px solid $oil;
-      background-color: $smoke;
-    }
-    .prompt-text {
-      margin: rem-calc(40) 0;
-      @media #{$medium-up} { margin-top: 50%; }
-      p{
-        font-size: rem-calc(40);
+      .cbp_tmicon {
+        width: 4rem;
+        height: 4rem;
+        font-family: 'ecoico';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        font-size: 1.4em;
+        line-height: 4rem;
+        -webkit-font-smoothing: antialiased;
+        position: absolute;
+        color: #fff;
+        background: white; //#46a4da;
+        border-radius: 50%;
+        box-shadow: 0 0 0 .8rem $app-red; //#afdcf8;
         text-align: center;
-        margin: 0;
+        left: $mapline-align;
+        top: 0;
+        margin: 0 0 0 -2.5rem;
+      }
+    }
+  }
+  @media #{$small-only} {
+    .mapline {
+      &:before {
+        display: none;
+      }
+      > li {
+        .distance {
+          // background-color: red;
+          width: 100%;
+          position: relative;
+          padding: 0 0 2rem 0;
+          span {
+            text-align: left;
+            &:last-child {
+              font-size: 1.5em;
+            }
+          }
+        }
+        .park-label {
+          margin: 0 0 3rem 0;
+          padding: 1rem;
+          font-weight: 400;
+          font-size: 95%;
+          &:after {
+            right: auto;
+            left: 2rem;
+            border-right-color: transparent;
+            border-bottom-color: $color-1;
+            top: -2rem;
+          }
+        }
+        &:nth-child(odd) {
+          .park-label:after {
+            border-right-color: transparent;
+            border-bottom-color: $color-2;
+          }
+        }
+        .cbp_tmicon {
+          display: none;
+        }
       }
     }
   }
 }
 
-#mapbar {
-  height: $main-page-spacing;
-  background-color: $smoke;
-  h6 {
-    line-height: $main-page-spacing;
-    margin: 0 rem-calc(20);
-    i {
-      vertical-align: middle;
-    }
-  }
+.cbp_tmicon-phone:before {
+  content: "\e000";
 }
 
-#main-button {
-  a{
-    font-weight: bold;
-  }
+.cbp_tmicon-screen:before {
+  content: "\e001";
 }
+
+.cbp_tmicon-mail:before {
+  content: "\e002";
+}
+
+.cbp_tmicon-earth:before {
+  content: "\e003";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

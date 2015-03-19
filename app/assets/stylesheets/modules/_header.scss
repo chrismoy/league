@@ -1,14 +1,10 @@
-h1.title {
-  font-size: $topbar-height * 1.2;
-}
-
 #game-div {
   text-align: center;
-  height: $main-page-spacing;
+  height: $base-page-spacing;
   background-color: rgba( $success-color, .2 );
   border-bottom: 1px solid rgba( $success-color, .4 );
   h2 {
-    line-height: $main-page-spacing;
+    line-height: $base-page-spacing;
     margin: 0;
   }
 }
@@ -17,20 +13,37 @@ h1.title {
   overflow-y: hidden;
 }
 
+#desktop-top-bar {
+  .logo-image {
+    height: 10rem;
+    padding: 1rem;
+  }
+}
+
+#mobile-top-bar {
+  .logo-image {
+    height: 5rem;
+    padding: 0rem;
+  }
+  .tab-bar-section {
+    text-align: left;
+  }
+}
+
 .profile {
-  height: 2 * $main-page-spacing;
+  height: 2 * $base-page-spacing;
   a {
     padding: 0;
     .profile-pic {
-      height: rem-calc(70);
-      width: rem-calc(70);
+      height: 7rem;
+      width: 7rem;
       border-radius: 51%;
       text-align: left;
     }
 
     .profile-name {
       display: block;
-      line-height: 1.5 * $main-page-spacing;
+      line-height: 1.5 * $base-page-spacing;
       margin: 0 auto;
     }
   }
@@ -46,6 +59,6 @@ h1.title {
 #logout-btn {
   background-color: $alert-color;
   a:hover {
-    background-color: $alert-color;
+    background-color: scale-color( $alert-color, $lightness: -10%);
   }
 }

@@ -33,7 +33,7 @@
       $base-style: true
     );
     .player-panel {
-      $player-list-height: $main-page-spacing;
+      $player-list-height: $base-page-spacing;
       margin: 0;
       height: $player-list-height;
       padding: 0.1 * $player-list-height;
@@ -54,7 +54,7 @@
   .home-button {
     position: absolute;
     color: $oil;
-    bottom: .1 * $main-page-spacing;
-    right: .1 * $main-page-spacing;
+    bottom: .1 * $base-page-spacing;
+    right: .1 * $base-page-spacing;
   }
 }

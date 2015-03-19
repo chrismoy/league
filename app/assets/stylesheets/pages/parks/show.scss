@@ -44,7 +44,7 @@
     $spacing: $block-grid-default-spacing,
     $base-style: true
   );
-  height: $main-page-spacing;
+  height: $base-page-spacing;
   margin: rem-calc(40) auto 0 auto;
   vertical-align: bottom;
   .game-player-panel {

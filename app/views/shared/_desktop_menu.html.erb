@@ -1,12 +1,9 @@
-<section class="navigation-section show-for-large-up contain-to-grid"
-  id="desktop-top-bar">
-
-
+<section class="navigation-section show-for-large-up contain-to-grid" id="desktop-top-bar">
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
         <%= link_to root_path do %>
-          <h1 class="title">Got Next.</h1>
+          <%= image_tag 'scoreboard-text200.png', alt: "Got Next logo", class: "logo-image" %>
         <% end %>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
@@ -14,14 +11,9 @@
 
     <section class="top-bar-section">
       <ul class="right">
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Help</a>
-        </li>
+        <!-- <li><%= link_to "Sign In", login_path %></li> -->
+        <li><a href="#">Help</a></li>
         <% if logged_in? %>
-          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
           <li><%= link_to "Profile", current_user %></li>
           <li id="logout-btn"><%= link_to "Log Out", logout_path, method: "delete" %></li>
         <% else %>

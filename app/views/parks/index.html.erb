@@ -7,41 +7,8 @@
   getLocation();
 </script>
 
-<main id="location-content" class="content row">
-
-    <div class="small-12 medium-6 medium-push-6 columns help">
-      <% if logged_in? %>
-        <div class="reminder">
-          <% Time.zone = "Central Time (US & Canada)" %>
-          <h2>
-            Remember your game at <%= @next_game.time.in_time_zone.strftime("%-I:%M%p") %>.
-          </h2>
-        </div>
-      <% end %>
-      <div class="prompt-text">
-        <p>
-          Where are you playing today?
-        </p>
-        <p>
-          Pick your favorite park!
-        </p>
-      </div>
-    </div>
-
-    <div class="small-12 medium-6 medium-pull-6 columns parks">
-      <ul class="location-grid">
-        <%= render @parks %>
-      </ul>
-    </div>
-
+<main id="location-content" class="content">
+  <ul class="mapline">
+    <%= render @parks %>
+  </ul>
 </main>
-
-<div id="mapbar">
-  <h6><i class="fa fa-map-marker fa-2x"></i></h6>
-</div>
-
-<% unless logged_in? %>
-<div id="main-button">
-  <%= link_to "Sign up, now!", signup_path, class: "button expand" %>
-</div>
-<% end %>

@@ -7,8 +7,8 @@ class ParksController < ApplicationController
     end
 
     if cookies[:location]
-      latitude, longitude = cookies[:location].split("|")
-      @parks = @parks.near([latitude.to_f, longitude.to_f], 20)
+      @latitude, @longitude = cookies[:location].split("|")
+      @parks = @parks.near([@latitude.to_f, @longitude.to_f], 20)
     end
     @next_game = current_user.games.last if logged_in?
 

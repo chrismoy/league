@@ -1,10 +1,20 @@
-<%= link_to park do %>
-<li class="location-panel" style="background-image: url(/assets/<%= park.name.camelize(:lower).gsub(' ', '') %>.jpg);">
-  <div class="image-filter"></div>
-  <h2 class="park-name"><%= park.name.titleize %></h2>
-  <h2 class="court-number">
-    <%= pluralize(park.court_count, 'court').titleize %>
-  </h2>
-  <h3 class="address"><%= park.address.titleize %></h3>
+<li>
+  <time class="distance" datetime="2013-04-10 18:30">
+    <span>4/10/13</span>
+    <span><%= sprintf("%.1f", park.distance_from([@latitude, @longitude])) %> mi</span>
+  </time>
+  <div class="cbp_tmicon cbp_tmicon-phone"></div>
+  <div class="park-label" style="background-image: url(/assets/<%= park.name.camelize(:lower).gsub(' ', '') %>.jpg);">
+    <div class="image-filter"></div>
+    <h2><%= park.name %></h2>
+    <ol class="active-games">
+      <% @r = rand(7) %>
+      <% (1..@r).each do %>
+        <li class="game">
+          <p class="time"><%= rand(12) %>:00p</p>
+          <p class="roster"><%= rand(6) %>/6 Players</p>
+        </li>
+      <% end %>
+    </ol>
+  </div>
 </li>
-<% end %>
