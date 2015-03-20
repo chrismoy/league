@@ -3,21 +3,19 @@
     <span>&nbsp</span>
     <span><%= sprintf("%.1f", park.distance_from([@latitude, @longitude])) %> mi</span>
   </div>
-  <div class="cbp_tmicon icon_user"><h3 class="title">You</h3></div>
-  <div class="cbp_tmicon" style="top: <%= @icon_offset %>rem"></div>
+  <div class="icon icon_user"><h3 class="title">You</h3></div>
+  <input type="radio" name="mapline-group" style="top: <%= @icon_offset %>rem" <%= "checked" if @icon_offset < 41.5 %>/>
+  <label class="icon" style="top: <%= @icon_offset %>rem"></label>
   <% @icon_offset += 41.5 %>
   <div class="park-label" style="background-image: url(/assets/<%= park.name.camelize(:lower).gsub(' ', '') %>.jpg);">
     <div class="image-filter"></div>
     <h2><%= park.name %></h2>
-    <button class="new-game"><%= icon('plus', '', class: "fa-4x") %></button>
+    <!-- <button class="new-game"><%= icon('plus', '', class: "fa-4x") %></button> -->
     <ol class="active-games">
-      <% @r = rand(7) %>
-      <% (1..@r).each do %>
-        <li class="game">
-          <p class="time"><%= rand(12) %>:00p</p>
-          <p class="roster"><%= rand(6) %>/6 Players</p>
-        </li>
-      <% end %>
+      <li class="game">
+        <p class="time"></p>
+        <p class="roster"></p>
+      </li>
     </ol>
   </div>
 </li>

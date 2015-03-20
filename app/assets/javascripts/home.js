@@ -2,11 +2,8 @@ var resizeViewPort = function() {
   var viewportHeight = $(window).height();
   var topbarHeight = $('#mobile-top-bar').height() ||
                       $('#desktop-top-bar').height();
-  var mapbarHeight = $('#mapbar').height();
-  var mainButtonHeight = $('#main-button').height()
 
-  var mainHeight = viewportHeight - topbarHeight - mapbarHeight -
-                    mainButtonHeight;
+  var mainHeight = viewportHeight - (2 * topbarHeight);
 
   $(".content").height(mainHeight);
 };
