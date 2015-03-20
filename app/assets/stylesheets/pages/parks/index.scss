@@ -9,16 +9,17 @@
   font-style: normal;
 } /* Made with http://icomoon.io/ */
 
-$color-1: gray; //#3594cb;
-$color-2: black; //#6cbfee;
-$mapline-align: 20%;
+$color-1: black; //#3594cb;
+$color-2: gray; //#6cbfee;
+$mapline-align: 10%;
 $label-height: 40rem;
 $distance-offset: ($label-height / 2) - 2.5rem; // 2.5 accounts for pointer offset
+$arrow-width: 1.5rem;
 
 #location-content {
   width: 90%;
   height: 400px;
-  padding: 0;
+  padding: 5rem 0;
   margin: 0 auto;
   overflow-y: scroll;
   background-color: transparent;
@@ -44,7 +45,7 @@ $distance-offset: ($label-height / 2) - 2.5rem; // 2.5 accounts for pointer offs
       .distance {
         position: absolute;
         display: block;
-        width: 25%;
+        width: 30%;
         padding-right: 10rem;
         padding-top: $distance-offset;
         span {
@@ -63,14 +64,14 @@ $distance-offset: ($label-height / 2) - 2.5rem; // 2.5 accounts for pointer offs
       &:nth-child(odd) {
         .distance {
           span:last-child {
-            color: $color-2;
+            color: $color-1;
           }
         }
         // Right content
         .park-label {
-          background: $color-2;
+          background: $color-1;
           &:after {
-            border-right-color: $color-2;
+            border-right-color: $color-1;
           }
         }
       }
@@ -103,6 +104,14 @@ $distance-offset: ($label-height / 2) - 2.5rem; // 2.5 accounts for pointer offs
           padding: 0;
           color: white;
         }
+        .new-game {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          background: transparent;
+          color: white;
+          border: none;
+        }
         // The triangle
         &:after {
           position: absolute;
@@ -114,7 +123,7 @@ $distance-offset: ($label-height / 2) - 2.5rem; // 2.5 accounts for pointer offs
           width: 0;
           pointer-events: none;
           border-right-color: $color-1;
-          border-width: 1rem;
+          border-width: $arrow-width;
         }
         .active-games {
           position: absolute;
@@ -156,6 +165,17 @@ $distance-offset: ($label-height / 2) - 2.5rem; // 2.5 accounts for pointer offs
         top: 0;
         margin: 0 0 0 -2.5rem;
       }
+      .icon_user {
+        background: image-url('brianScalabrine.jpeg');
+        background-size: cover;
+        h3 {
+          width: 10rem;
+          position: absolute;
+          top: -6rem;
+          left: 50%;
+          margin-left: -5rem;
+        }
+      }
     }
   }
   @media #{$small-only} {
@@ -186,7 +206,7 @@ $distance-offset: ($label-height / 2) - 2.5rem; // 2.5 accounts for pointer offs
             left: 2rem;
             border-right-color: transparent;
             border-bottom-color: $color-1;
-            top: -2rem;
+            top: -2 * $arrow-width;
           }
         }
         &:nth-child(odd) {
@@ -196,6 +216,15 @@ $distance-offset: ($label-height / 2) - 2.5rem; // 2.5 accounts for pointer offs
           }
         }
         .cbp_tmicon {
+          display: none;
+        }
+      }
+    }
+  }
+  @media #{$medium-only} {
+    .mapline {
+      > li {
+        .distance {
           display: none;
         }
       }
@@ -218,7 +247,6 @@ $distance-offset: ($label-height / 2) - 2.5rem; // 2.5 accounts for pointer offs
 .cbp_tmicon-earth:before {
   content: "\e003";
 }
-
 
 
 

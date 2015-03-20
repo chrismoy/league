@@ -1,12 +1,15 @@
 <li>
-  <time class="distance" datetime="2013-04-10 18:30">
-    <span>4/10/13</span>
+  <div class="distance">
+    <span>&nbsp</span>
     <span><%= sprintf("%.1f", park.distance_from([@latitude, @longitude])) %> mi</span>
-  </time>
-  <div class="cbp_tmicon cbp_tmicon-phone"></div>
+  </div>
+  <div class="cbp_tmicon icon_user"><h3 class="title">You</h3></div>
+  <div class="cbp_tmicon" style="top: <%= @icon_offset %>rem"></div>
+  <% @icon_offset += 41.5 %>
   <div class="park-label" style="background-image: url(/assets/<%= park.name.camelize(:lower).gsub(' ', '') %>.jpg);">
     <div class="image-filter"></div>
     <h2><%= park.name %></h2>
+    <button class="new-game"><%= icon('plus', '', class: "fa-4x") %></button>
     <ol class="active-games">
       <% @r = rand(7) %>
       <% (1..@r).each do %>
