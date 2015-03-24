@@ -1,30 +1,24 @@
-@font-face {
-  font-family: 'ecoico';
-  src:url(asset-path('fonts/timelineicons/ecoico.eot'));
-  src:url(asset-path('fonts/timelineicons/ecoico.eot?#iefix')) format('embedded-opentype'),
-    url(asset-path('fonts/timelineicons/ecoico.woff')) format('woff'),
-    url(asset-path('fonts/timelineicons/ecoico.ttf')) format('truetype'),
-    url(asset-path('fonts/timelineicons/ecoico.svg#ecoico')) format('svg');
-  font-weight: normal;
-  font-style: normal;
-} /* Made with http://icomoon.io/ */
-
 $color-1: black; //#3594cb;
-$color-2: gray; //#6cbfee;
 $mapline-align: 10%;
-$label-height: 40rem;
-$distance-offset: ($label-height / 2) - 2.5rem; // 2.5 accounts for pointer offset
+$label-height: 25rem;
+$distance-offset: ($label-height / 2) - 5rem; // 2.5 accounts for pointer offset
 $arrow-width: 1.5rem;
-$label-radius: 1rem;
+$label-radius: .5rem;
+$primary-transition: all .5s;
+$secondary-transition:  all .5s linear .5s;
+$line-color: $app-red;
+
+body {
+  // background-image: image-url('concrete_seamless.png');
+}
 
 #location-content {
   width: 90%;
-  height: 400px;
+  height: 100%;
   padding: 5rem 0 0 0;
   margin: 0 auto;
   overflow-y: scroll;
   background-color: transparent;
-  // @include grid-row();
   .mapline {
     margin: 3rem 0 0 0;
     padding: 0;
@@ -37,7 +31,7 @@ $label-radius: 1rem;
       top: 0;
       bottom: 0;
       width: 1rem;
-      background: $app-red; //#afdcf8;
+      background: $line-color; //#afdcf8;
       left: $mapline-align;
       margin-left: -1rem;
     }
@@ -52,28 +46,8 @@ $label-radius: 1rem;
         span {
           display: block;
           text-align: right;
-          &:first-child {
-            font-size: 0.9rem;
-            color: #bdd0db;
-          }
-          &:last-child {
-            font-size: 2.9rem;
-            color: $color-1;
-          }
-        }
-      }
-      &:nth-child(odd) {
-        .distance {
-          span:last-child {
-            color: $color-1;
-          }
-        }
-        // Right content
-        .park-label {
-          background: $color-1;
-          &:after {
-            border-right-color: $color-1;
-          }
+          font-size: 2.9rem;
+          color: $color-1;
         }
       }
       // Right content
@@ -83,15 +57,14 @@ $label-radius: 1rem;
         color: #fff;
         padding: 2rem;
         font-size: 1.2rem;
-        font-weight: 300;
-        line-height: 1.4;
         position: relative;
         border-radius: $label-radius;
         height: $label-height;
-        width: $label-height * 1.5;
+        width: auto;
         background-size: cover;
-        transition: width 0.6s;
-        .image-filter {
+        transform-style: preserve-3d;
+        cursor: default;
+        .image-filter, .select-filter {
           position: absolute;
           top: 0;
           left: 0;
@@ -100,33 +73,56 @@ $label-radius: 1rem;
           background-color: rgba(0,0,0,.4);
           border-radius: $label-radius;
         }
+        .select-filter {
+          cursor: pointer;
+          background-color: rgba(0,0,0,.5);
+        }
         h2 {
           position: absolute;
-          top: 0;
-          left: 0;
-          margin: 0 0 0 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 100%;
+          left: 50%;
+          margin-left: -50%;
           padding: 0;
           color: white;
+          text-align: center;
+          transition: $primary-transition;
         }
         .new-game {
           position: absolute;
           top: 1rem;
           right: 1rem;
+          padding: 1rem;
           background: transparent;
           color: white;
           border: none;
+          visibility: hidden;
+          opacity: 0;
+          transition: $secondary-transition;
+          i {
+            display: block;
+            height: 3rem;
+            text-align: right;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+          span {
+
+          }
         }
         // The triangle
         &:after {
           position: absolute;
-          top: 2rem + $distance-offset;
+          top: 4rem + $distance-offset;
           right: 100%;
           border: solid transparent;
           content: " ";
           height: 0;
           width: 0;
           pointer-events: none;
-          border-right-color: $color-1;
+          border-right-color: rgba(0,0,0,.8);
           border-width: $arrow-width;
         }
         .active-games {
@@ -134,6 +130,9 @@ $label-radius: 1rem;
           bottom: 1rem;
           left: 1rem;
           margin: 0;
+          visibility: hidden;
+          opacity: 0;
+          transition: $secondary-transition;
           .game {
             display: inline-block;
             margin-right: 2rem;
@@ -148,48 +147,58 @@ $label-radius: 1rem;
         }
       }
       .icon, input[type="radio"] {
-        width: 4rem;
-        height: 4rem;
         position: absolute;
         top: 0;
       }
+      .icon {
+        width: 2rem;
+        height: 2rem;
+        color: #fff;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 0 .8rem $line-color;
+        text-align: center;
+        margin: .5rem 0 0 -1.5rem; // Change this for horizontal realign
+        left: $mapline-align;
+        transition: $primary-transition;
+      }
       input[type="radio"] {
-        left: $mapline-align - 2%;
+        width: 3rem;
+        height: 3rem;
+        left: $mapline-align - 1%;
         z-index: 10;
         opacity: 0;
         margin: 0;
-        &:first-child {
-          checked: "checked";
-        }
-      }
-      .icon {
-        font-family: 'ecoico';
-        speak: none;
-        font-style: normal;
-        font-weight: normal;
-        font-variant: normal;
-        text-transform: none;
-        font-size: 1.4em;
-        line-height: 4rem;
-        -webkit-font-smoothing: antialiased;
-        color: #fff;
-        background: white; //#46a4da;
-        border-radius: 50%;
-        box-shadow: 0 0 0 .8rem $app-red; //#afdcf8;
-        text-align: center;
-        margin: 0 0 0 -2.5rem;
-        cursor: default;
-        left: $mapline-align;
+        cursor: pointer;
       }
       input[type="radio"]:checked + .icon {
         background-color: $color-1;
+        width: 3rem;
+        height: 3rem;
+        margin-left: -2rem;
       }
       input[type="radio"]:checked ~ .park-label {
-        width: auto;
+        h2 {
+          top: 3rem;
+        }
+        .active-games {
+          visibility: visible;
+          opacity: 1;
+        }
+        .select-filter {
+          display: none;
+        }
+        .new-game {
+          visibility: visible;
+          opacity: 1;
+        }
       }
       .icon_user {
         background: image-url('brianScalabrine.jpeg');
         background-size: cover;
+        width: 4rem;
+        height: 4rem;
+        margin: 0 0 0 -2.5rem;
         h3 {
           width: 10rem;
           position: absolute;
@@ -201,6 +210,7 @@ $label-radius: 1rem;
     }
   }
   @media #{$small-only} {
+
     .mapline {
       &:before {
         display: none;
@@ -211,11 +221,10 @@ $label-radius: 1rem;
           width: 100%;
           position: relative;
           padding: 0 0 2rem 0;
+          display: none;
           span {
             text-align: left;
-            &:last-child {
-              font-size: 1.5em;
-            }
+            font-size: 1.5em;
           }
         }
         .park-label {
@@ -230,14 +239,15 @@ $label-radius: 1rem;
             border-bottom-color: $color-1;
             top: -2 * $arrow-width;
           }
-        }
-        &:nth-child(odd) {
-          .park-label:after {
-            border-right-color: transparent;
-            border-bottom-color: $color-2;
+          h2 {
+            width: auto;
+            left: 1rem;
+            margin-left: 0%;
           }
         }
         .icon {
+        }
+        .icon_user {
           display: none;
         }
       }

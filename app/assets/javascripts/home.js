@@ -42,13 +42,13 @@ function refreshParks(position) {
 }
 
 $(document).ready(function(){
-  resizeViewPort();
+  // resizeViewPort();
 
   $(document).on("page:change", function() {
-    resizeViewPort();
+    // resizeViewPort();
   });
 
   $(window).resize(function() {
-    resizeViewPort();
+    // resizeViewPort();
   });
 });

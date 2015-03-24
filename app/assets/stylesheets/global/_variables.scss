@@ -4,12 +4,14 @@
 @import "font-awesome";
 // @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700);
 // @import url(http://fonts.googleapis.com/css?family=Cabin);
-@import url(http://fonts.googleapis.com/css?family=Abel);
+// @import url(http://fonts.googleapis.com/css?family=Abel);
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
 
 // Color Variables
 
-$lightening-factor: 20%;
-$app-red: scale-color( #E32739, $lightness: $lightening-factor );
+$lightening-factor: 40%;
+// $app-red: scale-color( #E32739, $lightness: $lightening-factor );
+$app-red: scale-color( #E32739, $lightness: 30% );
 $app-orange: scale-color( #F57215, $lightness: $lightening-factor );
 $app-yellow: scale-color( #FEE011, $lightness: $lightening-factor );
 $app-green: scale-color( #007F55, $lightness: $lightening-factor );
@@ -27,8 +29,25 @@ $app-purple: scale-color( #803462, $lightness: $lightening-factor );
 // Declare fonts
 
 @font-face {
-  font-family: 'League Gothic';
-  src: url(asset-path('fonts/LeagueGothic-Regular.otf')) format('opentype');
+  font-family: 'Colaborate';
+  src: url(asset-path('fonts/ColabReg.otf')) format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Colaborate';
+  src: url(asset-path('fonts/ColabThi.otf')) format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Equip';
+  src: url('fonts/Equip/EquipLig-webfont.woff') format('woff'); /* Pretty Modern Browsers */
+  src: url('fonts/Equip/EquipLig-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/Equip/EquipLig-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/Equip/EquipLig-webfont.ttf')  format('truetype'); /* Safari, Android, iOS */
   font-weight: normal;
   font-style: normal;
 }
