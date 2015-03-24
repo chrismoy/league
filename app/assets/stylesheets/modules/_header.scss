@@ -7,12 +7,13 @@ header {
   width: 100%;
 
   .top-bar {
-    .title-area {
-      .name {
-        a {
+    a {
+      .title-area {
+        .name {
+          height: 8rem;
           img {
             height: $base-page-spacing;
-            padding: 1rem;
+            padding: 0 0 0 1rem;
           }
         }
       }
