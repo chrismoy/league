@@ -1,0 +1,67 @@
+#game-div {
+  text-align: center;
+  height: $base-page-spacing;
+  background-color: rgba( $success-color, .2 );
+  border-bottom: 1px solid rgba( $success-color, .4 );
+  h2 {
+    line-height: $base-page-spacing;
+    margin: 0;
+  }
+}
+
+#desktop-top-bar, #mobile-top-bar {
+  overflow-y: hidden;
+}
+
+#desktop-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  .logo-image {
+    height: 10rem;
+    padding: 1rem;
+  }
+}
+
+#mobile-top-bar {
+  .logo-image {
+    height: 5rem;
+    padding: 0rem;
+  }
+  .tab-bar-section {
+    text-align: left;
+  }
+}
+
+.profile {
+  height: 2 * $base-page-spacing;
+  a {
+    padding: 0;
+    .profile-pic {
+      height: 7rem;
+      width: 7rem;
+      border-radius: 51%;
+      text-align: left;
+    }
+
+    .profile-name {
+      display: block;
+      line-height: 1.5 * $base-page-spacing;
+      margin: 0 auto;
+    }
+  }
+}
+
+#login-btn {
+  background-color: $primary-color;
+  a:hover {
+    background-color: $primary-color;
+  }
+}
+
+#logout-btn {
+  background-color: $alert-color;
+  a:hover {
+    background-color: scale-color( $alert-color, $lightness: -10%);
+  }
+}
