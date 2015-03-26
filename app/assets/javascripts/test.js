@@ -5,4 +5,9 @@ $(document).ready(function() {
   $('#hidden-menu').click(function() {
     $('#hidden-menu').fadeOut()
   });
+
+  if ( $('.mapline').offset() > 50 ) {
+    $('#title-image').fadeOut();
+    console.log("yolo");
+  }
 });

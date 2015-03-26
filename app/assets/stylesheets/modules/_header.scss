@@ -10,7 +10,7 @@ $menu-inverse-color: $white;
   height: 100%;
   width: 100%;
   background: $menu-color;
-  z-index: 25;
+  z-index: 30;
   ul {
     text-align: center;
     text-decoration: none;
@@ -24,12 +24,34 @@ $menu-inverse-color: $white;
   }
 }
 
-#title-image {
+#title-image-large {
   position: absolute;
   top: 0;
   left: 0;
+  margin-top: 1rem;
   height: $menu-dimension;
-  margin: .8rem 0 0 .8rem;
+  padding: .8rem;
+  background: $white;
+  z-index: 25;
+  border: 2px solid $body-font-color;
+  border-left: 0;
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+}
+
+#title-image-small {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 1rem;
+  height: 5rem;
+  padding: .8rem;
+  background: $white;
+  z-index: 25;
+  border: 2px solid $body-font-color;
+  border-left: 0;
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
 }
 
 #tab-profile {
@@ -44,11 +66,15 @@ $menu-inverse-color: $white;
     // border: $menu-color solid;
     // border-width: .1rem 0 .1rem .1rem;
     margin-top: 1rem;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
     img {
       display: inline-block;
       height: $menu-dimension;
       width: $menu-dimension;
       vertical-align: top;
+      border-top-left-radius: .5rem;
+      border-bottom-left-radius: .5rem;
     }
     button {
       display: inline-block;
@@ -73,6 +99,8 @@ $menu-inverse-color: $white;
         width: 5rem;
         font-size: 2rem;
         background: $app-red;
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
         i {
           text-align: center;
           margin-left: -.2rem;
