@@ -1,64 +1,82 @@
-$profile-height: $base-page-spacing;
+$menu-dimension: $base-page-spacing;
+$menu-color: $body-font-color;
+$menu-inverse-color: $white;
 
-header {
+#hidden-menu {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
+  height: 100%;
   width: 100%;
-
-  .top-bar {
-    a {
-      .title-area {
-        .name {
-          height: 8rem;
-          img {
-            height: $base-page-spacing;
-            padding: 0 0 0 1rem;
-          }
-        }
-      }
-    }
-    .top-bar-section {
-      position: relative;
-      width: 90%;
-      margin: 0 auto;
-      height: $profile-height;
-      .right {
-        .profile {
-          position: absolute;
-          top: 0;
-          right: 10%;
-          width: 20rem;
-          height: $profile-height;
-          background-color: transparent;
-          h3 {
-            position: absolute;
-            display: inline-block;
-            line-height: $profile-height;
-            font-size: $profile-height * .3;
-            text-transform: uppercase;
-            right: .5 * $profile-height;
-            margin-right: 1rem;
-            padding-top: .3rem;
-          }
-          img {
-            position: absolute;
-            width: $profile-height - 1.6rem;
-            vertical-align: top;
-            right: 0;
-            margin-right: .25rem - (.5 * $profile-height);
-            margin-top: .8rem;
-            border-radius: 50%;
-            box-shadow: 0 0 0 .8rem $app-red;
-          }
-        }
-      }
-    }
-    .menu {
-      i {
-        line-height: $profile-height;
+  background: $menu-color;
+  z-index: 25;
+  ul {
+    text-align: center;
+    text-decoration: none;
+    li {
+      a {
+        color:$menu-inverse-color;
         font-size: 5rem;
-        margin-right: 1rem;
+        text-decoration: uppercase;
+      }
+    }
+  }
+}
+
+#title-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: $menu-dimension;
+  margin: .8rem 0 0 .8rem;
+}
+
+#tab-profile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: white;
+  z-index: 20;
+  #tab {
+    display: inline-block;
+    background: $smoke;
+    // border: $menu-color solid;
+    // border-width: .1rem 0 .1rem .1rem;
+    margin-top: 1rem;
+    img {
+      display: inline-block;
+      height: $menu-dimension;
+      width: $menu-dimension;
+      vertical-align: top;
+    }
+    button {
+      display: inline-block;
+      height: $menu-dimension;
+      width: $menu-dimension;
+      font-size: 4rem;
+      color: $menu-color;
+      background: transparent;
+      outline: 0;
+    }
+  }
+  @media #{$small-only} {
+    $menu-dimension: .6 * $base-page-spacing;
+
+    background: transparent;
+    #tab {
+      img {
+        display: none;
+      }
+      button {
+        height: 5rem;
+        width: 5rem;
+        font-size: 2rem;
+        background: $app-red;
+        i {
+          text-align: center;
+          margin-left: -.2rem;
+        }
       }
     }
   }

@@ -1,22 +1,18 @@
-$color-1: black; //#3594cb;
-$mapline-align: 10%;
+$color-1: black;
+$mapline-align: 7.5rem;
 $label-height: 25rem;
-$distance-offset: ($label-height / 2) - 5rem; // 2.5 accounts for pointer offset
+$distance-offset: ($label-height / 2) - 5rem;
 $arrow-width: 1.5rem;
 $label-radius: .5rem;
 $primary-transition: all .5s;
 $secondary-transition:  all .5s linear .5s;
 $line-color: $app-red;
 
-body {
-  // background-image: image-url('concrete_seamless.png');
-}
-
 #location-content {
-  width: 90%;
+  width: 100%;
   height: 100%;
-  padding: 0;
-  margin: 0 auto;
+  padding: 0 5rem;
+  margin: 0;
   overflow-y: scroll;
   background-color: transparent;
   .mapline {
@@ -31,9 +27,10 @@ body {
       top: 0;
       bottom: 0;
       width: 1rem;
-      background: $line-color; //#afdcf8;
+      background: $line-color;
       right: $mapline-align;
       margin-right: -1rem;
+      z-index: 10;
     }
     // The distance
     > li {
@@ -41,7 +38,7 @@ body {
         position: absolute;
         display: block;
         width: 30%;
-        padding-right: 14%;
+        padding-right: 15rem;
         padding-top: $distance-offset;
         right: 0;
         span {
@@ -53,17 +50,16 @@ body {
       }
       // Left content
       .park-label {
-        margin: 0 25% 1.5rem 0;
+        position: relative;
+        margin: 0 30rem 1.5rem 0;
         background: $color-1;
         color: #fff;
         padding: 2rem;
         font-size: 1.2rem;
-        position: relative;
         border-radius: $label-radius;
         height: $label-height;
         width: auto;
         background-size: cover;
-        transform-style: preserve-3d;
         cursor: default;
         .image-filter, .select-filter {
           position: absolute;
@@ -94,20 +90,23 @@ body {
           position: absolute;
           top: 1rem;
           right: 1rem;
-          padding: 1rem;
           background: transparent;
           color: white;
           border: none;
           visibility: hidden;
           opacity: 0;
+          text-align: center;
           transition: $secondary-transition;
           i {
             display: block;
-            height: 3rem;
-            text-align: right;
+            font-size: 4rem;
+            text-align: center;
             &:hover {
               cursor: pointer;
             }
+          }
+          span {
+            text-transform: uppercase;
           }
         }
         // The triangle
@@ -149,31 +148,34 @@ body {
         top: 0;
       }
       .icon {
-        width: 2rem;
-        height: 2rem;
+        width: 3rem;
+        height: 3rem;
         color: #fff;
         background: white;
         border-radius: 50%;
         box-shadow: 0 0 0 .8rem $line-color;
         text-align: center;
-        margin: .5rem -1.5rem 0 0; // Change this for horizontal realign
+        margin: .5rem -2rem 0 0; // Change this for horizontal realign
         right: $mapline-align;
         transition: $primary-transition;
+        z-index: 15;
       }
       input[type="radio"] {
-        width: 3rem;
-        height: 3rem;
-        right: $mapline-align - 1%;
+        width: 4rem;
+        height: 4rem;
+        right: $mapline-align - 2.5rem;
         z-index: 10;
         opacity: 0;
         margin: 0;
         cursor: pointer;
+        z-index: 20;
       }
+      input[type="radio"]:checked { margin-top: -.5rem; }
       input[type="radio"]:checked + .icon {
         background-color: $color-1;
-        width: 3rem;
-        height: 3rem;
-        margin: -.5rem -2rem 0 0;
+        width: 4rem;
+        height: 4rem;
+        margin: -.5rem -2.5rem 0 0;
       }
       input[type="radio"]:checked ~ .park-label {
         h2 {
@@ -191,27 +193,13 @@ body {
           opacity: 1;
         }
       }
-      .icon_user {
-        background: image-url('brianScalabrine.jpeg');
-        background-size: cover;
-        width: 4rem;
-        height: 4rem;
-        margin: 0 -2.5rem 0 0;
-        h3 {
-          width: 10rem;
-          position: absolute;
-          top: -6rem;
-          left: 50%;
-          margin-left: -5rem;
-        }
-      }
       &:first-child {
         height: 12rem;
       }
     }
   }
   @media #{$small-only} {
-
+    padding: 0 2.5rem;
     .mapline {
       &:before {
         display: none;
@@ -234,10 +222,11 @@ body {
           font-weight: 400;
           font-size: 95%;
           &:after {
+            display: none;
             right: auto;
             left: 2rem;
-            border-right-color: transparent;
-            border-bottom-color: $color-1;
+            border-left-color: transparent;
+            border-bottom-color: rgba(0,0,0,.8);
             top: -2 * $arrow-width;
           }
           h2 {
@@ -247,6 +236,7 @@ body {
           }
         }
         .icon {
+          display: none;
         }
         .icon_user {
           display: none;
@@ -262,12 +252,19 @@ body {
         }
         .park-label {
           width: auto;
+          margin-right: 15rem;
         }
       }
     }
   }
 }
 
+.tab-profile {
+  background: white;
+  @media #{$small-only} {
+    background: transparent;
+  }
+}
 
 
 
