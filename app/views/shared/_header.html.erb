@@ -1,9 +1,9 @@
 <div id="hidden-menu">
+  <button><%= icon('times') %></button>
   <ul>
-    <li><%= link_to "Yolo", root_path %></li>
-    <li><%= link_to "Yolo", root_path %></li>
-    <li><%= link_to "Yolo", root_path %></li>
-    <li><%= link_to "Yolo", root_path %></li>
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "About", root_path %></li>
+    <li><%= link_to "Contact", root_path %></li>
   </ul>
 </div>
 
@@ -12,8 +12,11 @@
   <%= image_tag "got-next-text50.png", id: "title-image-small", class: "show-for-small-only" %>
 <% end %>
 
+<div class="blocker"></div>
+
 <nav id="tab-profile">
   <div id="tab">
+    <button id="new-game-button"><%= icon('plus') %></button>
     <%= image_tag "brianScalabrine.jpeg" %>
     <button id="menu-button"><%= icon('bars') %></button>
   </div>

@@ -11,6 +11,15 @@ $menu-inverse-color: $white;
   width: 100%;
   background: $menu-color;
   z-index: 30;
+  button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    outline: 0;
+    background: transparent;
+    font-size: 3rem;
+    color: $menu-inverse-color;
+  }
   ul {
     text-align: center;
     text-decoration: none;
@@ -54,41 +63,56 @@ $menu-inverse-color: $white;
   border-bottom-right-radius: .5rem;
 }
 
+.blocker {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2rem;
+  width: 16rem;
+  background: white;
+  z-index: 19;
+}
+
 #tab-profile {
+  $margin-correction: -.2rem;
   position: fixed;
   top: 0;
   right: 0;
-  background: white;
+  background: transparent;
   z-index: 20;
   #tab {
     display: inline-block;
-    background: $smoke;
-    // border: $menu-color solid;
-    // border-width: .1rem 0 .1rem .1rem;
+    background: $app-red;
     margin-top: 1rem;
     border-top-left-radius: .5rem;
     border-bottom-left-radius: .5rem;
-    img {
-      display: inline-block;
-      height: $menu-dimension;
-      width: $menu-dimension;
-      vertical-align: top;
-      border-top-left-radius: .5rem;
-      border-bottom-left-radius: .5rem;
-    }
     button {
       display: inline-block;
       height: $menu-dimension;
       width: $menu-dimension;
       font-size: 4rem;
-      color: $menu-color;
-      background: transparent;
+      color: $menu-inverse-color;
       outline: 0;
+      &:first-child {
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+      }
+    }
+    #new-game-button {
+      background: $app-green;
+    }
+    img {
+      display: inline-block;
+      height: $menu-dimension;
+      width: $menu-dimension;
+      vertical-align: top;
+      margin: 0 $margin-correction;
+    }
+    #menu-button {
+      background: $app-red;
     }
   }
   @media #{$small-only} {
-    $menu-dimension: .6 * $base-page-spacing;
-
     background: transparent;
     #tab {
       img {
@@ -98,11 +122,11 @@ $menu-inverse-color: $white;
         height: 5rem;
         width: 5rem;
         font-size: 2rem;
-        background: $app-red;
-        border-top-left-radius: .5rem;
-        border-bottom-left-radius: .5rem;
         i {
           text-align: center;
+          margin-left: -.2rem;
+        }
+        &:last-child {
           margin-left: -.2rem;
         }
       }

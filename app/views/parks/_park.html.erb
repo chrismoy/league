@@ -12,16 +12,12 @@
   <label class="park-label" style="background-image: url(/assets/<%= park.name.camelize(:lower).gsub(' ', '') %>.jpg);" for="park_label_<%= park.id %>">
     <div class="image-filter"></div>
     <h2 class="park-name"><%= park.name.upcase %></h2>
-    <div class="new-game">
-      <%= icon('plus') %>
-      <span>New Game</span>
-    </div>
     <ol class="active-games">
       <% @r = rand(7) %>
       <% (1..@r).each do %>
         <li class="game">
           <p class="time"><%= rand(12) %>:00p</p>
-          <p class="roster"><%= rand(6) %>/6 Players</p>
+          <p class="roster show-for-large-up"><%= rand(6) %>/6 Players</p>
         </li>
       <% end %>
     </ol>
