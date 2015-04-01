@@ -1,0 +1,153 @@
+$menu-dimension: $base-page-spacing;
+$menu-color: $body-font-color;
+$menu-inverse-color: $white;
+
+#hidden-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255,255,255,.7);
+  z-index: 30;
+  button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    outline: 0;
+    background: transparent;
+    font-size: 3rem;
+    color: $menu-color;
+  }
+  ul {
+    text-align: center;
+    text-decoration: none;
+    li {
+      a {
+        color: $menu-color;
+        font-size: 5rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+#title-image-large {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 1rem;
+  height: $menu-dimension;
+  padding: .8rem;
+  background: $white;
+  z-index: 25;
+  border: 1px solid $body-font-color;
+  border-left: 0;
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  box-shadow: .2rem .2rem .7rem rgba(0,0,0,0.5);
+}
+
+#title-image-small {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 1rem;
+  height: 5rem;
+  padding: .8rem;
+  background: $white;
+  z-index: 25;
+  border: 1px solid $body-font-color;
+  border-left: 0;
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  box-shadow: .2rem .2rem .7rem rgba(0,0,0,0.5);
+}
+
+.blocker {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2rem;
+  width: 16rem;
+  background: white;
+  z-index: 19;
+}
+
+#tab-profile {
+  $margin-correction: -.2rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: transparent;
+  z-index: 20;
+  .tab {
+    display: inline-block;
+    background: $secondary-color;
+    margin-top: 1rem;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    box-shadow: -.2rem .2rem .7rem rgba(0,0,0,0.5);
+    transition: $primary-transition;
+    height: $menu-dimension;
+    width: 3 * $menu-dimension;
+    button {
+      display: inline-block;
+      height: $menu-dimension;
+      width: $menu-dimension;
+      font-size: 4rem;
+      color: $menu-inverse-color;
+      outline: 0;
+      background: $app-red;
+      &:first-child {
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+      }
+    }
+    #new-game-button {
+      background: $app-green;
+    }
+    img {
+      display: inline-block;
+      height: $menu-dimension;
+      width: $menu-dimension;
+      vertical-align: top;
+      margin: 0 $margin-correction;
+    }
+    #menu-button {
+      background: $app-red;
+    }
+  }
+  .expand {
+    width: 40rem;
+    height: 40rem;
+    #new-game-button {
+      background: transparent;
+      color: $menu-color;
+      i {
+        transition: $secondary-transition;
+        transform: rotateZ(45deg);
+      }
+    }
+  }
+  @media #{$small-only} {
+    .tab {
+      img {
+        display: none;
+      }
+      button {
+        height: 5rem;
+        width: 5rem;
+        font-size: 2rem;
+        i {
+          text-align: center;
+          margin-left: -.2rem;
+        }
+        &:last-child {
+          margin-left: -.2rem;
+        }
+      }
+    }
+  }
+}
