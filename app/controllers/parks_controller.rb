@@ -13,6 +13,13 @@ class ParksController < ApplicationController
     end
     @next_game = current_user.games.last if logged_in?
 
+    @options_for_select = []
+    @options_for_time = [(8..20)]
+
+    @parks.each do |park|
+      @options_for_select << [park.name, park.id]
+    end
+
     respond_to do |format|
       format.html { render 'index' }
       format.js

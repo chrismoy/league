@@ -18,12 +18,35 @@ $app-green: scale-color( #007F55, $lightness: 10% );
 $app-blue: scale-color( #1C418C, $lightness: $lightening-factor );
 $app-purple: scale-color( #803462, $lightness: $lightening-factor );
 
+// Transitions
+
+$primary-transition: all .5s;
+$secondary-transition:  all .5s linear .5s;
+$extended-transition: all .75s;
+$extended-secondary-transition: all .75s linear .5s;
+
 // Mixins
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
+}
+
+// Main Classes
+
+.content {
+  transition: $secondary-transition;
+}
+
+// Highlighting Classes
+
+.obscure {
+  -webkit-filter: blur(8px);
+  -moz-filter: blur(8px);
+  -o-filter: blur(8px);
+  -ms-filter: blur(8px);
+  filter: blur(8px);
 }
 
 // Declare fonts

@@ -15,9 +15,15 @@
 <div class="blocker hide-for-small-only"></div>
 
 <nav id="tab-profile">
-  <div id="tab">
+  <div class="tab">
     <button id="new-game-button"><%= icon('plus') %></button>
-    <%= image_tag "brianScalabrine.jpeg" %>
+    <%= image_tag "brianScalabrine.jpeg", alt: "Profile Picture", id: "profile-picture" %>
     <button id="menu-button"><%= icon('bars') %></button>
+    <%= form_for Game.new, html: { class: 'new-game-form' } do |f| %>
+      <%= f.label :court %>
+      <%= f.select :court, @options_for_select %>
+      <%= f.label :time %>
+      <%= f.select :time, @options_for_time %>
+    <% end %>
   </div>
 </nav>
