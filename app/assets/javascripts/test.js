@@ -20,6 +20,10 @@ $(document).ready(function() {
     $('.tab').toggleClass('expand');
     toggleForm('.new-game-form')
   });
+
+  $(window).resize(function() {
+    viewportChangeCorrect('#profile-picture');
+  });
 });
 
 function obscure() {
@@ -37,3 +41,29 @@ function toggleForm(form) {
   if($('.tab.expand').length == 0) { $(form).slideToggle(); }
   else { $(form).delay(1000).slideToggle(); }
 }
+
+function viewportChangeCorrect(element) {
+  if($('.blocker').height() == 0) { $(element).hide(); }
+  else { $(element).show(); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
