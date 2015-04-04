@@ -8,22 +8,19 @@
 </div>
 
 <%= link_to root_path do %>
-  <%= image_tag "scoreboard-text200.png", class: "title-image hide-for-small-only" %>
-  <%= image_tag "got-next-text50.png", class: "title-image show-for-small-only" %>
+  <%= image_tag "scoreboard-text200.png", alt: "Logo Image", class: "title-image hide-for-small-only" %>
+  <%= image_tag "got-next-text50.png", alt: "Logo Image", class: "title-image show-for-small-only" %>
 <% end %>
 
 <div class="blocker hide-for-small-only"></div>
 
 <nav id="tab-profile">
   <div class="tab">
-    <button id="new-game-button"><%= icon('plus') %></button>
+    <%= render 'shared/header/new_game_button' %>
     <%= image_tag "brianScalabrine.jpeg", alt: "Profile Picture", id: "profile-picture" %>
     <button id="menu-button"><%= icon('bars') %></button>
-    <%= form_for Game.new, html: { class: 'new-game-form' } do |f| %>
-      <%= f.label :court %>
-      <%= f.select :court, @options_for_select %>
-      <%= f.label :time %>
-      <%= f.select :time, @options_for_time %>
+    <% if 0 > 1 %>
+      <%= render 'shared/header/new_game_form' %>
     <% end %>
   </div>
 </nav>

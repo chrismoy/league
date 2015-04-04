@@ -14,7 +14,7 @@ class ParksController < ApplicationController
     @next_game = current_user.games.last if logged_in?
 
     @options_for_select = []
-    @options_for_time = [(8..20)]
+    @options_for_time = [8]
 
     @parks.each do |park|
       @options_for_select << [park.name, park.id]

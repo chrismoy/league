@@ -1,29 +1,8 @@
 <main id="game-content" class="content">
-  <h2 class="park-name"><%= @park.name %></h2>
-  <% Time.zone = "Central Time (US & Canada)" %>
-  <h2 class="game-time"><%= @game.time.in_time_zone.strftime("%-I:%M%p") %></h2>
-  <h3 class="game-court">Court <%= @court.court_number + 1 %></h3>
-  <h4 class="game-address"><%= @park.address %></h4>
+  <section class="chat">
 
-  <ul class="player-grid">
-  <% if @game.users.empty? %>
-    <%= render 'empty_panel' %>
-  <% else %>
-    <% @game.users.each do |player| %>
-      <%= render 'player', { player: player } %>
-    <% end %>
-  <% end %>
-  </ul>
+  </section>
+  <section class="game-info">
 
-  <%= link_to root_url, class: "button secondary radius home-button" do %>
-    <i class="fa fa-home"></i>
-  <% end %>
-</main>
-
-<div id="join-leave-div">
-<% if @game.users.include?(current_user) %>
-  <%= render '/shared/buttons/leave_game_button' %>
-<% else %>
-  <%= render '/shared/buttons/join_game_button' %>
-<% end %>
+  </section>
 </div>

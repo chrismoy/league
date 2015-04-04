@@ -1,0 +1,9 @@
+<%= form_for [:park, Game.new], html: { class: 'new-game-form' }, url: 'park_games_path' do |f| %>
+  <%= f.label :court %>
+  <%= f.select :court, @options_for_select %>
+  <%= f.label :time %>
+  <%= f.select :time, @options_for_time %>
+  <%= f.submit %>
+<% end %>
+
+
