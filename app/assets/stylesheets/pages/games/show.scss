@@ -1,1 +1,44 @@
+.blocker {
+  background: transparent;
+}
+
+@media #{$small-up} {
+  #game-content {
+    width: 100%;
+    height: 100%;
+    padding: 10rem 5rem 0 5rem;
+    margin: 0;
+    overflow-y: scroll;
+    background-color: pink;
+    .game-section {
+      width: 100%;
+      display: inline-block;
+      margin: 0;
+      vertical-align: top;
+    }
+    .chat {
+      @extend .game-section;
+      background: rgba(0,0,0,0.5);
+      color:  rgba(255,255,255,1);
+      max-height: 90%;
+      overflow-y: auto;
+    }
+    .game-info {
+      @extend .game-section;
+      background: rgba(255,255,255,0.5);
+      color: rgba(0,0,0,1);
+    }
+  }
+}
+
+@media #{$large-up} {
+  #game-content {
+    .chat {
+      width: 49%;
+    }
+    .game-info {
+      width: 50%;
+    }
+  }
+}
 
