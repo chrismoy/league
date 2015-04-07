@@ -15,4 +15,5 @@ Rails.application.routes.draw do
     resources :games, only: [:index, :show, :create, :destroy]
   end
   resources :game_participations,   only: [:update, :destroy]
+  resources :messages,              only: [:create]
 end

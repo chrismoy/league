@@ -1,15 +1,18 @@
-
-<li class="message">
+<li class="message <%= current_user?(message.user) ? "current-user" : "other-user" %>">
   <% unless current_user?(message.user) %>
-    <%= image_tag "brianScalabrine.jpeg", alt: "User Picture", class: "user-picture" %>
+  <div class="user-picture">
+    <%= image_tag "brianScalabrine.jpeg", alt: "User Picture"%>
+  </div>
   <% end %>
   <div class="content">
     <span><%= message.user.name %></span>
     <p><%= message.content %></p>
-    <span><%= message.created_at %></span>
+    <span><%= message.created_at.strftime("%-I:%M%p") %></span>
   </div>
   <% if current_user?(message.user) %>
-    <%= image_tag "brianScalabrine.jpeg", alt: "Current User Picture", class: "current-user-picture" %>
+  <div class="user-picture">
+    <%= image_tag "brianScalabrine.jpeg", alt: "Current User Picture"%>
+  </div>
   <% end %>
 </li>
 <% else %>
