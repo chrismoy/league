@@ -1,6 +1,10 @@
 <main id="game-content" class="content">
   <section class="chat">
-    Hello
+    <ul id="chat-board">
+      <% @messages.each do |message| %>
+        <%= render partial: "games/message", locals: { message: message } %>
+      <% end %>
+    </ul>
   </section>
   <section class="game-info">
     Goodbye

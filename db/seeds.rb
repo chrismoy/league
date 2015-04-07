@@ -59,47 +59,11 @@ end
 puts "#{parks} Parks added to the database"
 puts "#{courts} Courts added to the database"
 
-# Initialize games and users at the first park in the db
-
-p = Park.first
-p.create_daily_games(DateTime.now)
-games = p.daily_games
-users = User.order(:created_at).take(6)
-
-games.each do |game|
-  users.each do |user|
-    game.users << user
-  end
-end
-
-
 #############################################################################
 #############################################################################
 ################################### END #####################################
 #############################################################################
 #############################################################################
-
-
-# 4.times do |n|
-#   name = "Park#{n}"
-#   address = "#{n} State Street"
-#   Park.create!(name: name,
-#                address: address)
-# end
-
-# 9.times do |n|
-#   park_id = (n / 3) + 1
-#   img = "Image #{n}"
-#   Court.create!(park_id: park_id,
-#                 img: img)
-# end
-
-# users = User.order(:created_at).take(6)
-# 50.times do
-#   court = rand(1..9)
-#   time = Faker::Time.between(7.days.ago, 12.hours.from_now, :day)
-#   users.each { |user| user.games.create!(court_id: court, time: time)}
-# end
 
 
 

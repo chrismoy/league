@@ -11,6 +11,7 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @court = @game.court
     @park = @court.park
+    @messages = Message.where(game_id: @game.id)
   end
 
   private

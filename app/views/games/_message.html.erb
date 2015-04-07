@@ -1,0 +1,15 @@
+
+<li class="message">
+  <% unless current_user?(message.user) %>
+    <%= image_tag "brianScalabrine.jpeg", alt: "User Picture", class: "user-picture" %>
+  <% end %>
+  <div class="content">
+    <span><%= message.user.name %></span>
+    <p><%= message.content %></p>
+    <span><%= message.created_at %></span>
+  </div>
+  <% if current_user?(message.user) %>
+    <%= image_tag "brianScalabrine.jpeg", alt: "Current User Picture", class: "current-user-picture" %>
+  <% end %>
+</li>
+<% else %>
