@@ -1,20 +1,21 @@
 <main id="game-content" class="content">
   <section class="chat">
-    <ul id="chat-board">
-      <% @messages.each do |message| %>
-        <%= render partial: "games/message", locals: { message: message } %>
-      <% end %>
-    </ul>
+    <div class="board-container">
+      <ul id="chat-board">
+        <% @messages.each do |message| %>
+          <%= render partial: "games/message", locals: { message: message } %>
+        <% end %>
+      </ul>
+    </div>
     <%= form_for Message.new, remote: true do |f| %>
       <%= f.hidden_field :game_id, value: params[:id] %>
-      <%= f.text_field :content %>
-      <%= f.submit "Send" %>
+      <%= f.text_field :content, placeholder: "Chat about your game here" %>
     <% end %>
 
     <%= subscribe_to "/messages/new" %>
 
   </section>
   <section class="game-info">
-    Goodbye
+
   </section>
 </div>

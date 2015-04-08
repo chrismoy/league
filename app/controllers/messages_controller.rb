@@ -3,7 +3,6 @@ class MessagesController < ApplicationController
     @message = Message.create!( user: current_user,
                                 game: Game.find(params[:message][:game_id]),
                                 content: params[:message][:content])
-
     respond_to do |format|
       format.js
     end

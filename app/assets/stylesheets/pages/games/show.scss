@@ -9,9 +9,8 @@ $message-bg-color: rgba(0,0,0,0.5);
   #game-content {
     width: 100%;
     height: 100%;
-    padding: 10rem 5rem 0 5rem;
+    padding: 5rem 1rem 0 1rem;
     margin: 0;
-    overflow-y: scroll;
     .game-section {
       width: 100%;
       display: inline-block;
@@ -21,81 +20,100 @@ $message-bg-color: rgba(0,0,0,0.5);
     .chat {
       @extend .game-section;
       color:  rgba(255,255,255,1);
-      max-height: 90%;
-      overflow-y: auto;
-      #chat-board {
-        margin: 0;
-        padding: $message-padding 0;
-        .message {
-          text-align: right;
-          display: relative;
-          margin-bottom: $message-padding;
-          .user-picture {
-            width: 25%;
-            vertical-align: top;
-            display: inline-block;
-            img {
-              height: $base-page-spacing;
-              border-radius: 51%;
-              display: block;
-              margin: 0 auto;
+      border: 2px solid $gainsboro;
+      padding: 1rem;
+      background: $smoke;
+      .board-container {
+        height: 50rem;
+        overflow-y: auto;
+        padding: 2rem 0;
+        background: $white;
+        border: 1px solid $gainsboro;
+        box-shadow: inset 0 0 .2rem .1rem #888;
+        #chat-board {
+          margin: 0;
+          padding: $message-padding 0;
+          .message {
+            text-align: right;
+            display: relative;
+            margin-bottom: $message-padding;
+            .user-picture {
+              width: 25%;
               vertical-align: top;
-            }
-          }
-          .content {
-            display: inline-block;
-            width: 60%;
-            padding: $message-padding;
-            background: $message-bg-color;
-            border-radius: .5rem;
-            position: relative;
-            &:after {
-              position: absolute;
-              top: 2rem;
-              border: solid transparent;
-              content: " ";
-              height: 0;
-              width: 0;
-              pointer-events: none;
-              border-width: 1rem;
-            }
-            span {
-              font-size: 1.5rem;
-              display: block;
-              &:first-child {
-                color: $app-red;
-              }
-              &:last-child {
-                color: $gainsboro;
+              display: inline-block;
+              img {
+                height: $base-page-spacing;
+                border-radius: 51%;
+                display: block;
+                margin: 0 auto;
+                vertical-align: top;
               }
             }
-            p {
-              font-size: 2rem;
+            .content {
+              display: inline-block;
+              width: 60%;
+              padding: $message-padding;
+              background: $message-bg-color;
+              border-radius: .5rem;
+              position: relative;
+              &:after {
+                position: absolute;
+                top: 2rem;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                pointer-events: none;
+                border-width: 1rem;
+              }
+              span {
+                font-size: 1.5rem;
+                display: block;
+                &:first-child {
+                  color: $app-red;
+                }
+                &:last-child {
+                  color: $gainsboro;
+                }
+              }
+              p {
+                font-size: 2rem;
+              }
             }
           }
-        }
-        .current-user {
-          .content {
-            &:after {
-              left: 100%;
-              border-left-color: $message-bg-color;
+          .current-user {
+            .content {
+              &:after {
+                left: 100%;
+                border-left-color: $message-bg-color;
+              }
             }
           }
-        }
-        .other-user {
-          text-align: left;
-          .content {
-            &:after {
-              right: 100%;
-              border-right-color: $message-bg-color;
+          .other-user {
+            text-align: left;
+            .content {
+              &:after {
+                right: 100%;
+                border-right-color: $message-bg-color;
+              }
             }
           }
         }
       }
+      form {
+        margin-top: 1rem;
+        input {
+          font-size: 2rem;
+          line-height: 4rem;
+          height: 4rem;
+          padding: 0 1rem;
+          margin-bottom: 0;
+        }
+        input:focus { outline: transparent; }
+      }
     }
     .game-info {
       @extend .game-section;
-      background: rgba(255,255,255,0.5);
       color: rgba(0,0,0,1);
     }
   }
@@ -103,6 +121,7 @@ $message-bg-color: rgba(0,0,0,0.5);
 
 @media #{$large-up} {
   #game-content {
+    padding: 5rem 5rem 0 5rem;
     .chat {
       width: 49%;
     }
