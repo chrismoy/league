@@ -1,17 +1,10 @@
-<li class="message <%= current_user?(message.user) ? "current-user" : "other-user" %>">
-  <% unless current_user?(message.user) %>
+<li class="message">
   <div class="user-picture">
     <%= image_tag "brianScalabrine.jpeg", alt: "User Picture"%>
   </div>
-  <% end %>
   <div class="content">
-    <span><%= message.user.name %></span>
+    <span class="name"><%= message.user.name %></span>
+    <span class="time"><%= time_ago_in_words(message.created_at) %></span>
     <p><%= message.content %></p>
-    <span><%= message.created_at.strftime("%-I:%M%p") %></span>
   </div>
-  <% if current_user?(message.user) %>
-  <div class="user-picture">
-    <%= image_tag "brianScalabrine.jpeg", alt: "Current User Picture"%>
-  </div>
-  <% end %>
 </li>

@@ -1,4 +1,13 @@
 <main id="game-content" class="content">
+  <section class="game-info">
+    <h3>AWAY</h3>
+      <ul id="away-players">
+
+      </ul>
+    <h3>HOME</h3>
+      <ul id="home-players">
+      </ul>
+  </section>
   <section class="chat">
     <div class="board-container">
       <ul id="chat-board">
@@ -9,13 +18,10 @@
     </div>
     <%= form_for Message.new, remote: true do |f| %>
       <%= f.hidden_field :game_id, value: params[:id] %>
-      <%= f.text_field :content, placeholder: "Chat about your game here" %>
+      <%= f.text_field :content, placeholder: "Discuss your game here" %>
     <% end %>
 
     <%= subscribe_to "/messages/new" %>
-
-  </section>
-  <section class="game-info">
 
   </section>
 </div>
