@@ -108,15 +108,18 @@ $line-color: $app-red;
           visibility: hidden;
           opacity: 0;
           transition: $secondary-transition;
-          .game {
-            display: inline-block;
-            margin-right: 2rem;
-            .time {
-              text-align: center;
-            }
-            .roster {
-              text-align: center;
-              border-top: 1px solid gray;
+          a {
+            color: $white;
+            .game {
+              display: inline-block;
+              margin-right: 2rem;
+              .time {
+                text-align: center;
+              }
+              .roster {
+                text-align: center;
+                border-top: 1px solid gray;
+              }
             }
           }
         }

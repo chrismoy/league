@@ -24,8 +24,17 @@
   <div class="address">
     <h4><span class="time"><%= @game.time.strftime("%-I:%M%p") %>, </span><%= @park.name %></h4>
     <h5><%= @park.address %></h5>
+    <div id="join-leave">
+    <% if @game.users.include?(current_user) %>
+      <%= render 'shared/buttons/leave_game_button' %>
+    <% else %>
+      <%= render 'shared/buttons/join_game_button' %>
+    <% end %>
+    </div>
   </div>
   <section class="chat">
+    <h6>Game Chat</h6>
+    <p>Questions about the game? Talk to the people you're playing with</p>
     <div class="board-container">
       <ul id="chat-board">
         <% @messages.each do |message| %>
@@ -38,7 +47,7 @@
       <%= f.text_field :content, placeholder: "Discuss your game here" %>
     <% end %>
 
-    <%= subscribe_to "/messages/new" %>
+    <%= subscribe_to "/messages/#{@game.id}" %>
 
   </section>
 </div>

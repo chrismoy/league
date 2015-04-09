@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
   def create
+    @game = Game.find(params[:message][:game_id])
     @message = Message.create!( user: current_user,
-                                game: Game.find(params[:message][:game_id]),
+                                game: @game,
                                 content: params[:message][:content])
     respond_to do |format|
       format.js

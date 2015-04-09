@@ -12,15 +12,16 @@
   <label class="park-label" style="background-image: url(/assets/<%= park.name.camelize(:lower).gsub(' ', '') %>.jpg);" for="park_label_<%= park.id %>">
     <div class="image-filter"></div>
     <h2 class="park-name"><%= park.name.upcase %></h2>
-    <ol class="active-games">
-      <% @r = rand(7) %>
-      <% (1..@r).each do %>
+    <ul class="active-games">
+      <% park.games.where("DATE(time) = DATE(?)", Time.now).each do |game| %>
+      <%= link_to [park, game] do %>
         <li class="game">
-          <p class="time"><%= rand(12) %>:00p</p>
-          <p class="roster show-for-large-up"><%= rand(6) %>/6 Players</p>
+          <p class="time"><%= game.time.strftime("%-I:%M%p") %></p>
+          <p class="roster show-for-large-up"><%= game.users.count %>/6 Players</p>
         </li>
       <% end %>
-    </ol>
+      <% end %>
+    </ul>
     <div class="select-filter"></div>
   </label>
 

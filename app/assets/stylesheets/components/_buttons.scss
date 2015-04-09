@@ -1,1 +1,24 @@
+.btn {
+  font-size: 2rem;
+  padding: 2rem 3rem;
+  border-radius: .5rem;
+  color: $white;
+  outline: 0;
+  display: inline-block;
+  &:hover {
+    color: $white;
+  }
+  &:visited {
+    color: $white;
+  }
+}
 
+.btn-join {
+  @extend .btn;
+  background: $app-green;
+}
+
+.btn-leave {
+  @extend .btn;
+  background: $app-red;
+}

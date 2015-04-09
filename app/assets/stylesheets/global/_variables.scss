@@ -42,11 +42,11 @@ $extended-secondary-transition: all .75s linear .5s;
 // Highlighting Classes
 
 .obscure {
-  -webkit-filter: blur(8px);
-  -moz-filter: blur(8px);
-  -o-filter: blur(8px);
-  -ms-filter: blur(8px);
-  filter: blur(8px);
+  -webkit-filter: blur(8px) opacity(0.2);
+  -moz-filter: blur(8px) opacity(0.2);
+  -o-filter: blur(8px) opacity(0.2);
+  -ms-filter: blur(8px) opacity(0.2);
+  filter: blur(8px) opacity(0.2);
 }
 
 // Declare fonts

@@ -79,10 +79,7 @@ $margin-correction: -.2rem;
           border-top-left-radius: .5rem;
           border-bottom-left-radius: .5rem;
         }
-        i {
-          text-align: center;
-          margin-left: $margin-correction;
-        }
+        i { margin-left: -.3rem; }
       }
       #new-game-button {
         background: $app-green;
@@ -137,6 +134,7 @@ $margin-correction: -.2rem;
         &:last-child {
           margin-left: 0;
         }
+        i { margin-left: 0; }
       }
       img {
         display: inline-block;
