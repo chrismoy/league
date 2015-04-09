@@ -1,13 +1,30 @@
 <main id="game-content" class="content">
   <section class="game-info">
-    <h3>AWAY</h3>
+    <div class="away">
+      <h4 class="team-name">AWAY</h4>
       <ul id="away-players">
-
+      <% @away_players.each do |player| %>
+        <%= render partial: "games/player", locals: { player: player, away: true } %>
+      <% end %>
       </ul>
-    <h3>HOME</h3>
+    </div>
+    <div class="versus">
+        Game Time:
+        <span><%= @game.time.strftime("%-I:%M%p") %></span>
+    </div>
+    <div class="home">
+      <h4 class="team-name">HOME</h4>
       <ul id="home-players">
+      <% @home_players.each do |player| %>
+        <%= render partial: "games/player", locals: { player: player, away: false } %>
+      <% end %>
       </ul>
+    </div>
   </section>
+  <div class="address">
+    <h4><span class="time"><%= @game.time.strftime("%-I:%M%p") %>, </span><%= @park.name %></h4>
+    <h5><%= @park.address %></h5>
+  </div>
   <section class="chat">
     <div class="board-container">
       <ul id="chat-board">

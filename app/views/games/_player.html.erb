@@ -1,4 +1,4 @@
-<li class="player-panel" id="<%= dom_id(player) %>">
-  <%= image_tag(player.image, class: "player-image") %>
-  <h4 class="player-name"><%= player.name %></h4>
+<li class="player" id="<%= dom_id(player) %>">
+  <%= image_tag(player.image) %>
+  <h4 class="name"><%= player.name.split(" ")[0] %></h4>
 </li>

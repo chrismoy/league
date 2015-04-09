@@ -3,7 +3,7 @@
     <%= image_tag "brianScalabrine.jpeg", alt: "User Picture"%>
   </div>
   <div class="content">
-    <span class="name"><%= message.user.name %></span>
+    <span class="name"><%= message.user.name.split(" ")[0] %></span>
     <span class="time"><%= time_ago_in_words(message.created_at) %></span>
     <p><%= message.content %></p>
   </div>

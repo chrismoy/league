@@ -11,7 +11,15 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     @court = @game.court
     @park = @court.park
+
     @messages = Message.where(game_id: @game.id)
+
+    @players =  @game.users
+    @away_players = []
+    @home_players = []
+    for i in 0..(@players.length - 1) do
+      i.even? ? @away_players << @players[i] : @home_players  << @players[i]
+    end
   end
 
   private

@@ -17,6 +17,65 @@ $message-bg-color: rgba(0,0,0,0.5);
       margin: 0;
       vertical-align: top;
     }
+    .game-info {
+      @extend .game-section;
+      color: rgba(0,0,0,1);
+      .team-section {
+        width: 50%;
+        display: inline-block;
+        .team-name {
+          display: inline-block;
+          border-bottom: 2px solid $gainsboro;
+        }
+      }
+      .player-list {
+        list-style-type: none;
+        margin-left: 0;
+        padding: 2rem 0;
+        .player {
+          margin-bottom: 2rem;
+          img {
+            height: $base-page-spacing;
+            border-radius: .5rem;
+            display: inline-block;
+            vertical-align: top;
+          }
+          .name {
+            display: inline-block;
+            line-height: $base-page-spacing;
+            padding: 0 1rem;
+            font-size: 2rem;
+          }
+        }
+      }
+      .away {
+        @extend .team-section;
+        #away-players {
+          @extend .player-list;
+          text-align: left;
+        }
+      }
+      .versus { display: none; }
+      .home {
+        @extend .team-section;
+        float: right;
+        text-align: right;
+        #home-players {
+          @extend .player-list;
+          text-align: right;
+          .player {
+            img {
+              float: right;
+            }
+          }
+        }
+      }
+    }
+    .address {
+      text-align: center;
+      margin-bottom: 2rem;
+      span { font-weight: bold; }
+    }
     .chat {
       @extend .game-section;
       color:  rgba(255,255,255,1);
@@ -83,25 +142,85 @@ $message-bg-color: rgba(0,0,0,0.5);
         input:focus { outline: transparent; }
       }
     }
+  }
+}
+
+@media #{$medium-up} {
+  #game-content {
+    padding: 13rem 5rem 0 5rem;
     .game-info {
-      @extend .game-section;
-      color: rgba(0,0,0,1);
-      text-align: center;
-      padding: 0 5rem;
-      h3 {
+      .away {
+        width: 50%;
+        #away-players {
+          .player {
+            .name {
+              padding: 0 2rem;
+              font-size: 2.5rem;
+            }
+          }
+        }
+      }
+      .home {
+        width: 50%;
+        #home-players {
+          .player {
+            .name {
+              padding: 0 2rem;
+              font-size: 2.5rem;
+            }
+          }
+        }
       }
     }
+    .chat {}
   }
 }
 
 @media #{$large-up} {
   #game-content {
-    padding: 9rem 5rem 0 5rem;
-    .chat {
-      width: 49%;
-    }
+    padding: 13rem 5rem 0 5rem;
     .game-info {
-      width: 50%;
+      .away {
+        width: 40%;
+        #away-players {
+          .player {
+            .name {
+              font-size: 3rem;
+            }
+          }
+        }
+      }
+      .versus {
+        font-size: 3rem;
+        line-height: 1;
+        text-align: center;
+        display: inline-block;
+        width: 19%;
+        vertical-align: top;
+        margin-top: 15rem;
+        border: 2px solid $body-font-color;
+        border-radius: .5rem;
+        text-transform: uppercase;
+        padding: 1.5rem 0 1rem 0;
+        span {
+          font-size: 5rem;
+        }
+      }
+      .home {
+        width: 40%;
+        #home-players {
+          .player {
+            .name {
+              font-size: 3rem;
+            }
+          }
+        }
+      }
+    }
+    .address {
+      h4 {
+        span { display: none; }
+      }
     }
   }
 }

@@ -5,6 +5,8 @@ $button = $("<%= j(render '/shared/buttons/leave_game_button') %>");
   $('#empty-panel').remove();
 <% end %>
 
-$self.appendTo('.player-grid').hide().slideDown(200);
+if( $('#home-players li').length % 2 == 0 ) { $self.appendTo('#home-players').hide().slideDown(200); }
+else { $self.appendTo('#away-players').hide().slideDown(200); }
+
 $('#main-button').remove();
 $button.appendTo('#join-leave-div');
