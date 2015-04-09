@@ -1,6 +1,4 @@
-<%= form_for [:park, Game.new], html: { class: 'new-game-form' }, url: 'park_games_path' do |f| %>
-  <%= f.label :court %>
-  <%= f.select :court, @options_for_select %>
+<%= form_for [@parks.first, Game.new], html: { class: 'new-game-form' } do |f| %>
   <%= f.label :time %>
   <%= f.select :time, @options_for_time %>
   <%= f.submit %>

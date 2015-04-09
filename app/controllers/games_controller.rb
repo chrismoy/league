@@ -1,10 +1,13 @@
 class GamesController < ApplicationController
-  before_action :logged_in_user, only: [:destroy]
+  before_action :logged_in_user, only: [:create]
 
   def create
-    @park = Park.find(params[:court]);
+    @park = Park.find(params[:park_id]);
     @court = @park.courts.first
-    Game.create(court: @court, time: params[:time]);
+    @game = Game.create!(court: @court, time: params[:game][:time]);
+    @game.users << current_user
+
+    redirect_to
   end
 
   def show
