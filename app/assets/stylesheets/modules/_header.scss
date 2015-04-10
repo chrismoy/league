@@ -66,7 +66,7 @@ $margin-correction: -.2rem;
       box-shadow: -.2rem .2rem .7rem rgba(0,0,0,0.5);
       transition: $primary-transition;
       height: $menu-dimension-small;
-      width: 2 * $menu-dimension-small;
+      width: $menu-dimension-small;
       button {
         display: inline-block;
         height: $menu-dimension-small;
@@ -81,29 +81,40 @@ $margin-correction: -.2rem;
         }
         i { margin-left: -.3rem; }
       }
-      #new-game-button {
-        background: $app-green;
-      }
-      img {
-        display: none;
-      }
+      #new-game-button { background: $app-green; }
+
+      img { display: none; }
+
       #menu-button {
-        margin-left: $margin-correction;
+        margin-left: 0;
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
       }
+
       form {
+        padding: 1rem;
         display: none;
       }
-    }
-    .expand {
-      width: 100vw;
-      height: 40rem;
-      transition: $secondary-transition;
-      #new-game-button {
-        background: transparent;
-        color: $menu-color;
-        i {
-          transition: $primary-transition;
-          transform: rotateZ(45deg);
+
+      &.extra {
+        width: 2 * $menu-dimension-small;
+        #menu-button {
+          margin-left: $margin-correction;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+      &.expand {
+        width: 100vw;
+        height: 40rem;
+        transition: $secondary-transition;
+        #new-game-button {
+          background: transparent;
+          color: $menu-color;
+          i {
+            transition: $primary-transition;
+            transform: rotateZ(45deg);
+          }
         }
       }
     }
@@ -126,14 +137,11 @@ $margin-correction: -.2rem;
   #tab-profile {
     .tab {
       height: $menu-dimension;
-      width: 3 * $menu-dimension;
+      width: 2 * $menu-dimension;
       button {
         height: $menu-dimension;
         width: $menu-dimension;
         font-size: 4rem;
-        &:last-child {
-          margin-left: 0;
-        }
         i { margin-left: 0; }
       }
       img {
@@ -141,15 +149,28 @@ $margin-correction: -.2rem;
         height: $menu-dimension;
         width: $menu-dimension;
         vertical-align: top;
-        margin: 0 $margin-correction;
+        margin-right: $margin-correction;
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
       }
       #menu-button {
         margin-left: 0;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
       }
-    }
-    .expand {
-      width: 40rem;
-      height: 40rem;
+      &.extra {
+        width: 3 * $menu-dimension;
+        img {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          margin-left: $margin-correction;
+          margin-right: 0;
+        }
+      }
+      &.expand {
+        width: 40rem;
+        height: 40rem;
+      }
     }
   }
 }

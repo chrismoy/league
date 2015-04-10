@@ -9,7 +9,7 @@
   <label class="icon" style="top: <%= @icon_offset %>rem"></label>
   <% @icon_offset += 26.5 %>
 
-  <label class="park-label" style="background-image: url(/assets/<%= park.name.camelize(:lower).gsub(' ', '') %>.jpg);" for="park_label_<%= park.id %>">
+  <label class="park-label" style="background-image: url(/assets/<%= park.name.camelize(:lower).gsub(' ', '') %>.jpg);" for="park_label_<%= park.id %>" data-parkid="<%= park.id %>">
     <div class="image-filter"></div>
     <h2 class="park-name"><%= park.name.upcase %></h2>
     <ul class="active-games">

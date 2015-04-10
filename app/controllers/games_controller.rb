@@ -7,7 +7,7 @@ class GamesController < ApplicationController
     @game = Game.create!(court: @court, time: params[:game][:time]);
     @game.users << current_user
 
-    redirect_to
+    redirect_to park_game_url(id: @game.id)
   end
 
   def show

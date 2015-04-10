@@ -15,12 +15,9 @@
 <div class="blocker hide-for-small-only"></div>
 
 <nav id="tab-profile">
-  <div class="tab">
-    <%= render 'shared/header/new_game_button' %>
-    <%= image_tag "brianScalabrine.jpeg", alt: "Profile Picture", id: "profile-picture" %>
-    <button id="menu-button"><%= icon('bars') %></button>
-    <% if 2 > 1 %>
-      <%= render 'shared/header/new_game_form' %>
-    <% end %>
-  </div>
+<% if @extra %>
+  <%= render "shared/header/three_tab" %>
+<% else %>
+  <%= render "shared/header/two_tab" %>
+<% end %>
 </nav>

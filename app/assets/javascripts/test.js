@@ -1,4 +1,4 @@
-$(document).ready(function() {
+var ready = function() {
   $('#menu-button').click(function() {
     obscure();
     $('#hidden-menu').fadeIn();
@@ -10,7 +10,6 @@ $(document).ready(function() {
 
   if ( $('.mapline').offset() > 50 ) {
     $('#title-image').fadeOut();
-    console.log("yolo");
   }
 
   $('#new-game-button').click(function() {
@@ -21,10 +20,15 @@ $(document).ready(function() {
     toggleForm('.new-game-form')
   });
 
+  $('.park-label').click(function() {
+    var id = $(this).attr('data-parkid');
+    $(".new-game-form").attr("action", "/parks/" + id + "/games");
+  });
+
   $(window).resize(function() {
     viewportChangeCorrect('#profile-picture');
   });
-});
+};
 
 function obscure() {
   $('.content').toggleClass('obscure');
@@ -47,7 +51,8 @@ function viewportChangeCorrect(element) {
   else { $(element).show(); }
 }
 
-
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
 
 
