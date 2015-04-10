@@ -113,7 +113,7 @@ $line-color: $app-red;
           font-size: 1.5rem;
           visibility: hidden;
           opacity: 0;
-          transition: $secondary-transition;
+          transition: $primary-transition;
         }
         .active-games-container {
           position: absolute;
