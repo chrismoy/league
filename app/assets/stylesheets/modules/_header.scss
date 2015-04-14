@@ -99,6 +99,16 @@ $margin-correction: -.2rem;
           text-align: center;
           font-size: 3rem;
         }
+        .btn-join {
+          display: block;
+          margin: 0 auto;
+          border: none;
+          text-transform: uppercase;
+          border-radius: .5rem;
+          cursor: pointer;
+          transition: all .2s;
+          &:hover { background: scale-color( $app-green, $lightness: -10% ); }
+        }
       }
 
       &.extra {

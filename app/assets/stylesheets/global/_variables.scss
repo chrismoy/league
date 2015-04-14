@@ -42,6 +42,7 @@ $extended-secondary-transition: all .75s linear .5s;
 // Highlighting Classes
 
 .obscure {
+  transition: $primary-transition;
   -webkit-filter: blur(8px) opacity(0.2);
   -moz-filter: blur(8px) opacity(0.2);
   -o-filter: blur(8px) opacity(0.2);

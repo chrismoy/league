@@ -2,7 +2,7 @@
   <h6 id="new-park-name"><%= @parks.first.name.upcase %></h6>
   <%= f.label :time %>
   <%= f.select :time, @options_for_time %>
-  <%= f.submit %>
+  <%= f.submit class: "btn-join" %>
 <% end %>
 
 
