@@ -270,6 +270,23 @@ $line-color: $app-red;
               }
             }
           }
+          &:first-child {
+            text-align: center;
+            background: transparent;
+            height: 13rem;
+            .park-label {
+              background: transparent;
+              vertical-align: bottom;
+              box-shadow: none;
+              p {
+                color: $body-font-color;
+                font-size: 2.5rem;
+                margin-top: 5rem;
+                font-style: italic;
+              }
+              &:after { border: transparent; }
+            }
+          }
         }
         .icon {
           display: none;

@@ -2,7 +2,7 @@ class ParksController < ApplicationController
 
   def index
     @parks = Park.all
-    @icon_offset = 19;
+    @icon_offset = 25;
     if params[:latitude] && params[:longitude]
       cookies[:location] = [sprintf("%.3f", params[:latitude]), sprintf("%.3f", params[:longitude])].join("|")
     end

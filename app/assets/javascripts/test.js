@@ -23,6 +23,12 @@ var ready = function() {
   $('.park-label').click(function() {
     var id = $(this).attr('data-parkid');
     $(".new-game-form").attr("action", "/parks/" + id + "/games");
+    var name = $('.park-name', this).clone()
+                                  .children()
+                                  .remove()
+                                  .end()
+                                  .text();
+    $('#new-park-name').html('<h6 id="new-park-name">' + name + '</h6>');
   });
 
   $(window).resize(function() {
