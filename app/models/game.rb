@@ -5,4 +5,7 @@ class Game < ActiveRecord::Base
   default_scope -> { order(time: :asc) }
   validates :court_id, presence: true
   validates :time, presence: true
+
+  def validate_time
+  end
 end

@@ -2,14 +2,56 @@ class GamesController < ApplicationController
   before_action :logged_in_user, only: [:create]
 
   def create
-    unless params[:game][:time].min % 30 == 0
-      # redirect_back_or
+    message = "Invalid time"
+
+    if params[:game][:time].nil?
+      redirect_to root_url
+      return
+    end
+
+    @time = Time.parse(params[:game][:time], Time.now)
+
+    if @time.hour < 8 || @time.hour > 20
+      message += ", the court is not open during this time"
+      flash[:warning] = message
+      redirect_to root_url
+      return
+    end
+
+    if @time.to_date > (Time.now).to_date
+      message += ", registration for this time has not opened yet"
+      flash[:warning] = message
+      redirect_to root_url
+      return
+    end
+
+    if @time < (Time.now + 1.hour)
+      message += ", registration for this time has closed"
+      flash[:warning] = message
+      redirect_to root_url
+      return
+    end
+
+    unless @time.min % 30 == 0
+      message += ", please choose a time ending in :00 or :30"
+      flash[:warning] = message
+      redirect_to root_url
+      return
     end
 
     @park = Park.find(params[:park_id]);
     @court = @park.courts.first
-    @game = Game.create!(court: @court, time: params[:game][:time]);
+    @game = Game.new(court: @court, time: @time);
+
+    if @court.games.exists?(time: @time)
+      message += ", there is already a game scheduled for this time, please choose another"
+      flash[:warning] = message
+      redirect_to root_url
+      return
+    end
+
     @game.users << current_user
+    @game.save
 
     redirect_to park_game_url(id: @game.id)
   end
