@@ -3,7 +3,8 @@ class GamesController < ApplicationController
 
   def create
     unless params[:game][:time].min % 30 == 0
-      redirect_back_or
+      # redirect_back_or
+    end
 
     @park = Park.find(params[:park_id]);
     @court = @park.courts.first
