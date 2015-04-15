@@ -1,11 +1,14 @@
 <% provide(:title, "Sign Up") %>
-<h1>Sign Up</h1>
+<main id="signup-content" class="content">
 
-<div class="row">
-  <div class="small-12 columns">
-    <%= form_for(@user) do |f| %>
+  <div class="signup-row">
+    <h1 class="prompt signup-element">Sign Up</h1>
+  </div>
+
+  <div class="signup-row">
+    <%= form_for @user, html: { class: "signup-form" } do |f| %>
       <%= render 'fields', f: f %>
       <%= f.submit "Create my account", class: "button expand" %>
     <% end %>
   </div>
-</div>
+</main>

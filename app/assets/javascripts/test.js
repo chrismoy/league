@@ -28,7 +28,8 @@ var ready = function() {
                                   .remove()
                                   .end()
                                   .text();
-    $('#new-park-name').html('<h6 id="new-park-name">' + name + '</h6>');
+    var heading = '<span>Selected Park:</span><br>'
+    $('#new-park-name').html('<h6 id="new-park-name">' + heading + name + '</h6>');
   });
 
   $(window).resize(function() {
@@ -39,7 +40,6 @@ var ready = function() {
     placement: 'bottom',
     align: 'bottom',
     donetext: 'Confirm Time',
-    autoclose: 'true',
     twelvehour: 'true'
   });
 };

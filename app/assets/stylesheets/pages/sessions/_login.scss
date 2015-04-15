@@ -1,0 +1,54 @@
+$main-font-size: 2rem;
+$sub-font-size: 1.2rem;
+
+.login-element {
+  @include grid-column(
+    $columns:12,
+    $last-column:true,
+    $center:true
+  );
+  @media #{$medium-up} {
+    @include grid-column(
+      $columns:10,
+      $last-column:true,
+      $center:true
+    );
+  }
+  @media #{$large-up} {
+    @include grid-column(
+      $columns:8,
+      $last-column:true,
+      $center:true
+    );
+  }
+}
+
+#login-content {
+  padding-top: 10rem;
+  .login-row {
+    @include grid-row();
+    .login-form {
+      @extend .login-element;
+      label {
+        font-size: $main-font-size;
+        display: inline-block;
+        span { font-size: $sub-font-size; }
+      }
+      a {
+        font-size: $sub-font-size;
+        margin: 0 .5 * $sub-font-size;
+      }
+      input {
+        margin: 1rem 0;
+        font-size: $main-font-size;
+        &[type="text"], &[type="password"] {
+          height: 4rem;
+        }
+      }
+    }
+    .new-user {
+      @extend .login-element;
+      a { text-decoration: underline; }
+    }
+  }
+}

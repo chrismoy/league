@@ -2,7 +2,7 @@
 
 @import "global/variables";
 @import "global/foundation_and_overrides";
-// @import "jquery-clockpicker.min";
+@import "global/foundation";
 @import "clockpicker";
 
 // Modules
@@ -17,10 +17,10 @@
 
 // Pages
 
+@import "pages/users/signup";
+@import "pages/sessions/login";
 @import "pages/parks/index";
 @import "pages/games/show";
-@import "pages/users/index";
-@import "pages/users/show";
 
 // Debug Box
 

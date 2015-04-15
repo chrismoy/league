@@ -98,6 +98,7 @@ $margin-correction: -.2rem;
         #new-park-name {
           text-align: center;
           font-size: 3rem;
+          span { font-style: italic; }
         }
         .clockpicker {
           text-align: center;

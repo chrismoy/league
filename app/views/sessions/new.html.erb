@@ -1,9 +1,12 @@
-<% provide(:title, "Log In") %>
-<h1>Log In</h1>
+<main id="login-content" class="content">
 
-<div class="row">
-  <div class="small-12 columns">
-    <%= form_for(:session, url: login_path) do |f| %>
+  <div class="login-row">
+    <h1 class="prompt login-element">Log In</h1>
+  </div>
+
+  <div class="login-row">
+    <%= form_for :session, url: login_path,
+                           html: { class: "login-form" } do |f| %>
 
       <%= f.label :email %>
       <%= f.text_field :email %>
@@ -20,6 +23,6 @@
       <%= f.submit "Log In", class: "button expand" %>
     <% end %>
 
-    <p>New User? <%= link_to "Sign up now!", signup_path %></p>
+    <p class="new-user">New User? <%= link_to "Sign up now!", signup_path %></p>
   </div>
-</div>
+</main>
