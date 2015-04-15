@@ -9,7 +9,7 @@ class GamesController < ApplicationController
       return
     end
 
-    @time = Time.parse(params[:game][:time], Time.zone.now)
+    @time = Time.zone.parse params[:game][:time]
 
     if @time.hour < 8 || @time.hour > 20
       message += ", the court is not open during this time"
