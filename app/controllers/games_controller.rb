@@ -2,6 +2,9 @@ class GamesController < ApplicationController
   before_action :logged_in_user, only: [:create]
 
   def create
+    unless params[:game][:time].min % 30 == 0
+      redirect_back_or
+
     @park = Park.find(params[:park_id]);
     @court = @park.courts.first
     @game = Game.create!(court: @court, time: params[:game][:time]);

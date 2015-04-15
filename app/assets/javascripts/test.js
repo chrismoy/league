@@ -34,6 +34,14 @@ var ready = function() {
   $(window).resize(function() {
     viewportChangeCorrect('#profile-picture');
   });
+
+  $('.clockpicker').clockpicker({
+    placement: 'bottom',
+    align: 'bottom',
+    donetext: 'Confirm Time',
+    autoclose: 'true',
+    twelvehour: 'true'
+  });
 };
 
 function obscure() {
