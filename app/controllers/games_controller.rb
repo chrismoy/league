@@ -25,7 +25,7 @@ class GamesController < ApplicationController
       return
     end
 
-    if @time < (Time.now + 1.hour)
+    if @time < (Time.now.in_time_zone("Central Time (US & Canada)") + 1.hour)
       message += ", registration for this time has closed"
       flash[:warning] = message
       redirect_to root_url
