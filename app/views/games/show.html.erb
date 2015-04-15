@@ -47,7 +47,14 @@
     </div>
     <%= form_for Message.new, remote: true do |f| %>
       <%= f.hidden_field :game_id, value: params[:id] %>
-      <%= f.text_field :content, placeholder: "Discuss your game here" %>
+      <div class="chat-row">
+        <div class="chat-text">
+          <%= f.text_field :content, placeholder: "Discuss your game here" %>
+        </div>
+        <div class="chat-submit">
+          <%= f.submit "Submit", class: "button postfix" %>
+        </div>
+      </div>
     <% end %>
 
     <%= subscribe_to "/messages/#{@game.id}" %>
