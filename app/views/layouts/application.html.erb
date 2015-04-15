@@ -14,7 +14,7 @@
 
     <%= render 'shared/header' %>
 
-  <h1 style="padding-top: 10rem;"><%= "#{Time.now}" %></h1>
+  <h1 style="padding-top: 10rem;"><%= "#{Time.now.in_time_zone}" %></h1>
 
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message,
