@@ -9,7 +9,7 @@ class GamesController < ApplicationController
       return
     end
 
-    @time = Time.parse(params[:game][:time], Time.now.in_time_zone)
+    @time = Time.parse(params[:game][:time], Time.zone.now)
 
     if @time.hour < 8 || @time.hour > 20
       message += ", the court is not open during this time"
@@ -18,15 +18,15 @@ class GamesController < ApplicationController
       return
     end
 
-    if @time.to_date > (Time.now).to_date
+    if @time.to_date > (Time.zone.now).to_date
       message += ", registration for this time has not opened yet"
       flash[:warning] = message
       redirect_to root_url
       return
     end
 
-    if @time < (Time.now.in_time_zone + 1.hour)
-      message += ", registration for this time has closed #{@time}, #{Time.now.in_time_zone + 1.hour}"
+    if @time < (Time.zone.now + 1.hour)
+      message += ", registration for this time has closed #{@time}, #{Time.zone.now + 1.hour}"
       flash[:warning] = message
       redirect_to root_url
       return
