@@ -4,12 +4,12 @@ class GamesController < ApplicationController
   def create
     message = "Invalid time"
 
-    if params[:game][:time].nil?
+    if params[:game]["time(4i)"].nil?
       redirect_to root_url
       return
     end
 
-    @time = Time.zone.parse params[:game][:time]
+    @time = Time.zone.now.change({ hour: params[:game]["time(4i)"], min: params[:game]["time(5i)"] })
 
     if @time.hour < 8 || @time.hour > 20
       message += ", the court is not open during this time"

@@ -3,6 +3,9 @@
     <span>Selected Park:</span><br>
     <%= @parks.first.name.upcase %>
   </h6>
+  <div class="game-time">
+    <%= f.time_select :time, {ampm: true, minute_step: 30} %>
+  </div>
   <%= f.submit class: "btn-join" %>
 <% end %>
 

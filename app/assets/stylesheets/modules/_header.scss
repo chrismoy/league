@@ -100,12 +100,16 @@ $margin-correction: -.2rem;
           font-size: 3rem;
           span { font-style: italic; }
         }
-        .clockpicker {
+        .game-time {
           text-align: center;
-          font-size: 2rem;
-          padding: .5rem 0;
-          height: 3rem;
-          margin: 2rem auto 3rem auto;
+          margin: 1rem 0;
+          select {
+            display: inline-block;
+            width: 40%;
+            text-align: center;
+            font-size: 2rem;
+            height: 4rem;
+          }
         }
         .btn-join {
           display: block;
