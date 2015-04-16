@@ -3,7 +3,6 @@
     <span>Selected Park:</span><br>
     <%= @parks.first.name.upcase %>
   </h6>
-  <%= f.text_field :time, class: "clockpicker", readonly: true %>
   <%= f.submit class: "btn-join" %>
 <% end %>
 

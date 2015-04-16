@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.cookie
-//= require jquery-clockpicker
 //= require private_pub
 //= require foundation
 //= require turbolinks
