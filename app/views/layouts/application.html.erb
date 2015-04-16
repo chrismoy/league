@@ -15,8 +15,10 @@
     <%= render 'shared/header' %>
 
     <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message,
-                        class: "alert-box #{message_type}") %>
+      <div class="alert-box <%= "#{message_type}" %>">
+        <%= content_tag(:div, message,
+                        class: "alert-message") %>
+      </div>
     <% end %>
 
     <%= yield %>
