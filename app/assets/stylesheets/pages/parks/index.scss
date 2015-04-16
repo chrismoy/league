@@ -58,6 +58,7 @@ $line-color: $app-red;
         height: $label-height;
         width: auto;
         background-size: cover;
+        background-position: center 60%;
         cursor: default;
         box-shadow: 0rem .2rem .5rem rgba(0,0,0,0.8);
         .image-filter, .select-filter {
@@ -242,6 +243,7 @@ $line-color: $app-red;
           padding: 1rem;
           font-weight: 400;
           font-size: 95%;
+          background-position: center center;
           &:after {
             display: none;
             right: auto;

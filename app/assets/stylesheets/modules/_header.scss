@@ -27,6 +27,7 @@ $margin-correction: -.2rem;
     ul {
       text-align: center;
       text-decoration: none;
+      margin-top: 20rem;
       li {
         a {
           color: $menu-color;
@@ -40,7 +41,6 @@ $margin-correction: -.2rem;
     position: absolute;
     top: 0;
     left: 0;
-    margin-top: 1rem;
     height: 5rem;
     padding: .8rem;
     background: $white;
@@ -52,96 +52,50 @@ $margin-correction: -.2rem;
     box-shadow: .2rem .2rem .7rem rgba(0,0,0,0.5);
   }
 
-  #tab-profile {
-    position: absolute;
+  .tab {
+    position: fixed;
     top: 0;
     right: 0;
     background: transparent;
     z-index: 26;
-    .tab {
-      display: inline-block;
-      background: $secondary-color;
-      margin-top: 1rem;
-      border-top-left-radius: .5rem;
-      border-bottom-left-radius: .5rem;
-      box-shadow: -.2rem .2rem .7rem rgba(0,0,0,0.5);
-      transition: $primary-transition;
-      height: $menu-dimension-small;
-      width: $menu-dimension-small;
-      button {
-        display: inline-block;
-        height: $menu-dimension-small;
+    width: (2 * $menu-dimension-small) + 2rem;
+    .tab-menu {
+      @include button-group-container();
+      #profile-pic, #menu-button {
         width: $menu-dimension-small;
-        font-size: 2rem;
-        color: $menu-inverse-color;
+        height: $menu-dimension-small;
+        color: white;
+        vertical-align: bottom;
         outline: 0;
-        background: $app-red;
-        &:first-child {
-          border-top-left-radius: .5rem;
-          border-bottom-left-radius: .5rem;
-        }
-        i { margin-left: -.3rem; }
+        font-size: 2rem;
       }
-      #new-game-button { background: $app-green; }
-
-      img { display: none; }
-
       #menu-button {
-        margin-left: 0;
-        border-top-left-radius: .5rem;
-        border-bottom-left-radius: .5rem;
+        @include button(
+          $padding: 0,
+          $bg: $app-blue
+        );
       }
-
-      form {
-        padding: 1rem;
-        display: none;
-        #new-park-name {
-          text-align: center;
-          font-size: 3rem;
-          span { font-style: italic; }
-        }
-        .game-time {
-          text-align: center;
-          margin: 1rem 0;
-          select {
-            display: inline-block;
-            width: 40%;
-            text-align: center;
-            font-size: 2rem;
-            height: 4rem;
-          }
-        }
-        .btn-join {
-          display: block;
-          margin: 0 auto;
-          border: none;
-          text-transform: uppercase;
-          border-radius: .5rem;
-          cursor: pointer;
-          transition: all .2s;
-          &:hover { background: scale-color( $app-green, $lightness: -10% ); }
+      #profile-pic {
+        @include button(
+          $padding: 0,
+          $bg: $app-blue,
+          $disabled: true
+        );
+        opacity: 1;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+        border: 1px solid $body-font-color;
+        border-right-width: 0;
+        img {
+          border-bottom-left-radius: 5px;
+          border-top-left-radius: 5px;
         }
       }
-
-      &.extra {
-        width: 2 * $menu-dimension-small;
-        #menu-button {
-          margin-left: $margin-correction;
-          border-top-left-radius: 0;
-          border-bottom-left-radius: 0;
-        }
-      }
-      &.expand {
-        width: 100vw;
-        height: 40rem;
-        transition: $secondary-transition;
-        #new-game-button {
-          background: transparent;
-          color: $menu-color;
-          i {
-            transition: $primary-transition;
-            transform: rotateZ(45deg);
-          }
+      & > li {
+        @include button-group-style($float: right);
+        &:last-child {
+          border-bottom-left-radius: 5px;
+          border-top-left-radius: 5px;
         }
       }
     }
@@ -161,42 +115,13 @@ $margin-correction: -.2rem;
     background: white;
     z-index: 19;
   }
-  #tab-profile {
-    .tab {
-      height: $menu-dimension;
-      width: 2 * $menu-dimension;
-      button {
-        height: $menu-dimension;
+  .tab {
+    width: 2 * $menu-dimension;
+    .tab-menu {
+      #profile-pic, #menu-button {
         width: $menu-dimension;
+        height: $menu-dimension;
         font-size: 4rem;
-        i { margin-left: 0; }
-      }
-      img {
-        display: inline-block;
-        height: $menu-dimension;
-        width: $menu-dimension;
-        vertical-align: top;
-        margin-right: $margin-correction;
-        border-top-left-radius: .5rem;
-        border-bottom-left-radius: .5rem;
-      }
-      #menu-button {
-        margin-left: 0;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-      &.extra {
-        width: 3 * $menu-dimension;
-        img {
-          border-top-left-radius: 0;
-          border-bottom-left-radius: 0;
-          margin-left: $margin-correction;
-          margin-right: 0;
-        }
-      }
-      &.expand {
-        width: 40rem;
-        height: 40rem;
       }
     }
   }

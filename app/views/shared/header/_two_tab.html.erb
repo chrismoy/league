@@ -1,8 +1,0 @@
-<div class="tab">
-  <% if logged_in? %>
-    <%= image_tag "#{current_user.image}", alt: "Profile Picture", id: "profile-picture" %>
-  <% else %>
-    <%= image_tag "missing.jpg", alt: "Profile Picture", id: "profile-picture" %>
-  <% end %>
-  <button id="menu-button"><%= icon('bars') %></button>
-</div>

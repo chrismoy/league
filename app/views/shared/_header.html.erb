@@ -17,12 +17,15 @@
 
 <div class="blocker hide-for-small-only"></div>
 
-<nav id="tab-profile">
-<% if @extra %>
-  <%= render "shared/header/three_tab" %>
-<% else %>
-  <%= render "shared/header/two_tab" %>
-<% end %>
-</nav>
+<div class="tab">
+  <ul class="tab-menu">
+    <li><button id="menu-button"><%= icon('bars') %></button><li>
+    <% if logged_in? %>
+    <li><button id="profile-pic"><%= image_tag current_user.image %></li>
+    <% else %>
+    <li><button id="profile-pic"><%= image_tag "missing.jpg" %><li>
+    <% end %>
+  </ul>
+</div>
 
 

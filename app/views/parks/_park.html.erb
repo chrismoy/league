@@ -15,7 +15,7 @@
     <p class="game-select-intro">Click any time below to check out a game</p>
     <div class="active-games-container">
     <ul class="active-games">
-      <% park.games.where("DATE(time) = DATE(?)", Time.now).each do |game| %>
+      <% park.games.where("DATE(time) = DATE(?)", Time.zone.now).each do |game| %>
       <%= link_to [park, game] do %>
         <li class="game">
           <p class="time"><%= game.time.strftime("%-I:%M%p") %></p>
