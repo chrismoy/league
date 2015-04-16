@@ -21,6 +21,7 @@ $message-bg-color: rgba(0,0,0,0.5);
     .team-section {
       width: 50%;
       display: inline-block;
+      vertical-align: top;
       .team-name {
         display: inline-block;
         border-bottom: 2px solid $gainsboro;
@@ -151,7 +152,7 @@ $message-bg-color: rgba(0,0,0,0.5);
     }
     form {
       margin-top: 1rem;
-      input {
+      input, button {
         font-size: 2rem;
         line-height: 4rem;
         height: 4rem;
@@ -174,6 +175,10 @@ $message-bg-color: rgba(0,0,0,0.5);
             $last-column:false,
             $collapse:true
           );
+          button {
+            width: 100%;
+            background: $app-green;
+          }
         }
       }
     }

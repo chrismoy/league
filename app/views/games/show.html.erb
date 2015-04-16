@@ -52,7 +52,9 @@
           <%= f.text_field :content, placeholder: "Discuss your game here" %>
         </div>
         <div class="chat-submit">
-          <%= f.submit "Submit", class: "button postfix" %>
+          <%= button_tag( :class => "button_green") do %>
+            <%= icon('send') %>
+          <% end %>
         </div>
       </div>
     <% end %>
