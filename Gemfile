@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.1.3'
 
-gem 'rails',                    '4.2.0.rc3'
+gem 'rails',                    '4.2.1'
 gem 'bcrypt',                   '3.1.7'
 gem 'faker',                    '1.4.2'
 gem 'will_paginate',            '3.0.7'
@@ -10,7 +10,8 @@ gem 'geocoder'
 gem 'sass-rails',               '5.0.1'
 gem 'uglifier',                 '2.5.3'
 gem 'coffee-rails',             '4.1.0'
-gem 'jquery-rails',             '4.0.0.beta2'
+gem 'jquery-rails',             '4.0.3'
+gem "autoprefixer-rails"
 gem 'foundation-rails'
 gem 'font-awesome-sass'
 gem 'turbolinks',               '2.3.0'
