@@ -1,4 +1,4 @@
 <%= link_to "Join Game!", game_participation_path,
                           method: :patch,
                           class: "btn-join",
-                          remote: true %>
+                          remote: (logged_in? ? true : false) %>
