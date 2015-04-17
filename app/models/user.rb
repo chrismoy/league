@@ -70,6 +70,11 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
 
+  #Returns user's image if populated, else placeholder
+  def image_or_placeholder
+    self.image.nil? ? "missing.jpg" : self.image
+  end
+
   private
 
     # Converts email to all lower case

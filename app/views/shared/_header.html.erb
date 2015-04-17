@@ -21,7 +21,7 @@
   <ul class="tab-menu">
     <li><button id="menu-button"><%= icon('bars') %></button><li>
     <% if logged_in? %>
-    <li><button id="profile-pic"><%= image_tag current_user.image.nil? ? "missing.jpg" : current_user.image %></li>
+    <li><button id="profile-pic"><%= image_tag current_user.image_or_placeholder %></li>
     <% else %>
     <li><button id="profile-pic"><%= image_tag "missing.jpg" %><li>
     <% end %>
