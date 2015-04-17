@@ -14,7 +14,7 @@ $line-color: $app-red;
   overflow-y: scroll;
   background-color: transparent;
   .mapline {
-    margin: 3rem 0 0 0;
+    margin: 0 0 0 0;
     padding: 0;
     list-style: none;
     position: relative;
@@ -29,6 +29,7 @@ $line-color: $app-red;
       right: $mapline-align;
       margin-right: -1rem;
       z-index: 10;
+      min-height: 100vh;
     }
     // The distance
     > li {
@@ -181,9 +182,6 @@ $line-color: $app-red;
       input[type="radio"]:checked { margin-top: -.5rem; }
       input[type="radio"]:checked + .icon {
         background-color: $app-red;
-        // width: 4rem;
-        // height: 4rem;
-        // margin: -.5rem -2.5rem 0 0;
       }
       input[type="radio"]:checked ~ .park-label {
         h2 {
@@ -204,7 +202,7 @@ $line-color: $app-red;
       &:first-child {
         text-align: center;
         background: transparent;
-        height: 13rem;
+        height: 14rem;
         .park-label {
           background: transparent;
           vertical-align: bottom;
@@ -212,7 +210,7 @@ $line-color: $app-red;
           p {
             color: $body-font-color;
             font-size: 2.5rem;
-            margin-top: 5rem;
+            margin-top: 8rem;
             font-style: italic;
           }
           &:after { border: transparent; }
@@ -221,7 +219,7 @@ $line-color: $app-red;
     }
   }
   @media #{$small-only} {
-    padding: 0 2.5rem;
+    padding: 0 2rem;
     .mapline {
       &:before {
         display: none;
@@ -272,29 +270,20 @@ $line-color: $app-red;
               }
             }
           }
-          &:first-child {
-            text-align: center;
-            background: transparent;
-            height: 13rem;
-            .park-label {
-              background: transparent;
-              vertical-align: bottom;
-              box-shadow: none;
-              p {
-                color: $body-font-color;
-                font-size: 2.5rem;
-                margin-top: 5rem;
-                font-style: italic;
-              }
-              &:after { border: transparent; }
-            }
-          }
         }
         .icon {
           display: none;
         }
         .icon_user {
           display: none;
+        }
+        input[type="radio"]:checked ~ .park-label {
+          h2 { top: 4rem; }
+        }
+        &:first-child {
+          .park-label {
+            p { font-size: 1.5rem; }
+          }
         }
       }
     }
@@ -308,9 +297,10 @@ $line-color: $app-red;
         .park-label {
           width: auto;
           margin-right: 15rem;
+          padding-top: 1rem;
           h2 {
-            font-size: 3.5rem;
-            line-height: 4rem;
+            font-size: 3rem;
+            line-height: 1;
             span { display: inline; }
           }
           .active-games {
@@ -322,6 +312,14 @@ $line-color: $app-red;
                 border-right-width: 0;
               }
             }
+          }
+        }
+        input[type="radio"]:checked ~ .park-label {
+          h2 { top: 4rem; }
+        }
+        &:first-child {
+          .park-label {
+            p { font-size: 2rem; }
           }
         }
       }
