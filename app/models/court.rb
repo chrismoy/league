@@ -4,12 +4,7 @@ class Court < ActiveRecord::Base
   validates :park_id, presence: true
   validates :img, presence: true
 
-  def generate_games gameDay, interval
-    time = gameDay.change(hour: 17, min: 0)
-    while time.hour < 19 do
-      game = Game.create(court_id: self.id, time: time)
-      self.games << game
-      time += interval
-    end
+  def games_for_today
+    @games = games.where("DATE(time) = DATE(?)", Time.zone.now)
   end
 end
