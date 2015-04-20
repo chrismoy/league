@@ -30,15 +30,22 @@ function refreshParks(position) {
   }
   if ((location[0] != position.coords.latitude.toFixed(3)) ||
       (location[1] != position.coords.longitude.toFixed(3))) {
+    console.log('yolo 1');
     $.ajax({
       url: '/parks.js',
       data: {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude
+      },
+      success: function(data) {
+        console.log('yolo 2');
+        console.log(data);
+      },
+      error: function() {
+        console.log('error');
       }
     });
   }
-
 }
 
 $(document).ready(function(){

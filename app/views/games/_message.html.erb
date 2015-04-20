@@ -1,6 +1,6 @@
 <li class="message">
   <div class="user-picture">
-    <%= image_tag "brianScalabrine.jpeg", alt: "User Picture"%>
+    <%= image_tag current_user.image_or_placeholder, alt: "User Picture"%>
   </div>
   <div class="content">
     <span class="name"><%= message.user.name.split(" ")[0] %></span>

@@ -10,13 +10,5 @@
 </script>
 
 <main id="location-content" class="content">
-  <% Time.zone = "Central Time (US & Canada)" %>
-  <ul class="mapline">
-    <li>
-      <div class="park-label">
-        <p>Find a basketball game below!</p>
-      </div>
-    </li>
-    <%= render @parks %>
-  </ul>
+  <%= render partial: 'mapline' %>
 </main>
