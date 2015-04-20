@@ -28,34 +28,30 @@ function refreshParks(position) {
   else {
     var location = $.cookie("location").split("|");
   }
-  if ((location[0] != position.coords.latitude.toFixed(3)) ||
-      (location[1] != position.coords.longitude.toFixed(3))) {
-    console.log('yolo 1');
-    $.ajax({
-      url: '/parks.js',
-      data: {
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude
-      },
-      success: function(data) {
-        console.log('yolo 2');
-        console.log(data);
-      },
-      error: function() {
-        console.log('error');
-      }
-    });
-  }
+  $.ajax({
+    url: '/parks_list',
+    data: { latitude: position.coords.latitude,
+            longitude: position.coords.longitude },
+    success: function(data) {
+      console.log('success');
+    },
+    error: function(data) {
+      console.log('error');
+    }
+  });
+  // if ((location[0] != position.coords.latitude.toFixed(3)) ||
+  //     (location[1] != position.coords.longitude.toFixed(3))) {
+
+  //   $('#location-content').html("<%= j partial: 'mapline' %> ");
+  //   console.log('updating');
+  // }
+  // else {
+  //   $('#location-content').html("<%= j partial: 'mapline' %> ");
+  //   console.log('standard');
+  // }
 }
 
 $(document).ready(function(){
-  // resizeViewPort();
-
-  $(document).on("page:change", function() {
-    // resizeViewPort();
-  });
-
-  $(window).resize(function() {
-    // resizeViewPort();
-  });
+  $(document).on("page:change", function() {});
+  $(window).resize(function() {});
 });
