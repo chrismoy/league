@@ -1,20 +1,20 @@
 var ready = function() {
   $('#menu-button').click(function() {
     obscure();
-    $('#hidden-menu').fadeIn();
+    $('#hidden-menu').show();
   });
   $('#hidden-menu').click(function() {
     obscure();
-    $('#hidden-menu').fadeOut();
+    $('#hidden-menu').hide();
   });
 
   if ( $('.mapline').offset() > 50 ) {
-    $('#title-image').fadeOut();
+    $('#title-image').hide();
   }
 
   $('#new-game-button').click(function() {
     obscure();
-    $('#menu-button').fadeToggle();
+    $('#menu-button').toggle();
     toggleLargeOnly('#profile-picture');
     $('.tab').toggleClass('expand');
     toggleForm('.new-game-form')
@@ -43,8 +43,8 @@ function obscure() {
 
 function toggleLargeOnly(element) {
   if($('.blocker').height() != 0) {
-    if($('.tab.expand').length == 0) { $(element).fadeOut(); }
-    else { $(element).fadeIn(); }
+    if($('.tab.expand').length == 0) { $(element).hide(); }
+    else { $(element).show(); }
   }
 }
 
