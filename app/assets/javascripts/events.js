@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  $('#signup-button').on('click', function() {
+  $('#signup-button').click(function() {
     ga('send', 'event', 'button', 'click', 'signup-button', 1);
+    console.log('yolo');
   });
 });
