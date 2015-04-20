@@ -6,6 +6,17 @@ $arrow-width: 1.5rem;
 $label-radius: .5rem;
 $line-color: $app-red;
 
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  text-align: center;
+}
 #location-content {
   width: 100%;
   height: 100%;

@@ -32,23 +32,13 @@ function refreshParks(position) {
     url: '/parks_list',
     data: { latitude: position.coords.latitude,
             longitude: position.coords.longitude },
-    success: function(data) {
-      console.log('success');
+    success: function() {
+      $('.loading').fadeOut();
     },
-    error: function(data) {
-      console.log('error');
-    }
+    error: function() {
+      $('.loading').html("Load Failed");
+    },
   });
-  // if ((location[0] != position.coords.latitude.toFixed(3)) ||
-  //     (location[1] != position.coords.longitude.toFixed(3))) {
-
-  //   $('#location-content').html("<%= j partial: 'mapline' %> ");
-  //   console.log('updating');
-  // }
-  // else {
-  //   $('#location-content').html("<%= j partial: 'mapline' %> ");
-  //   console.log('standard');
-  // }
 }
 
 $(document).ready(function(){
