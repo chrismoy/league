@@ -1,26 +1,49 @@
 module GamesHelper
-  def game_slots(games)
-    time = 20 # minutes
+  def game_slots(games, court)
+    interval = 20 # minutes
 
-    nslots = case Date.today.wday
+    slots = case Date.today.wday
     when 1
-      slots 19, 17, time
+      create_slots 17, 19, interval
     when 3
-      slots 19, 17, time
+      create_slots 17, 19, interval
     when 6
-      slots 12, 9, time
+      create_slots 9, 12, interval
+    when 2
+      create_slots 17, 19, interval
+    when 4
+      create_slots 17, 19, interval
+    when 5
+      create_slots 17, 19, interval
+    when 7
+      create_slots 17, 19, interval
     else
       -1
     end
 
-    nslots.times.map do |slot|
+    gameTime = Time.now.beginning_of_hour.change(hour: ([6,7].include?(Date.today.wday) ? 9 : 17))
 
+    allTimes = []
+    gameIndex = 0
+    increment = interval.minutes
+
+    slots.times do
+      if (games[gameIndex] == nil) || (games[gameIndex].time != gameTime)
+        allTimes << Game.new(court_id: court.id, time: gameTime)
+      else
+        allTimes << games[gameIndex]
+        gameIndex += 1
+      end
+
+      gameTime += increment
     end
+
+    allTimes
   end
 
   private
 
-    def slots startTime, endTime, interval
+    def create_slots startTime, endTime, interval
       ((endTime - startTime) * 60 ) / interval
     end
 end

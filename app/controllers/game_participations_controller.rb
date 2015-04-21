@@ -17,14 +17,14 @@ class GameParticipationsController < ApplicationController
     @game = Game.find(params[:id])
     if @game.users.include?(current_user)
       @game.users.delete(current_user)
-      if @game.users.empty?
-        @game.destroy
-      end
+      # if @game.users.empty?
+      #   @game.destroy
+      # end
     end
 
     respond_to do |format|
       format.html { redirect_to root_url,
-                    notice: "You Have Quit the #{@game.time.strftime("%-I:%M%p")} Game"
+                    notice: "You Have Quit the #{@game.time.strftime("%-I:%M%p")} Game at #{@game.court.park.name}"
       }
       format.js
     end

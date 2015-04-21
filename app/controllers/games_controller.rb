@@ -4,19 +4,12 @@ class GamesController < ApplicationController
   def create
     message = "Invalid time"
 
-    if params[:game]["time(4i)"].nil?
+    if params[:time].nil?
       redirect_to root_url
       return
     end
 
-    @time = Time.zone.now.change({ hour: params[:game]["time(4i)"], min: params[:game]["time(5i)"] })
-
-    if @time.hour < 8 || @time.hour > 20
-      message += ", the court is not open during this time"
-      flash[:warning] = message
-      redirect_to root_url
-      return
-    end
+    @time = Time.parse(params[:time])
 
     if @time.to_date > (Time.zone.now).to_date
       message += ", registration for this time has not opened yet"
@@ -25,14 +18,7 @@ class GamesController < ApplicationController
       return
     end
 
-    if @time < (Time.zone.now + 1.hour)
-      message += ", registration for this time has closed"
-      flash[:warning] = message
-      redirect_to root_url
-      return
-    end
-
-    unless @time.min % 30 == 0
+    unless @time.min % 20 == 0
       message += ", please choose a time ending in :00 or :30"
       flash[:warning] = message
       redirect_to root_url
@@ -50,7 +36,7 @@ class GamesController < ApplicationController
       return
     end
 
-    @game.users << current_user
+    # @game.users << current_user
     @game.save
 
     redirect_to park_game_url(id: @game.id)
