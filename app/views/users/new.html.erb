@@ -8,8 +8,7 @@
   <div class="signup-row">
     <%= form_for @user, html: { class: "signup-form" } do |f| %>
       <%= render 'fields', f: f %>
-      <%= f.submit "Create my account", class: "button expand", id: "signup-button",
-      onclick: "_gaq.push(['_trackEvent', 'button', 'click', 'signup-button', 1]);" %>
+      <%= f.submit "Create my account", class: "button expand", id: "signup-button" %>
     <% end %>
   </div>
 </main>
