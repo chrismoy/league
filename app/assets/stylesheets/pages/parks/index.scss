@@ -16,6 +16,15 @@ $line-color: $app-red;
   height: 100%;
   background-color: white;
   text-align: center;
+  p {
+    margin-top: 5rem;
+    font-size: 5rem;
+    span {
+      font-size: 2rem;
+      font-style: italic;
+      display: block;
+    }
+  }
 }
 #location-content {
   width: 100%;
