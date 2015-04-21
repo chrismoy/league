@@ -9,7 +9,7 @@
     <%= form_for @user, html: { class: "signup-form" } do |f| %>
       <%= render 'fields', f: f %>
       <%= f.submit "Create my account", class: "button expand", id: "signup-button",
-      onclick: "_gaq.push(['_trackEvent', 'button', 'click', 'submit-button', '1']);" %>
+      onclick: "_gaq.push(['_trackEvent', 'button', 'click', 'signup-button', 1]);" %>
     <% end %>
   </div>
 </main>
