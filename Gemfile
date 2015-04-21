@@ -20,6 +20,8 @@ gem 'sdoc',                     '0.4.0', group: :doc
 gem 'pg',                       '0.17.1'
 gem 'thin'
 gem 'private_pub'
+gem 'omniauth'
+gem 'figaro'
 
 group :development, :test do
 
