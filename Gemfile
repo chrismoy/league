@@ -21,6 +21,9 @@ gem 'pg',                       '0.17.1'
 gem 'thin'
 gem 'private_pub'
 gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-google'
 gem 'figaro'
 
 group :development, :test do
