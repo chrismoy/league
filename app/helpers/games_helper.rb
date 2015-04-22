@@ -21,7 +21,7 @@ module GamesHelper
       -1
     end
 
-    gameTime = Time.now.beginning_of_hour.change(hour: ([6,7].include?(Date.today.wday) ? 9 : 17))
+    gameTime = Time.zone.now.beginning_of_hour.change(hour: ([6,7].include?(Date.today.wday) ? 9 : 17))
 
     allTimes = []
     gameIndex = 0
