@@ -6,9 +6,11 @@ class User < ActiveRecord::Base
   before_create :create_activation_digest
   validates :name,    presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-  validates :email,   presence: true, length: { maximum: 255 },
-                      format: { with: VALID_EMAIL_REGEX },
-                      uniqueness: { case_sensitive: false }
+  # Allows signup with no email
+  # format: { with: VALID_EMAIL_REGEX },
+  validates :email,  presence: true, format: { with: VALID_EMAIL_REGEX },
+                                      length: { maximum: 255 },
+                                      uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }, allow_blank: true
 
@@ -70,9 +72,23 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
 
-  #Returns user's image if populated, else placeholder
+  # Returns user's image if populated, else placeholder
   def image_or_placeholder
     self.image.nil? ? "missing.jpg" : self.image
+  end
+
+  # Searches for a user and creates user if they don't exist
+  def User.find_or_create_from_auth_hash(auth_hash)
+    user = User.find_or_create_by!(provider: auth_hash.provider, uid: auth_hash.uid) do |u|
+      u.name = auth_hash.info.name
+      u.email = "socialuser#{new_token}@gotnext.io"
+      u.password = digest(new_token)
+      u.provider = auth_hash.provider
+      u.uid = auth_hash.uid
+      u.image = auth_hash.info.image
+      u.token = auth_hash.credentials.token
+      u.secret = auth_hash.credentials.secret
+    end
   end
 
   private
