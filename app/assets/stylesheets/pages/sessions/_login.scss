@@ -33,6 +33,10 @@ $sub-font-size: 1.2rem;
     .prompt {
       @extend .login-element;
       text-align: center;
+      span {
+        border: 2px solid $gainsboro;
+        padding: 0 2rem;
+      }
     }
     .signin-instructions {
       @extend .login-element;
@@ -42,6 +46,7 @@ $sub-font-size: 1.2rem;
       span {
         background: white;
         padding: 0 2rem;
+        @media #{$small-only} { font-size: 1.5rem; }
       }
       &:after {
         content: '';
@@ -53,6 +58,7 @@ $sub-font-size: 1.2rem;
         background: $gainsboro;
         margin: 0 1.5rem;
         z-index: -1;
+        @media #{$small-only} { height: 1px; }
       }
     }
     .social-row {
