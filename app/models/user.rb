@@ -81,7 +81,7 @@ class User < ActiveRecord::Base
   def User.find_or_create_from_auth_hash(auth_hash)
     user = User.find_or_create_by!(provider: auth_hash.provider, uid: auth_hash.uid) do |u|
       u.name = auth_hash.info.name
-      u.email = "socialuser#{new_token}@gotnext.io"
+      u.email = auth_hash.info.name || "socialuser#{new_token}@gotnext.io"
       u.password = digest(new_token)
       u.provider = auth_hash.provider
       u.uid = auth_hash.uid

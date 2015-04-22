@@ -141,7 +141,7 @@ $default-float: left;
 $last-child-float: $opposite-direction;
 
 // We use these to make sure border radius matches unless we want it different.
-$global-radius: 0;
+$global-radius: .5rem;
 $global-rounded: 1000px;
 
 // We use these to control inset shadow shiny edges and depressions.

@@ -23,10 +23,59 @@ $sub-font-size: 1.2rem;
   }
 }
 
+
+
 #login-content {
   padding-top: 10rem;
   .login-row {
     @include grid-row();
+    margin: 3rem auto;
+    .prompt {
+      @extend .login-element;
+      text-align: center;
+    }
+    .signin-instructions {
+      @extend .login-element;
+      font-size: 2rem;
+      text-align: center;
+      position: relative;
+      span {
+        background: white;
+        padding: 0 2rem;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: .2rem;
+        width: 100%;
+        background: $gainsboro;
+        margin: 0 1.5rem;
+        z-index: -1;
+      }
+    }
+    .social-row {
+      @extend .login-element;
+      .social-button-div {
+        @include grid-column(
+          $columns:6
+        );
+        text-align: center;
+        height: 6rem;
+        a {
+          font-size: 2rem;
+          outline: 0;
+          border-radius: $global-radius;
+          &.facebook { background: $facebook-primary; }
+          &.twitter { background: $twitter-primary; }
+          span {
+            margin-right: 1rem;
+            @media #{$small-only} { display: none; }
+          }
+        }
+      }
+    }
     .login-form {
       @extend .login-element;
       label {

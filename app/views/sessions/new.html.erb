@@ -1,7 +1,30 @@
 <main id="login-content" class="content">
 
   <div class="login-row">
-    <h1 class="prompt login-element">Log In</h1>
+    <h2 class="prompt">Log In</h2>
+  </div>
+
+  <div class="login-row">
+    <h3 class="signin-instructions"><span>Sign in with your favorite social media!</span></h3>
+  </div>
+
+  <div class="login-row">
+    <div class="social-row">
+      <div class="social-button-div">
+        <%= link_to '/auth/facebook', class: "button expand facebook" do %>
+          <span>Facebook</span><%= icon('facebook') %>
+        <% end %>
+      </div>
+      <div class="social-button-div">
+        <%= link_to '/auth/twitter', class: "button expand twitter" do %>
+          <span>Twitter</span><%= icon('twitter') %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="login-row">
+    <h3 class="signin-instructions"><span>Or use standard email</span></h3>
   </div>
 
   <div class="login-row">
