@@ -1,32 +1,14 @@
 <% provide(:title, "Game") %>
 
 <main id="game-content" class="content">
-  <% Time.zone = "Central Time (US & Canada)" %>
-  <section class="game-info">
-    <div class="away">
-      <h4 class="team-name">AWAY</h4>
-      <ul id="away-players">
-      <% @away_players.each do |player| %>
-        <%= render partial: "games/player", locals: { player: player, away: true } %>
-      <% end %>
-      </ul>
-    </div>
-    <div class="versus">
-        Game Time:
-        <span><%= @game.time.strftime("%-I:%M%p") %></span>
-    </div>
-    <div class="home">
-      <h4 class="team-name">HOME</h4>
-      <ul id="home-players">
-      <% @home_players.each do |player| %>
-        <%= render partial: "games/player", locals: { player: player, away: false } %>
-      <% end %>
-      </ul>
-    </div>
-  </section>
-  <div class="address">
-    <h4><span class="time"><%= @game.time.strftime("%-I:%M%p") %>, </span><%= @park.name %></h4>
+  <section class="address">
+    <h4><span><%= @game.time.strftime("%-I:%M%p") %>, </span><%= @park.name %></h4>
     <h5><%= @park.address %></h5>
+    <div class="time">
+      Game Time:
+      <br>
+      <span><%= @game.time.strftime("%-I:%M%p") %></span>
+    </div>
     <div id="join-leave">
     <% if @game.users.include?(current_user) %>
       <%= render 'shared/buttons/leave_game_button' %>
@@ -34,7 +16,17 @@
       <%= render 'shared/buttons/join_game_button' %>
     <% end %>
     </div>
-  </div>
+  </section>
+  <section class="game-info">
+    <div class="players">
+      <h4 class="players-heading"><span>PLAYERS</span></h4>
+      <ul id="participants">
+      <% @away_players.each do |player| %>
+        <%= render partial: "games/player", locals: { player: player, away: true } %>
+      <% end %>
+      </ul>
+    </div>
+  </section>
   <section class="chat">
     <h6>Game Chat</h6>
     <p>Questions about the game? Talk to the people you're playing with</p>
