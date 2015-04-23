@@ -50,10 +50,11 @@ class GamesController < ApplicationController
     @messages = Message.where(game_id: @game.id)
 
     players =  @game.users
-    @away_players = []
-    @home_players = []
-    for i in 0..(players.length - 1) do
-      i.even? ? @away_players << players[i] : @home_players  << players[i]
+    max_users = 5
+    @players = []
+
+    for i in 0...max_users do
+      @players << (players[i].nil? ? User.empty_user : players[i])
     end
   end
 

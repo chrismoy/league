@@ -1,4 +1,11 @@
-<li class="player" id="<%= dom_id(player) %>">
-  <%= image_tag(player.image_or_placeholder) %>
+<% if player.id.nil? %>
+<li class="player empty_user">
   <h4 class="name"><%= player.name.split(" ")[0] %></h4>
+  <%= image_tag(player.image_or_placeholder) %>
 </li>
+<% else %>
+<li class="player" id="<%= dom_id(player) %>">
+  <h4 class="name"><%= player.name.split(" ")[0] %></h4>
+  <%= image_tag(player.image_or_placeholder) %>
+</li>
+<% end %>

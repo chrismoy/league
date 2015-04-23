@@ -3,7 +3,9 @@ class GameParticipationsController < ApplicationController
 
   def update
     @game = Game.find(params[:id])
-    unless @game.users.include?(current_user) || @game.users.count >= 6
+    unless(@game.users.include?(current_user) ||
+           @game.users.count >= 5 ||
+           current_user.games_today.count > 2)
       @game.users << current_user
     end
 

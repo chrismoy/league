@@ -21,7 +21,7 @@
     <div class="players">
       <h4 class="players-heading"><span>PLAYERS</span></h4>
       <ul id="participants">
-      <% @away_players.each do |player| %>
+      <% @players.each do |player| %>
         <%= render partial: "games/player", locals: { player: player, away: true } %>
       <% end %>
       </ul>

@@ -91,6 +91,19 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Returns a dummy user
+  def User.empty_user
+    User.new(
+      name: "Open Spot",
+      image: "missing.jpg",
+      email: "emptyuser#{new_token}@gotnext.io",
+      password: digest(new_token))
+  end
+
+  def games_today
+    self.games.where(time: Time.zone.now.all_day)
+  end
+
   private
 
     # Converts email to all lower case

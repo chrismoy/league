@@ -19,8 +19,8 @@ $message-bg-color: rgba(0,0,0,0.5);
     text-align: center;
     margin-bottom: 2rem;
     padding: 2rem 0;
-    border: 2px solid $gainsboro;
-    border-radius: $global-radius;
+    text-align: center;
+    h4, h5 { display: inline-block; }
     span { font-weight: bold; }
     a { text-transform: uppercase; }
     .time { display: none; }
@@ -50,6 +50,12 @@ $message-bg-color: rgba(0,0,0,0.5);
           padding: 0 1rem;
           font-size: 2rem;
         }
+        &.empty_user {
+          .name {
+            font-style: italic;
+            color: gray;
+          }
+        }
       }
     }
     .players {
@@ -58,11 +64,13 @@ $message-bg-color: rgba(0,0,0,0.5);
       .players-heading {
         display: block;
         text-align: center;
+        margin-bottom: 3rem;
         span { border-bottom: 2px solid $gainsboro; }
       }
       #participants {
         @extend .player-list;
         text-align: left;
+        .player { text-align: center; }
       }
     }
   }
@@ -175,10 +183,11 @@ $message-bg-color: rgba(0,0,0,0.5);
 
 @media #{$medium-up} {
   #game-content {
-    padding: 13rem 5rem 0 5rem;
+    padding-top: 13rem;
     .game-info {
       .players {
         #participants {
+          @include block-grid(2);
           .player {
             .name {
               padding: 0 2rem;
@@ -193,7 +202,6 @@ $message-bg-color: rgba(0,0,0,0.5);
 
 @media #{$large-up} {
   #game-content {
-    padding: 13rem 5rem 0 5rem;
     .address {
       @include grid-column(
         $columns:6,
