@@ -20,7 +20,8 @@ $message-bg-color: rgba(0,0,0,0.5);
     margin-bottom: 2rem;
     padding: 2rem 0;
     text-align: center;
-    h4, h5 { display: inline-block; }
+    h4 { display: inline-block; }
+    h5 { display: block; }
     span { font-weight: bold; }
     a { text-transform: uppercase; }
     .time { display: none; }

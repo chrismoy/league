@@ -15,6 +15,12 @@
   <%= image_tag "got-next-text50.png", alt: "Logo Image", class: "title-image show-for-small-only" %>
 <% end %>
 
+<% flash.each do |message_type, message| %>
+  <div class="notification-tab <%= message_type %>">
+    <%= content_tag(:div, message, class: "alert-message") %>
+  </div>
+<% end %>
+
 <div class="blocker hide-for-small-only"></div>
 
 <div class="tab">
@@ -27,5 +33,18 @@
     <% end %>
   </ul>
 </div>
+
+<% if logged_in? %>
+<div class="games-today-tab">
+  GAMES TODAY:
+  <ul class="games-today">
+    <% current_user.games_today.each do |game| %>
+      <%= link_to [game.court.park, game] do %>
+        <li class="game"><%= game.time.strftime("%-I:%M%p") %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
 

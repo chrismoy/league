@@ -2,7 +2,7 @@ $self = $("<%= j(render '/games/player', { player: current_user }) %>");
 $button = $("<%= j(render '/shared/buttons/leave_game_button') %>");
 $empty = $('.empty_user');
 
-if($empty.length > 0) {
+if(($empty.length > 0) &&(<%= @join_game %>)) {
   $empty.first().replaceWith($self);
 
   $('.btn-join').remove();

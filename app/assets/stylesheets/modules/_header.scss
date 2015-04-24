@@ -41,7 +41,7 @@ $margin-correction: -.2rem;
     position: absolute;
     top: 0;
     left: 0;
-    height: 5rem;
+    height: $menu-dimension-small;
     padding: .8rem;
     background: $white;
     z-index: 25;
@@ -50,9 +50,25 @@ $margin-correction: -.2rem;
     border-bottom-right-radius: .5rem;
     box-shadow: .2rem .2rem .7rem rgba(0,0,0,0.5);
   }
-
+  .notification-tab {
+    position: absolute;
+    top: $menu-dimension-small;
+    left: 0;
+    max-width: 50%;
+    z-index: 25;
+    border-top-right-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    box-shadow: .2rem .2rem .7rem rgba(0,0,0,0.5);
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    background: $app-blue;
+    &.warning { background: $app-yellow }
+    &.danger { background: $app-red }
+    &.notice { background: $app-blue }
+  }
   .tab {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     background: transparent;
@@ -73,8 +89,9 @@ $margin-correction: -.2rem;
       #menu-button {
         @include button(
           $padding: 0,
-          $bg: $app-blue
+          $bg: $gainsboro
         );
+        &:hover { color: $menu-color; }
       }
       #profile-pic {
         @include button(
@@ -98,6 +115,28 @@ $margin-correction: -.2rem;
       }
     }
   }
+  .games-today-tab {
+    position: absolute;
+    top: $menu-dimension-small;
+    right: 0;
+    width: 2 * $menu-dimension-small;
+    z-index: 26;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    box-shadow: .2rem .2rem .7rem rgba(0,0,0,0.5);
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    background: $app-blue;
+    .games-today {
+      list-style-type: none;
+      a {
+        .game {
+          display: inline-block;
+        }
+      }
+    }
+  }
 }
 
 @media #{$medium-up} {
@@ -113,6 +152,10 @@ $margin-correction: -.2rem;
     background: white;
     z-index: 19;
   }
+  .notification-tab {
+    top: $menu-dimension;
+    max-width: 3 * $menu-dimension;
+  }
   .tab {
     width: 2 * $menu-dimension;
     .tab-menu {
@@ -122,6 +165,10 @@ $margin-correction: -.2rem;
         font-size: 4rem;
       }
     }
+  }
+  .games-today-tab {
+    top: $menu-dimension;
+    width: 2 * $menu-dimension;
   }
 }
 
