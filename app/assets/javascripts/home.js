@@ -7,6 +7,9 @@ var ready = function() {
     obscure();
     $('#hidden-menu').hide();
   });
+  $('.notification-close').click(function() {
+    $('.notification-tab').remove();
+  });
 };
 
 function obscure() {

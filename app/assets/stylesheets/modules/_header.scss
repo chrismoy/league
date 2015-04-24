@@ -62,10 +62,21 @@ $margin-correction: -.2rem;
     padding: 1rem;
     font-size: 1.5rem;
     text-align: center;
+    color: $menu-inverse-color;
     background: $app-blue;
     &.warning { background: $app-yellow }
     &.danger { background: $app-red }
+    &.alert { background: $app-red }
     &.notice { background: $app-blue }
+    .notification-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      font-size: 1rem;
+      color: $menu-inverse-color;
+      z-index: 26;
+      &:hover { cursor: pointer; }
+    }
   }
   .tab {
     position: absolute;
@@ -74,8 +85,7 @@ $margin-correction: -.2rem;
     background: transparent;
     z-index: 26;
     width: (2 * $menu-dimension-small);
-    border-bottom-left-radius: 5px;
-    box-shadow: -.2rem .2rem .7rem rgba(0,0,0,0.5);
+    box-shadow: -.2rem 0 .7rem rgba(0,0,0,0.5);
     .tab-menu {
       @include button-group-container();
       #profile-pic, #menu-button {
@@ -120,10 +130,9 @@ $margin-correction: -.2rem;
     top: $menu-dimension-small;
     right: 0;
     width: 2 * $menu-dimension-small;
-    z-index: 26;
-    border-top-left-radius: .5rem;
+    z-index: 27;
     border-bottom-left-radius: .5rem;
-    box-shadow: .2rem .2rem .7rem rgba(0,0,0,0.5);
+    box-shadow: -.2rem .2rem .7rem rgba(0,0,0,0.5);
     padding: 1rem;
     font-size: 1.5rem;
     text-align: center;
