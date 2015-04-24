@@ -9,6 +9,7 @@ var ready = function() {
   });
   $('.notification-close').click(function() {
     $('.notification-tab').remove();
+    console.log('hey');
   });
 };
 
