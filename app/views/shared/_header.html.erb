@@ -34,17 +34,27 @@
   </ul>
 </div>
 
-<% if logged_in? %>
 <div class="games-today-tab">
+  <% if logged_in? %>
   GAMES TODAY:
   <ul class="games-today">
+    <% if !current_user.games_today.empty? %>
     <% current_user.games_today.each do |game| %>
+    <li class="game">
       <%= link_to [game.court.park, game] do %>
-        <li class="game"><%= game.time.strftime("%-I:%M%p") %></li>
+        <%= game.time.strftime("%-I:%M%p") %>
       <% end %>
+    </li>
+    <% end %>
+    <% else %>
+    <li class="game">None</li>
     <% end %>
   </ul>
+  <% else %>
+  <%= link_to login_path, class: "no-game" do %>
+    Sign Up<span> or Log In</span>
+  <% end %>
+  <% end %>
 </div>
-<% end %>
 
 

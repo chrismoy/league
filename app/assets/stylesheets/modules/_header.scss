@@ -89,9 +89,9 @@ $margin-correction: -.2rem;
       #menu-button {
         @include button(
           $padding: 0,
-          $bg: $gainsboro
+          $bg: $app-blue
         );
-        &:hover { color: $menu-color; }
+        &:hover { color: $menu-inverse-color; }
       }
       #profile-pic {
         @include button(
@@ -127,13 +127,23 @@ $margin-correction: -.2rem;
     padding: 1rem;
     font-size: 1.5rem;
     text-align: center;
-    background: $app-blue;
+    color: $menu-inverse-color;
+    background: rgba(0,0,0,0.6);
     .games-today {
       list-style-type: none;
-      a {
-        .game {
-          display: inline-block;
+      .game {
+        display: inline-block;
+        a {
+          color: $menu-inverse-color;
+          &:hover { color: $gainsboro; }
         }
+      }
+    }
+    .no-game {
+      color: $menu-inverse-color;
+      &:hover { color: $gainsboro; }
+      @media #{$small-only} {
+        span { display: none; }
       }
     }
   }
