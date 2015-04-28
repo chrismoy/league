@@ -13,26 +13,26 @@
     <h2 class="park-name"><%= park.name.upcase %><span> (<%= sprintf("%.1f", park.distance_from([@latitude, @longitude])) %> mi)</span></h2>
     <p class="game-select-intro">Click any time below to check out a game</p>
     <div class="active-games-container">
-    <ul class="active-games">
-    <% @court = park.courts.first %>
-    <% game_slots(@court.games_for_today, @court).each do |game| %>
-      <% if game.id.nil? %>
-      <%= link_to park_games_path(park_id: park.id, time: game.time), method: :post do %>
-        <li class="game">
-          <p class="time"><%= game.time.strftime("%-I:%M%p") %></p>
-          <p class="roster"><%= game.users.count %>/6 Players</p>
-        </li>
+      <ul class="active-games">
+      <% @court = park.courts.first %>
+      <% game_slots(@court.games_for_today, @court).each do |game| %>
+        <% if game.id.nil? %>
+        <%= link_to park_games_path(park_id: park.id, time: game.time), method: :post do %>
+          <li class="game">
+            <p class="time"><%= game.time.strftime("%-I:%M%p") %></p>
+            <p class="roster"><%= game.users.count %>/6 Players</p>
+          </li>
+        <% end %>
+        <% else %>
+        <%= link_to park_game_path(park, game) do %>
+          <li class="game">
+            <p class="time"><%= game.time.strftime("%-I:%M%p") %></p>
+            <p class="roster"><%= game.users.count %>/6 Players</p>
+          </li>
+        <% end %>
+        <% end %>
       <% end %>
-      <% else %>
-      <%= link_to park_game_path(park, game) do %>
-        <li class="game">
-          <p class="time"><%= game.time.strftime("%-I:%M%p") %></p>
-          <p class="roster"><%= game.users.count %>/6 Players</p>
-        </li>
-      <% end %>
-      <% end %>
-    <% end %>
-    </ul>
+      </ul>
     </div>
     <div class="select-filter"></div>
   </label>

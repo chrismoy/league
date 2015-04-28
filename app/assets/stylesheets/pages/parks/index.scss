@@ -146,6 +146,7 @@ $line-color: $app-red;
           overflow: auto;
           padding: 0 1rem;
           .active-games {
+            display: relative;
             text-align: left;
             margin: 0;
             visibility: hidden;
