@@ -51,20 +51,6 @@ $extended-secondary-transition: all 0;
 // Declare fonts
 
 @font-face {
-  font-family: 'Colaborate';
-  src: url(asset-path('fonts/ColabReg.otf')) format('opentype');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Colaborate';
-  src: url(asset-path('fonts/ColabThi.otf')) format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'Equip';
   src: url('fonts/Equip/EquipLig-webfont.woff') format('woff'); /* Pretty Modern Browsers */
   src: url('fonts/Equip/EquipLig-webfont.woff2') format('woff2'), /* Super Modern Browsers */
