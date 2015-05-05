@@ -51,10 +51,9 @@ $extended-secondary-transition: all 0;
 // Declare fonts
 
 @font-face {
-  font-family: 'Equip';
-  src: url('fonts/Equip/EquipLig-webfont.woff') format('woff'); /* Pretty Modern Browsers */
-  src: url('fonts/Equip/EquipLig-webfont.woff2') format('woff2'), /* Super Modern Browsers */
-       url('fonts/Equip/EquipLig-webfont.ttf')  format('truetype'); /* Safari, Android, iOS */
+  font-family: 'DIN';
+  src: url('fonts/DIN/OTF/DINStdBold.otf') format('opentype');
+  src: url('fonts/DIN/TTF/DINStdBold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
