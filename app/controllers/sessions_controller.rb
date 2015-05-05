@@ -21,7 +21,15 @@ class SessionsController < ApplicationController
         flash.now[:danger] = 'Invalid email/password combination'
         render 'new'
       end
+
     else
+      unless params[:provider] == 'twitter'
+        if User.find_by(email: auth_hash.info.email)
+          flash.now[:danger] = 'The email address associated with this account is already in use'
+          render 'new'
+          return
+        end
+      end
       user = User.find_or_create_from_auth_hash auth_hash
       log_in user
       redirect_to root_url
