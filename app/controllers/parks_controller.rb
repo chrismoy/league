@@ -9,7 +9,7 @@ class ParksController < ApplicationController
 
     if cookies[:location]
       @latitude, @longitude = cookies[:location].split("|")
-      @parks = @parks.near([@latitude.to_f, @longitude.to_f], 20)
+      @parks = @parks.near([@latitude.to_f, @longitude.to_f], 200)
       @show_parks = true
     end
 
@@ -28,7 +28,7 @@ class ParksController < ApplicationController
 
     if cookies[:location]
       @latitude, @longitude = cookies[:location].split("|")
-      @parks = @parks.near([@latitude.to_f, @longitude.to_f], 20)
+      @parks = @parks.near([@latitude.to_f, @longitude.to_f], 200)
     end
 
     respond_to do |format|

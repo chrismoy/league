@@ -1,0 +1,9 @@
+class User
+
+  default_scope { where(trashed: false) }
+
+  def trash!
+   self.update_attribute(trash, true)
+  end
+
+end
