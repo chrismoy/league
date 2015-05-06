@@ -30,7 +30,7 @@ park_list = [
   # ["West Loop Athletic Club", "1380 W. Randolph Street, Chicago, IL 60607"],
   # ["Lincoln Park Athletic Club", "1019 W. Diversey Parkway, Chicago, IL 60614"],
   # ["Evanston Athletic Club", "1723 Benson Avenue, Evanston, IL 60201"]
-  ["Lake Shore Park", "808 N. Lake Shore Drive, Chicago, IL 60611"]
+  ["Lake Shore Park", "808 N. Lake Shore Drive, Chicago, IL 60611"],
   ["Lincoln Park", "2045 Lincoln Park W. Chicago, IL 60610"],
   ["Horner Park", "2741 W. Montrose Avenue, Chicago, IL 60686"],
   ["California Park", "3845 N. California Avenue, Chicago, IL 60686"],
