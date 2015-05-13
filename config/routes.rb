@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  root                                   'parks#index'
+  root                                   'main_pages#landing'
   get     'help'                      => 'main_pages#help'
   get     'about'                     => 'main_pages#about'
   get     'contact'                   => 'main_pages#contact'
+  get     'landing'                   => 'main_pages#landing'
   get     'signup'                    => 'users#new'
   get     'login'                     => 'sessions#new'
   post    'login'                     => 'sessions#create'

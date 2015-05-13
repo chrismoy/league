@@ -1,0 +1,18 @@
+$header-dimension-small: 6rem;
+$padding-small: 0.5rem;
+$header-dimension: $base-page-spacing;
+
+@media #{$small-up} {
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $header-dimension-small;
+    background-color: $app-blue;
+    .logo-image {
+      padding: $padding-small;
+      height: $header-dimension-small;
+    }
+  }
+}
