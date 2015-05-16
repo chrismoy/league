@@ -55,6 +55,7 @@ park_list.each do |name, address|
                               court_number: park.court_count)
   park.court_count += 1
   park.img = "#{name.camelize(:lower).gsub(' ', '')}.jpg"
+  park.opening_time =
   park.save!
   courts += 1
 end
