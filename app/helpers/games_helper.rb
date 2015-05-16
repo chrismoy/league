@@ -1,4 +1,7 @@
+# Add opening/closing time, and interval w/ default to model
+
 module GamesHelper
+
   def game_slots(games, court)
     interval = 20 # minutes
 
@@ -8,7 +11,7 @@ module GamesHelper
     when 3
       create_slots 17, 19, interval
     when 6
-      create_slots 9, 12, interval
+      create_slots 17, 19, interval
     when 2
       create_slots 17, 19, interval
     when 4
