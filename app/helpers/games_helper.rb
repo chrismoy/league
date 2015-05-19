@@ -3,28 +3,12 @@
 module GamesHelper
 
   def game_slots(games, court)
-    interval = 20 # minutes
+    park = court.park
+    interval = park.game_length # minutes
 
-    slots = case Date.today.wday
-    when 1
-      create_slots 17, 19, interval
-    when 3
-      create_slots 17, 19, interval
-    when 6
-      create_slots 17, 19, interval
-    when 2
-      create_slots 17, 19, interval
-    when 4
-      create_slots 17, 19, interval
-    when 5
-      create_slots 17, 19, interval
-    when 7
-      create_slots 17, 19, interval
-    else
-      -1
-    end
+    slots = create_slots park.opening_time, park.closing_time, park.game_length
 
-    gameTime = Time.zone.now.beginning_of_hour.change(hour: ([6,7].include?(Date.today.wday) ? 9 : 17))
+    gameTime = Time.zone.now.beginning_of_hour.change(hour: park.opening_time)
 
     allTimes = []
     gameIndex = 0

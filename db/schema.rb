@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150516024535) do
+ActiveRecord::Schema.define(version: 20150516034928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,12 +28,9 @@ ActiveRecord::Schema.define(version: 20150516024535) do
 
   create_table "games", force: :cascade do |t|
     t.integer  "court_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.datetime "time"
-    t.integer  "game_length"
-    t.integer  "opening_time"
-    t.integer  "closing_time"
   end
 
   add_index "games", ["court_id"], name: "index_games_on_court_id", using: :btree
@@ -60,12 +57,15 @@ ActiveRecord::Schema.define(version: 20150516024535) do
   create_table "parks", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "court_count", default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "court_count",  default: 0
     t.string   "img"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "opening_time"
+    t.integer  "closing_time"
+    t.integer  "game_length"
   end
 
   create_table "users", force: :cascade do |t|
