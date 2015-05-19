@@ -41,7 +41,7 @@
     <% current_user.games_today.each do |game| %>
     <li class="game">
       <%= link_to [game.court.park, game] do %>
-        <%= game.time.strftime("%-I:%M%p") %>
+        <%= game.time.strftime("%-I:%M%p") %><br>
       <% end %>
     </li>
     <% end %>
