@@ -13,6 +13,6 @@ class UserMailer < ApplicationMailer
   def game_notification(user, game)
     @user = user
     @game = game
-    mail to: user.email, subject: "Game at #{game.time.strftime("%-I:%M%p")} at #{game.court.park}"
+    mail to: user.email, subject: "Game at #{game.time.strftime("%-I:%M%p")} at #{game.court.park.name}"
   end
 end

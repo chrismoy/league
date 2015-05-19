@@ -1,6 +1,6 @@
 Hey there <%= @user.name %>,
 
-You are officially signed up to play a game at <%= @game.time.strftime("%-I:%M%p") %> at <%= @game.court.park %>
+You are officially signed up to play a game at <%= @game.time.strftime("%-I:%M%p") %> at <%= @game.court.park.name %>
 
 There are currently <%= pluralize @game.users.count, 'player' %> signed up for the game.
 
