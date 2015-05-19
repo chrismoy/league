@@ -1,28 +1,29 @@
 # Create Sample Users
 
-# User.create!(name:  "Example User",
-#              email: "example@railstutorial.org",
-#              password:              "foobar",
-#              password_confirmation: "foobar",
-#              admin: true,
-#              activated: true,
-#              activated_at: Time.zone.now,
-#              image: "brianScalabrine.jpeg")
+User.create!(name:  "Example User",
+             email: "example@railstutorial.org",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now,
+             image: "brianScalabrine.jpeg")
 
-# 10.times do |n|
-#   name  = Faker::Name.name
-#   email = "example-#{n+1}@railstutorial.org"
-#   password = "password"
-#   User.create!(name:  name,
-#                email: email,
-#                password:              password,
-#                password_confirmation: password,
-#                activated: true,
-#                activated_at: Time.zone.now,
-#                image: "brianScalabrine.jpeg")
-# end
+10.times do |n|
+  name  = Faker::Name.name
+  username = "example-#{n+1}"
+  email = "#{username}@railstutorial.org"
+  password = "password"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password,
+               activated: true,
+               activated_at: Time.zone.now,
+               image: "#{username}.jpg")
+end
 
-# puts "#{User.count} Users in to the database (should be 11)"
+puts "#{User.count} Users in to the database (should be 11)"
 
 # Add popular Chicago Parks
 
