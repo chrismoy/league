@@ -5,8 +5,8 @@ class GameParticipationsController < ApplicationController
     @game = Game.find(params[:id])
     @join_game = 0
     unless(@game.users.include?(current_user) ||
-           @game.users.count >= 5 ||
-           current_user.games_today.count >= 2)
+           @game.users.count >= 6 ||
+           current_user.games_today.count >= 4)
       @game.users << current_user
       @join_game = 1
     end

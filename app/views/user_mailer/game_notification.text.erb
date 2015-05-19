@@ -1,0 +1,7 @@
+Hey there <%= @user.name %>,
+
+You are officially signed up to play a game at <%= @game.time.strftime("%-I:%M%p") %> at <%= @game.court.park %>
+
+There are currently <%= pluralize @game.users.count, 'player' %> signed up for the game.
+
+<%= link_to "See Game", park_game_url(park_id: @game.court.park, id: @game.id) %>

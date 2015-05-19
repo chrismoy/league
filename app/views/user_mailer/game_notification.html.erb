@@ -1,0 +1,14 @@
+<h1>Got Next</h1>
+
+<p>Hey there <%= @user.name %>,</p>
+
+<p>
+  You are officially signed up to play a game at <%= @game.time.strftime("%-I:%M%p") %>
+  at <%= @game.court.park %>
+</p>
+<p>
+  There are currently <%= pluralize @game.users.count, 'player' %> signed up for the game.
+</p>
+
+
+<%= link_to "See Game", park_game_url(park_id: @game.court.park, id: @game.id) %>

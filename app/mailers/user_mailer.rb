@@ -9,4 +9,10 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: "Password reset"
   end
+
+  def game_notification(user, game)
+    @user = user
+    @game = game
+    mail to: user.email, subject: "Game at #{game.time.strftime("%-I:%M%p")} at #{game.court.park}"
+  end
 end

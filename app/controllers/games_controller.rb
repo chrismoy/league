@@ -50,7 +50,7 @@ class GamesController < ApplicationController
     @messages = Message.where(game_id: @game.id)
 
     players =  @game.users
-    max_users = 5
+    max_users = 6
     @players = []
 
     for i in 0...max_users do
