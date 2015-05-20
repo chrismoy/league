@@ -35,6 +35,8 @@ $extended-secondary-transition: all 0;
 
 .content {
   transition: $secondary-transition;
+  max-width: 140rem;
+  margin: 0 auto;
 }
 
 // Highlighting Classes
