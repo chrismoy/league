@@ -1,5 +1,3 @@
-@import "chartist-settings";
-
 @mixin ct-responsive-svg-container($width: 100%, $ratio: $ct-container-ratio) {
   display: block;
   position: relative;
