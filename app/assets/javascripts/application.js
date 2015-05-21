@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.cookie
-//= require private_pub
+//= require chartist.min
 //= require foundation
 //= require turbolinks
 //= require location
