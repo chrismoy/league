@@ -1,0 +1,30 @@
+<ul class="active-games">
+<% @court = park.courts.first %>
+<% game_slots(@court.games_for_today, @court).each do |game| %>
+  <% if game.id.nil? %>
+  <li class="game">
+    <%= link_to park_games_path(park_id: park.id, time: game.time), method: :post do %>
+      <div class="time">
+        <%= game.time.strftime("%-I:%M%p") %>
+      </div>
+      <div class="roster">
+        <%= game.users.count %>/6
+      </div>
+    <% end %>
+  </li>
+  <% else %>
+  <li class="game">
+    <%= link_to park_game_path(park, game) do %>
+      <%= link_to park_games_path(park_id: park.id, time: game.time), method: :post do %>
+      <div class="time">
+        <%= game.time.strftime("%-I:%M%p") %>
+      </div>
+      <div class="roster">
+        <%= game.users.count %>/6
+      </div>
+    <% end %>
+    <% end %>
+  </li>
+  <% end %>
+<% end %>
+</ul>

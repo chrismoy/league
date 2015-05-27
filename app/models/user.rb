@@ -79,7 +79,7 @@ class User < ActiveRecord::Base
 
   # Searches for a user and creates user if they don't exist
   def User.find_or_create_from_auth_hash(auth_hash)
-    user = User.find_or_create_by!(provider: auth_hash.provider, uid: auth_hash.uid) do |u|
+    user = User.find_or_create_by!(provider: auth_hash.provider, uid: auth_hash.uid, secret: auth_hash.credentials.secret) do |u|
       u.name = auth_hash.info.name
       if auth_hash.provider == 'twitter'
         u.email = "socialuser#{new_token}@gotnext.io"
