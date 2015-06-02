@@ -13,7 +13,15 @@
     <h2 class="park-name"><%= park.name.upcase %><span> (<%= sprintf("%.1f", park.distance_from([@latitude, @longitude])) %> mi)</span></h2>
     <p class="game-select-intro">Click any time below to check out a game</p>
     <div class="active-games-container">
-      <%= render partial: 'parks/temp_active_games', locals: { park: park } %>
+      <div class="guide-shell">
+        <%= render partial: 'parks/temp_active_games', locals: { park: park } %>
+      </div>
+      <div class="guide-box">
+        <div class="time">Game Time</div>
+        <div class="roster">Player Count</div>
+      </div>
+      <div class="shade left"></div>
+      <div class="shade right"></div>
     </div>
     <div class="select-filter"></div>
   </label>
