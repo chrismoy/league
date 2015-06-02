@@ -1,18 +1,88 @@
 $header-dimension-small: 6rem;
 $padding-small: 0.5rem;
 $header-dimension: $base-page-spacing;
+$header-color: $body-font-color;
 
 @media #{$small-up} {
+  #hidden-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255,255,255,.7);
+    z-index: 30;
+    button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      outline: 0;
+      background: transparent;
+      font-size: 3rem;
+      color: $header-color;
+    }
+    ul {
+      text-align: center;
+      text-decoration: none;
+      margin-top: 20rem;
+      li {
+        a {
+          color: $header-color;
+          font-size: 5rem;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
   header {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 20;
     width: 100%;
     height: $header-dimension-small;
-    background-color: $app-red;
-    .logo-image {
-      padding: $padding-small;
-      height: $header-dimension-small;
+    background-color: rgba(221,221,221,0.6);
+    box-shadow: .2rem 0rem .7rem rgba(0,0,0,0.5);
+
+    .content {
+      height: 100%;
+      width: 100%;
+      .logo-image {
+        padding: $padding-small;
+        height: $header-dimension-small;
+      }
+
+      .menu-buttons {
+        list-style-type: none;
+        float: right;
+        height: 100%;
+        li {
+          float: left;
+          vertical-align: top;
+          height: 100%;
+          &.session-name {
+            line-height: $header-dimension-small;
+            padding: 0 1rem;
+          }
+          button {
+            height: 100%;
+            width: $header-dimension-small;
+            vertical-align: top;
+            font-size: 2rem;
+            &#profile-image {
+              background-color: $aluminum;
+              padding: 0.5rem;
+              position: relative;
+              cursor: default;
+              img {
+                height: 5rem;
+                width: 5rem;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

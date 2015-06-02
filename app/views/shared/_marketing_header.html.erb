@@ -1,5 +1,41 @@
+<div id="hidden-menu">
+  <button><%= icon('times') %></button>
+  <ul>
+    <li><%= link_to "Home", root_path %></li>
+    <% if logged_in? %>
+      <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to "Log In", login_path %></li>
+    <% end %>
+  </ul>
+</div>
+
 <header>
-  <%= link_to root_path do %>
-    <%= image_tag "scoreboard-text200.png", class: "logo-image" %>
-  <% end %>
+  <div class="content">
+    <%= link_to root_path do %>
+      <%= image_tag "scoreboard-text200.png", class: "logo-image" %>
+    <% end %>
+    <ul class="menu-buttons">
+      <% if logged_in? %>
+      <li class="session-name">
+        <%= current_user.name.upcase %>
+      </li>
+      <li>
+        <button id="profile-image"><%= image_tag current_user.image_or_placeholder %>
+      </li>
+      <% else %>
+      <li class="session-name">
+        <%= link_to "LOGIN", login_path %>
+      </li>
+      <li>
+        <button id="profile-image"><%= image_tag "missing.jpg" %>
+      </li>
+      <% end %>
+      <li>
+        <button id="menu-button"><%= icon('bars') %></button>
+      </li>
+    </ul>
+  </div>
 </header>
+
+<div class="blocker hide-for-small-only"></div>
