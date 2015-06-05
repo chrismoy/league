@@ -42,7 +42,8 @@ $header-color: $body-font-color;
     z-index: 20;
     width: 100%;
     height: $header-dimension-small;
-    background-color: rgba(221,221,221,0.6);
+    background-color: rgba(55,55,55,0.6);
+    color: #EEE;
     box-shadow: .2rem 0rem .7rem rgba(0,0,0,0.5);
 
     .content {
@@ -63,7 +64,7 @@ $header-color: $body-font-color;
           height: 100%;
           &.session-name {
             line-height: $header-dimension-small;
-            padding: 0 1rem;
+            padding: 0 2rem;
           }
           button {
             height: 100%;
