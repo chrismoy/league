@@ -12,4 +12,12 @@ module ParksHelper
       return $app_blue
     end
   end
+
+  def assign_background_image park
+    image_style = "background-image: url(/assets/"
+    image_style += "#{park.name.camelize(:lower).gsub(' ', '')}"
+    image_style += ".jpg)"
+
+    image_style
+  end
 end

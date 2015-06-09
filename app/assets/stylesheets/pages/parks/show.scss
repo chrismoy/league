@@ -1,0 +1,22 @@
+$main-font-color: $body-font-color;
+
+#park-content {
+  background-color: white;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 6rem 0 0 0;
+  width: 100%;
+  .park-name {
+    color: $main-font-color;
+    line-height: 1.4;
+    padding: 0.5rem 0 0 1rem;
+  }
+  .park-picture {
+    background-size: cover;
+    height: 40%;
+  }
+  .park-address {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+}

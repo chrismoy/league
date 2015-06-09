@@ -1,0 +1,8 @@
+<main id="park-content" class="content">
+  <h2 class="park-name"><%= @park.name.upcase %></h2>
+  <div class="park-picture" style="<%= assign_background_image @park %>;">
+  </div>
+  <div class="park-address">
+    <%= @park.address %>
+  </div>
+</main>

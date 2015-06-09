@@ -94,21 +94,23 @@ $line-color: $gainsboro;
           cursor: pointer;
           background-color: rgba(0,0,0,.5);
         }
-        h2 {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 100%;
-          left: 50%;
-          margin-left: -50%;
-          padding: 0;
-          color: white;
-          text-align: center;
-          transition: $primary-transition;
-          span {
-            display: none;
-            font-size: 2rem;
-            font-style: italic;
+        a {
+          h2 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            left: 50%;
+            margin-left: -50%;
+            padding: 0;
+            color: white;
+            text-align: center;
+            transition: $primary-transition;
+            span {
+              display: none;
+              font-size: 2rem;
+              font-style: italic;
+            }
           }
         }
         // The triangle

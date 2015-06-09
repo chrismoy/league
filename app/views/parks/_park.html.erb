@@ -13,9 +13,17 @@
   <label class="icon" style="top: <%= @icon_offset %>rem"></label>
   <% @icon_offset += 26.5 %>
 
-  <label class="park-label" style="background-image: url(/assets/<%= park.name.camelize(:lower).gsub(' ', '') %>.jpg);" for="park_label_<%= park.id %>" data-parkid="<%= park.id %>">
+  <label class="park-label" style="<%= assign_background_image park %>;" for="park_label_<%= park.id %>" data-parkid="<%= park.id %>">
     <div class="image-filter"></div>
-    <h2 class="park-name"><%= park.name.upcase %><span> (<%= sprintf("%.1f", park.distance_from([@latitude, @longitude])) %> mi)</span></h2>
+
+    <%= link_to park_url(park.id) do %>
+    <h2 class="park-name"><%= park.name.upcase %>
+      <span>
+         (<%= sprintf("%.1f", park.distance_from([@latitude, @longitude])) %> mi)
+      </span>
+    </h2>
+    <% end %>
+
     <p class="game-select-intro">Click any time below to check out a game</p>
     <div class="active-games-container">
       <div class="guide-shell">
