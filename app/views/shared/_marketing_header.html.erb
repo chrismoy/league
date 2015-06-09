@@ -18,7 +18,7 @@
     <ul class="menu-buttons">
       <% if logged_in? %>
       <li class="session-name">
-        <%= current_user.name.upcase %>
+        <%= current_user.name.split(' ')[0].upcase %>
       </li>
       <li>
         <button id="profile-image"><%= image_tag current_user.image_or_placeholder %>

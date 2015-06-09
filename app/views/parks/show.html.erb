@@ -3,6 +3,7 @@
   <div class="park-picture" style="<%= assign_background_image @park %>;">
   </div>
   <div class="park-address">
-    <%= @park.address %>
+    <p><%= @park.address %></p>
+    <p>Open <%= open_hours @park %></p>
   </div>
 </main>

@@ -9,7 +9,8 @@ $main-font-color: $body-font-color;
   .park-name {
     color: $main-font-color;
     line-height: 1.4;
-    padding: 0.5rem 0 0 1rem;
+    padding-top: 0.5rem;
+    text-align: center;
   }
   .park-picture {
     background-size: cover;
@@ -18,5 +19,6 @@ $main-font-color: $body-font-color;
   .park-address {
     font-size: 1.5rem;
     padding: 1rem;
+    text-align: center;
   }
 }

@@ -20,4 +20,22 @@ module ParksHelper
 
     image_style
   end
+
+  def open_hours park
+    open = to_twelve_hours park.opening_time
+    close = to_twelve_hours park.closing_time
+
+    return "#{open[0]}:00#{open[1]}-#{close[0]}:00#{close[1]}"
+  end
+
+  def to_twelve_hours hour
+    if hour == 0
+      return [12, "am"]
+    elsif hour < 13
+      return [hour, "am"]
+    else
+      return [hour - 12, "pm"]
+    end
+  end
+
 end

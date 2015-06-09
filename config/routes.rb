@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root                                   'parks#index'
+  # root                                   'parks#index'
+  root                                   'main_pages#landing'
   get     'help'                      => 'main_pages#help'
   get     'about'                     => 'main_pages#about'
   get     'contact'                   => 'main_pages#contact'

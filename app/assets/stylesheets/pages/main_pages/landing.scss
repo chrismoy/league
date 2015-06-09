@@ -1,0 +1,26 @@
+#landing-content {
+  background-color: white;
+  height: 100%;
+  padding-top: 6rem;
+  width: 100%;
+  .title {
+    font-size: 8rem;
+    line-height: 1;
+    margin-top: 4rem;
+    text-align: center;
+  }
+  .value-added {
+    font-size: 3rem;
+    margin: 2rem 0;
+    text-align: center;
+  }
+  .parks {
+    margin-left: 0;
+    .park{
+      height: 20rem;
+      padding-top: 5rem;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
