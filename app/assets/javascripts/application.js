@@ -19,5 +19,10 @@
 //= require location
 //= require home
 //= require events
+//= require close_button
 
-$(function(){ $(document).foundation(); });
+$(function(){
+  $(document).foundation();
+});
+
+

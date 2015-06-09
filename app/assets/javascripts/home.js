@@ -7,10 +7,6 @@ var ready = function() {
     obscure();
     $('#hidden-menu').hide();
   });
-  $('.notification-close').click(function() {
-    $('.notification-tab').remove();
-    console.log('hey');
-  });
 };
 
 function obscure() {

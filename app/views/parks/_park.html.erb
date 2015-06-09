@@ -1,7 +1,12 @@
-<li>
+<li itemscope itemtype="http://schema.org/Place">
   <div class="distance">
     <span>&nbsp</span>
     <span><%= sprintf("%.1f", park.distance_from([@latitude, @longitude])) %> mi</span>
+  </div>
+
+  <div itemprop="geo" itemscope itemtype="http://schema.org/GeoCoordinates">
+    <meta itemprop="latitude" content="<%= park.longitude %>" />
+    <meta itemprop="longitude" content="<%= park.latitude %>" />
   </div>
 
   <input type="radio" name="mapline-group" style="top: <%= @icon_offset %>rem" id="park_label_<%= park.id %>" <%= "checked" if @icon_offset < 41.5 %>/>

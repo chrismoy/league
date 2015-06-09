@@ -217,7 +217,6 @@ $line-color: $gainsboro;
                   .time {
                     font-size: 2rem;
                     display: block;
-                    // border-bottom: 2px solid $black;
                     color: black;
                     font-size: 1.5rem;
                     padding-top: 0.4rem;
@@ -227,28 +226,6 @@ $line-color: $gainsboro;
                   }
                 }
               }
-              // a {
-              //   color: $oil;
-              //   text-align: center;
-              //   transition: all .2s;
-              //   width: 1rem;
-              //   &:hover { color: $gainsboro; }
-              //   .game {
-              //     display: inline-block;
-              //     margin: 0;
-              //     padding: 1rem 2.5rem;
-              //     border-right: 2px solid $gainsboro;
-              //     background-color: white;
-              //     background-clip: border-box;
-              //     .time {
-              //       text-align: center;
-              //     }
-              //     .roster {
-              //       text-align: center;
-              //       border-top: 1px solid gray;
-              //     }
-              //   }
-              // }
             }
           }
         }
@@ -303,16 +280,43 @@ $line-color: $gainsboro;
       &:first-child {
         text-align: center;
         background: transparent;
-        height: 14rem;
+        height: auto;
         .park-label {
           background: transparent;
-          vertical-align: bottom;
           box-shadow: none;
+          height: 100%;
+          padding: 8rem 0 0 0;
+          margin-bottom: 0;
+          .new-user-prompt {
+            background-color: black;
+            border-radius: $label-radius;
+            // padding: 1rem 0;
+            position: relative;
+            width: 100%;
+            button {
+              background-color: transparent;
+              color: white;
+              font-size: 2rem;
+              height: 3.6rem;
+              margin-top: -1.8rem;
+              outline: 0;
+              padding: 0.5rem 1rem;
+              position: absolute;
+              right: 0;
+              top: 50%;
+            }
+            p {
+              color: white;
+              font-style: normal;
+              padding: 1rem 0;
+            }
+          }
           p {
+            padding: 2rem 0;
             color: $body-font-color;
             font-size: 2.5rem;
-            margin-top: 8rem;
             font-style: italic;
+            vertical-align: bottom;
           }
           &:after { border: transparent; }
         }
@@ -379,6 +383,13 @@ $line-color: $gainsboro;
         }
         &:first-child {
           .park-label {
+            .new-user-prompt {
+              button {
+                font-size: 1.5rem;
+                height: 3rem;
+                margin-top: -1.85rem;
+              }
+            }
             p { font-size: 1.5rem; }
           }
         }

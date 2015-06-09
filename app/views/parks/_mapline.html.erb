@@ -1,6 +1,12 @@
 <ul class="mapline">
   <li>
     <div class="park-label">
+      <% unless logged_in? %>
+      <div class="new-user-prompt">
+        <button class="close_button"><%= icon('times') %></button>
+        <p>This is an app to schedule pickup basketball games</p>
+      </div>
+      <% end %>
       <p>Find today's basketball games below!</p>
     </div>
   </li>
