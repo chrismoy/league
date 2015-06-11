@@ -44,11 +44,22 @@ $header-color: $body-font-color;
     height: $header-dimension-small;
     background-color: transparent;
     color: $body-font-color;
+    padding: 0 1rem;
     // box-shadow: .2rem 0rem .7rem rgba(0,0,0,0.5);
 
     .content {
       height: 100%;
       width: 100%;
+      a {
+        h1 {
+          color: $white;
+          display: inline-block;
+          font-size: 4rem;
+          line-height: 1;
+          padding-top: 1rem;
+          text-transform: uppercase;
+        }
+      }
       .logo-image {
         padding: $padding-small;
         height: $header-dimension-small;
@@ -63,23 +74,46 @@ $header-color: $body-font-color;
           vertical-align: top;
           height: 100%;
           &.session-name {
+            color: white;
             font-size: 1.5rem;
             line-height: $header-dimension-small;
-            padding: 0 1rem;
+            padding-right: 1rem;
+            a { color: white; }
           }
           button {
-            height: 100%;
-            width: $header-dimension-small;
-            vertical-align: top;
             font-size: 2rem;
+            height: 100%;
+            margin: 0 0.5rem;
+            outline: 0;
+            width: auto;
+            vertical-align: top;
             &#profile-image {
-              background-color: $aluminum;
-              padding: 0.5rem;
+              background-color: $transparent;
               position: relative;
               cursor: default;
               img {
-                height: 5rem;
-                width: 5rem;
+                border-radius: 51%;
+                height: 4rem;
+                left: 50%;
+                margin: -2rem 0 0 -2rem;
+                position: absolute;
+                top: 50%;
+                width: 4rem;
+              }
+            }
+            &#menu-button {
+              background-color: transparent;
+              color: white;
+              margin-right: 0;
+              position: relative;
+              i {
+                font-size: 3rem;
+                height: 3rem;
+                left: 50%;
+                margin: -1.5rem 0 0 -1.5rem;
+                position: absolute;
+                top: 50%;
+                width: 3rem;
               }
             }
           }

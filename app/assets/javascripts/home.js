@@ -1,4 +1,5 @@
 var ready = function() {
+  console.log('yo');
   $('#menu-button').click(function() {
     obscure();
     $('#hidden-menu').show();

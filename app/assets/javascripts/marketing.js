@@ -4,5 +4,6 @@
 //= require private_pub
 //= require foundation
 //= require turbolinks
+//= require home
 
 $(function(){ $(document).foundation(); });

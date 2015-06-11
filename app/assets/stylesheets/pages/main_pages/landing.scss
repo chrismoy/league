@@ -1,26 +1,61 @@
 #landing-content {
   background-color: white;
   height: 100%;
-  padding-top: 6rem;
+  // padding-top: 6rem;
   width: 100%;
-  .title {
-    font-size: 8rem;
-    line-height: 1;
-    margin-top: 4rem;
-    text-align: center;
-  }
   .value-added {
-    font-size: 3rem;
-    margin: 2rem 0;
+    color: white;
+    height: 90%;
+    position: relative;
+    width: 100%;
+    .image-filter {
+      // background-color: rgba(28,28,28,0.7);
+      // background-color: rgba(0,0,0,0.7);
+      background: white image-url('sewardPark.jpg') 53% 50%;
+      background-size: cover;
+      filter: blur(1px) brightness(50%) grayscale(60%);
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    .value-content {
+      left: 0;
+      padding: 10rem 2rem 0 2rem;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      h2 {
+        color: inherit;
+        font-size: 3rem;
+        font-weight: bold;
+        line-height: 1.4;
+        padding: 2rem 0 3rem 0;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      p {
+        font-size: 1.8rem;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+  }
+  .scroll-prompt {
+    bottom: -3rem;
+    color: black;
+    left: 0;
+    position: absolute;
     text-align: center;
+    width: 100%;
   }
   .parks {
-    margin-left: 0;
-    .park{
-      height: 20rem;
-      padding-top: 5rem;
-      text-align: center;
-      width: 100%;
+    margin: 0;
+    padding-top: 4rem;
+    text-align: center;
+    .park {
+
     }
   }
 }
