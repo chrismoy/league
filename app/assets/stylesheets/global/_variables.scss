@@ -5,13 +5,15 @@
 
 // Color Variables
 
-$lightening-factor: 40%;
+$lightening-factor: 50%;
 // $app-red: scale-color( #E32739, $lightness: $lightening-factor );
-$app-red: scale-color( #E32739, $lightness: 30% );
+// $app-red: scale-color( #E32739, $lightness: 30% );
+$app-red: #e74c3c;
 $app-orange: scale-color( #F57215, $lightness: $lightening-factor );
 $app-yellow: scale-color( #FEE011, $lightness: $lightening-factor );
 $app-green: scale-color( #007F55, $lightness: 10% );
-$app-blue: scale-color( #1C418C, $lightness: $lightening-factor );
+// $app-blue: scale-color( #1C418C, $lightness: $lightening-factor );
+$app-blue: #3498db;
 $app-purple: scale-color( #803462, $lightness: $lightening-factor );
 $facebook-primary: #3B5998;
 $twitter-primary: #55ACEE;

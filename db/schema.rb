@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150516034928) do
+ActiveRecord::Schema.define(version: 20150612060858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,19 +54,26 @@ ActiveRecord::Schema.define(version: 20150516034928) do
   add_index "messages", ["game_id"], name: "index_messages_on_game_id", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "parks", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "court_count",  default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "court_count",     default: 0
     t.string   "img"
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "opening_time"
     t.integer  "closing_time"
     t.integer  "game_length"
+    t.integer  "organization_id"
   end
+
+  add_index "parks", ["organization_id"], name: "index_parks_on_organization_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -95,4 +102,5 @@ ActiveRecord::Schema.define(version: 20150516034928) do
   add_foreign_key "games_users", "users"
   add_foreign_key "messages", "games"
   add_foreign_key "messages", "users"
+  add_foreign_key "parks", "organizations"
 end

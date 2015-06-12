@@ -36,7 +36,7 @@ $header-color: $body-font-color;
     }
   }
   header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 20;
@@ -73,14 +73,16 @@ $header-color: $body-font-color;
           float: left;
           vertical-align: top;
           height: 100%;
+          color: $pearl;
           &.session-name {
-            color: white;
+            color: $pearl;
             font-size: 1.5rem;
             line-height: $header-dimension-small;
             padding-right: 1rem;
             a { color: white; }
           }
           button {
+            color: inherit;
             font-size: 2rem;
             height: 100%;
             margin: 0 0.5rem;
@@ -103,7 +105,6 @@ $header-color: $body-font-color;
             }
             &#menu-button {
               background-color: transparent;
-              color: white;
               margin-right: 0;
               position: relative;
               i {

@@ -5,11 +5,10 @@
   width: 100%;
   .value-added {
     color: white;
-    height: 90%;
+    height: 100%;
     position: relative;
     width: 100%;
     .image-filter {
-      // background-color: rgba(28,28,28,0.7);
       // background-color: rgba(0,0,0,0.7);
       background: white image-url('sewardPark.jpg') 53% 50%;
       background-size: cover;
@@ -21,17 +20,19 @@
       width: 100%;
     }
     .value-content {
+      color: $pearl;
       left: 0;
-      padding: 10rem 2rem 0 2rem;
+      padding: 20vh 2rem 0 2rem;
       position: absolute;
       top: 0;
       width: 100%;
       h2 {
         color: inherit;
-        font-size: 3rem;
+        font-size: 3.6rem;
         font-weight: bold;
-        line-height: 1.4;
-        padding: 2rem 0 3rem 0;
+        letter-spacing: 2px;
+        line-height: 1.3;
+        padding: 2rem 0 4rem 0;
         text-align: center;
         text-transform: uppercase;
       }
@@ -40,6 +41,19 @@
         font-weight: bold;
         text-align: center;
       }
+    }
+    .btn-see-parks {
+      background-color: $app-red;
+      border-radius: $global-radius;
+      bottom: 2rem;
+      font-size: 2.4rem;
+      left: 50%;
+      margin-left: -12rem;
+      outline: 0;
+      padding-top: 1.3rem;
+      position: absolute;
+      text-transform: uppercase;
+      width: 24rem;
     }
   }
   .scroll-prompt {

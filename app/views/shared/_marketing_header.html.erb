@@ -24,7 +24,7 @@
         <button id="profile-image"><%= image_tag current_user.image_or_placeholder %>
       </li>
       <% else %>
-      <li class="session-name">
+      <li class="session-name" data-no-turbolink >
         <%= link_to "LOG IN", login_path %>
       </li>
       <li>
