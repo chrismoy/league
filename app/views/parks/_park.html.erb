@@ -16,7 +16,7 @@
   <label class="park-label" style="<%= assign_background_image park %>;" for="park_label_<%= park.id %>" data-parkid="<%= park.id %>">
     <div class="image-filter"></div>
 
-    <%= link_to park_url(park.id) do %>
+    <%= link_to park_url(park) do %>
     <h2 class="park-name"><%= park.name.upcase %>
       <span>
          (<%= sprintf("%.1f", park.distance_from([@latitude, @longitude])) %> mi)

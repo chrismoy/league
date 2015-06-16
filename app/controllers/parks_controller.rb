@@ -1,15 +1,8 @@
 class ParksController < ApplicationController
 
   def index
-    @parks = Park.all
-    if params[:latitude] && params[:longitude]
-      cookies[:location] = [sprintf("%.3f", params[:latitude]), sprintf("%.3f", params[:longitude])].join("|")
-    end
-
-    if cookies[:location]
-      @latitude, @longitude = cookies[:location].split("|")
-      @parks = @parks.near([@latitude.to_f, @longitude.to_f], 200)
-      @show_parks = true
+    if params[:organization] && cookies[:data].nil?
+      cookies[:data] = params[:organization].to_s
     end
 
     respond_to do |format|
@@ -24,14 +17,20 @@ class ParksController < ApplicationController
 
   def parks_list
     @parks = Park.all
+
     @icon_offset = 27;
+
+    # data = [latitude, longitude, organization]
+
+    # WORK ON ADDING ORGANIZATION COOKIE
+
     if params[:latitude] && params[:longitude]
       cookies[:location] = [sprintf("%.3f", params[:latitude]), sprintf("%.3f", params[:longitude])].join("|")
     end
 
     if cookies[:location]
       @latitude, @longitude = cookies[:location].split("|")
-      @parks = @parks.near([@latitude.to_f, @longitude.to_f], 200)
+      @parks = @parks.near([@latitude.to_f, @longitude.to_f], 50)
     end
 
     respond_to do |format|

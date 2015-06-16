@@ -1,29 +1,29 @@
 # Create Sample Users
 
-User.create!(name:  "Example User",
-             email: "example@railstutorial.org",
-             password:              "foobar",
-             password_confirmation: "foobar",
-             admin: true,
-             activated: true,
-             activated_at: Time.zone.now,
-             image: "brianScalabrine.jpeg")
+# User.create!(name:  "Example User",
+#              email: "example@railstutorial.org",
+#              password:              "foobar",
+#              password_confirmation: "foobar",
+#              admin: true,
+#              activated: true,
+#              activated_at: Time.zone.now,
+#              image: "brianScalabrine.jpeg")
 
-10.times do |n|
-  name  = Faker::Name.name
-  username = "example-#{n+1}"
-  email = "#{username}@railstutorial.org"
-  password = "password"
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-               password_confirmation: password,
-               activated: true,
-               activated_at: Time.zone.now,
-               image: "#{username}.jpg")
-end
+# 10.times do |n|
+#   name  = Faker::Name.name
+#   username = "example-#{n+1}"
+#   email = "#{username}@railstutorial.org"
+#   password = "password"
+#   User.create!(name:  name,
+#                email: email,
+#                password:              password,
+#                password_confirmation: password,
+#                activated: true,
+#                activated_at: Time.zone.now,
+#                image: "#{username}.jpg")
+# end
 
-puts "#{User.count} Users in to the database (should be 11)"
+# puts "#{User.count} Users in to the database (should be 11)"
 
 # Add popular Chicago Parks
 
@@ -64,10 +64,11 @@ organization_list = [
 
 # Add one court to each park
 
-parks = courts = 0
+organizations = parks = courts = 0
 
 organization_list.each do |organization_name, park_list|
   organization = Organization.create!(name: organization_name)
+  organizations += 1
   park_list.each do |name, address|
     park = Park.create!(name: name,
                         address: address,
@@ -84,7 +85,9 @@ organization_list.each do |organization_name, park_list|
     park.save!
     courts += 1
   end
+end
 
+puts "#{organizations} Organizations added to the database"
 puts "#{parks} Parks added to the database"
 puts "#{courts} Courts added to the database"
 
