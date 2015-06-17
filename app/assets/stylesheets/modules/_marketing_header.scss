@@ -58,6 +58,9 @@ $header-color: $pearl;
           line-height: 1;
           padding-top: 1rem;
           text-transform: uppercase;
+          &.large-menu {
+            display: none;
+          }
         }
       }
       .logo-image {
@@ -155,6 +158,12 @@ $header-color: $pearl;
       a {
         h1 {
           font-size: 6rem;
+          &.small-menu {
+            display: none;
+          }
+          &.large-menu {
+            display: inline-block;
+          }
         }
       }
       .menu-buttons {
