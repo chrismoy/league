@@ -22,7 +22,7 @@ class ParksController < ApplicationController
       @organization = Organization.find(params[:organization_id])
       current_user.update_attributes(organization_id: params[:organization_id].to_i)
     else
-      @organization = Organization.find(current_user.organization_id)
+      @organization = current_user.organization.nil? ? Organization.first : Organization.find(current_user.organization_id)
     end
 
     @parks = @organization.parks
