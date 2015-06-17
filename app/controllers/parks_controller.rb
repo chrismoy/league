@@ -17,7 +17,9 @@ class ParksController < ApplicationController
 
   def parks_list
 
-    @organization = Organization.find(current_user.organization_id || 1)
+    # byebug
+
+    @organization = Organization.find(params[:organization_id] || current_user.organization_id)
 
     @parks = @organization.parks
 

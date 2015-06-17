@@ -1,5 +1,4 @@
 var ready = function() {
-  console.log('yo');
   $('#menu-button').click(function() {
     obscure();
     $('#hidden-menu').show();
@@ -9,7 +8,8 @@ var ready = function() {
     $('#hidden-menu').hide();
   });
   $('.organization-select').change(function() {
-    alert('yolo');
+    var orgId = $(this).val();
+    replaceMapLine(orgId);
   });
 };
 
@@ -17,9 +17,10 @@ function obscure() {
   $('.content').toggleClass('obscure');
 }
 
-function replaceMapLine() {
-  $ajax({
-    url: "parks_list_url"
+function replaceMapLine(orgId) {
+  $.ajax({
+    url: "parks_list",
+    data: { organization_id: orgId }
   });
 }
 
