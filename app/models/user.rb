@@ -108,6 +108,10 @@ class User < ActiveRecord::Base
     self.games.where(time: Time.zone.now.all_day)
   end
 
+  def organization
+    Organization.find organization_id
+  end
+
   private
 
     # Converts email to all lower case
