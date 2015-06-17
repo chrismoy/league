@@ -1,7 +1,7 @@
 $header-dimension-small: 6rem;
-$padding-small: 0.5rem;
 $header-dimension: $base-page-spacing;
-$header-color: $body-font-color;
+$padding-small: 0.5rem;
+$header-color: $pearl;
 
 @media #{$small-up} {
   #hidden-menu {
@@ -43,7 +43,7 @@ $header-color: $body-font-color;
     width: 100%;
     height: $header-dimension-small;
     background-color: transparent;
-    color: $body-font-color;
+    color: $header-color;
     padding: 0 1rem;
     // box-shadow: .2rem 0rem .7rem rgba(0,0,0,0.5);
 
@@ -52,7 +52,7 @@ $header-color: $body-font-color;
       width: 100%;
       a {
         h1 {
-          color: $white;
+          color: $header-color;
           display: inline-block;
           font-size: 4rem;
           line-height: 1;
@@ -73,13 +73,24 @@ $header-color: $body-font-color;
           float: left;
           vertical-align: top;
           height: 100%;
-          color: $pearl;
+          color: $jet;
+          select {
+            border-radius: 0.5rem;
+            display: none;
+            font-size: 1.8rem;
+            height: 4rem;
+            line-height: 1;
+            outline: 0;
+            margin: 2rem 0 0 0;
+            padding: 1rem 2rem 1rem 1rem;
+          }
           &.session-name {
-            color: $pearl;
+            color: $header-color;
             font-size: 1.5rem;
             line-height: $header-dimension-small;
+            padding-left: 2rem;
             padding-right: 1rem;
-            a { color: white; }
+            a { color: $header-color; }
           }
           button {
             color: inherit;
@@ -93,18 +104,22 @@ $header-color: $body-font-color;
               background-color: $transparent;
               position: relative;
               cursor: default;
+              width: $header-dimension-small;
               img {
+                $prof-pic-dimension: ($header-dimension-small) * 2 / 3;
                 border-radius: 51%;
-                height: 4rem;
+                height: $prof-pic-dimension;
                 left: 50%;
-                margin: -2rem 0 0 -2rem;
+                margin-top: -($prof-pic-dimension / 2);
+                margin-left: -($prof-pic-dimension / 2);
                 position: absolute;
                 top: 50%;
-                width: 4rem;
+                width: $prof-pic-dimension;
               }
             }
             &#menu-button {
               background-color: transparent;
+              color: $header-color;
               margin-right: 0;
               position: relative;
               i {
@@ -116,6 +131,59 @@ $header-color: $body-font-color;
                 top: 50%;
                 width: 3rem;
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$medium-up} {
+  #hidden-menu {
+    ul {
+      li {
+        select {
+          display: none;
+        }
+      }
+    }
+  }
+  header {
+    height: $header-dimension;
+    .content {
+      a {
+        h1 {
+          font-size: 6rem;
+        }
+      }
+      .menu-buttons {
+        li {
+          select {
+            display: inline-block;
+          }
+          &.session-name {
+            line-height: $header-dimension;
+          }
+          button {
+            &#profile-image {
+              width: 6rem;
+              img {
+                $prof-pic-dimension: ($header-dimension) * 2 / 3;
+                // border: 1px solid $header-color;
+                border-radius: 51%;
+                height: $prof-pic-dimension;
+                left: 50%;
+                margin-top: -($prof-pic-dimension / 2);
+                margin-left: -($prof-pic-dimension / 2);
+                max-width: 20rem; // Noticed max width being set to 100%
+                position: absolute;
+                top: 50%;
+                width: $prof-pic-dimension;
+              }
+            }
+            &#menu-button {
+              i {}
             }
           }
         }

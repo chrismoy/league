@@ -2,6 +2,6 @@
     options_from_collection_for_select( @organizations ,
     "id",
     "name",
-    current_user.organization_id ),
+    logged_in? ? current_user.organization_id : Organization.first.id ),
     class: "organization-select"
 %>
