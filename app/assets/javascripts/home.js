@@ -8,10 +8,19 @@ var ready = function() {
     obscure();
     $('#hidden-menu').hide();
   });
+  $('.organization-select').change(function() {
+    alert('yolo');
+  });
 };
 
 function obscure() {
   $('.content').toggleClass('obscure');
+}
+
+function replaceMapLine() {
+  $ajax({
+    url: "parks_list_url"
+  });
 }
 
 $(document).ready(ready);

@@ -1,0 +1,7 @@
+<%= select_tag "park-select",
+    options_from_collection_for_select( @organizations ,
+    "id",
+    "name",
+    current_user.organization_id ),
+    class: "organization-select"
+%>

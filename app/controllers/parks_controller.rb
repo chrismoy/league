@@ -1,8 +1,8 @@
 class ParksController < ApplicationController
 
   def index
-    if params[:organization] && cookies[:data].nil?
-      cookies[:data] = params[:organization].to_s
+    unless logged_in? or params[:organization]
+      redirect_to landing_url and return
     end
 
     respond_to do |format|
@@ -16,13 +16,12 @@ class ParksController < ApplicationController
   end
 
   def parks_list
-    @parks = Park.all
+
+    @organization = Organization.find(current_user.organization_id || 1)
+
+    @parks = @organization.parks
 
     @icon_offset = 27;
-
-    # data = [latitude, longitude, organization]
-
-    # WORK ON ADDING ORGANIZATION COOKIE
 
     if params[:latitude] && params[:longitude]
       cookies[:location] = [sprintf("%.3f", params[:latitude]), sprintf("%.3f", params[:longitude])].join("|")

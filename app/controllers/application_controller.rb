@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  before_action :set_organization
   include SessionsHelper
 
   private
@@ -13,5 +14,9 @@ class ApplicationController < ActionController::Base
         flash[:alert] = "Please sign up or log in"
         redirect_to login_url
       end
+    end
+
+    def set_organization
+      @organizations = Organization.all
     end
 end

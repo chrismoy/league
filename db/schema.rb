@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612073824) do
+ActiveRecord::Schema.define(version: 20150616173300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,9 +95,11 @@ ActiveRecord::Schema.define(version: 20150612073824) do
     t.string   "uid"
     t.string   "token"
     t.string   "secret"
+    t.integer  "organization_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["organization_id"], name: "index_users_on_organization_id", using: :btree
 
   add_foreign_key "courts", "parks"
   add_foreign_key "games_users", "games"
@@ -105,4 +107,5 @@ ActiveRecord::Schema.define(version: 20150612073824) do
   add_foreign_key "messages", "games"
   add_foreign_key "messages", "users"
   add_foreign_key "parks", "organizations"
+  add_foreign_key "users", "organizations"
 end
