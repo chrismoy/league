@@ -3,7 +3,7 @@ var ready = function() {
     obscure();
     $('#hidden-menu').show();
   });
-  $('#hidden-menu').click(function() {
+  $('.hidden-menu-exit').click(function() {
     obscure();
     $('#hidden-menu').hide();
   });

@@ -1,5 +1,5 @@
 <div id="hidden-menu">
-  <button><%= icon('times') %></button>
+  <button class="hidden-menu-exit"><%= icon('times') %></button>
   <ul>
     <li><%= link_to "Home", root_path %></li>
     <% if logged_in? %>
@@ -14,7 +14,7 @@
 <header>
   <div class="content">
     <%= link_to root_path do %>
-      <h1>Got Next</h1>
+      <h1>GN</h1>
     <% end %>
     <ul class="menu-buttons">
       <% if logged_in? %>
