@@ -18,8 +18,12 @@ class ParksController < ApplicationController
   def parks_list
 
     # byebug
-
-    @organization = Organization.find(params[:organization_id] || current_user.organization_id)
+    if params[:organization_id] && logged_in?
+      @organization = Organization.find(params[:organization_id])
+      current_user.update_attributes(organization_id: params[:organization_id].to_i)
+    else
+      @organization = Organization.find(current_user.organization_id)
+    end
 
     @parks = @organization.parks
 
