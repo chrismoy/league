@@ -109,7 +109,7 @@ class User < ActiveRecord::Base
   end
 
   def organization
-    Organization.find organization_id
+    Organization.find_by(id: organization_id)
   end
 
   private
