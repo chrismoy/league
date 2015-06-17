@@ -155,7 +155,7 @@ $line-color: $gainsboro;
             left: 0;
             height: 100%;
             width: 10rem;
-            background-color: $app-blue;
+            background-color: $app-red;
             text-align: center;
             // z-index: 35;
             .time {
@@ -163,10 +163,14 @@ $line-color: $gainsboro;
               display: block;
               font-size: 1.5rem;
               padding-top: 0.4rem;
+              &.small { display: none; }
+              &.large { display: block; }
             }
             .roster {
               padding-top: 0.4rem;
               font-size: 1.8rem;
+              &.small { display: none; }
+              &.large { display: block; }
             }
           }
           .shade {
@@ -363,14 +367,28 @@ $line-color: $gainsboro;
             span { display: inline; }
           }
           .active-games-container {
-            .active-games {
-              // a {
-              //   .game {
-              //     font-size: 1.8rem;
-              //     padding: 0 1.5rem 0 1rem;
-              //     margin-right: 0.5rem;
-              //   }
-              // }
+            .guide-box {
+              width: 5rem;
+              .time {
+                &.small { display: block; }
+                &.large { display: none; }
+              }
+              .roster {
+                &.small { display: block; }
+                &.large { display: none; }
+              }
+            }
+            .shade {
+              &.left { left: 5rem; }
+            }
+            .guide-shell {
+              .active-games {
+                .game {
+                  &:first-child {
+                    width: 5rem;
+                  }
+                }
+              }
             }
           }
         }
