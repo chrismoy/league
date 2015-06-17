@@ -63,12 +63,18 @@ $header-color: $body-font-color;
       width: 100%;
       a {
         h1 {
+          background-color: $white;
           color: $header-color;
           display: inline-block;
           font-size: 4rem;
           line-height: 1;
-          padding-top: 1rem;
+          margin-top: 1rem;
+          padding: 0.5rem 0.5rem 0 0.5rem;
           text-transform: uppercase;
+          border: 3px solid $header-color;
+          &.large-menu {
+            display: none;
+          }
         }
       }
       .logo-image {
@@ -165,6 +171,12 @@ $header-color: $body-font-color;
       a {
         h1 {
           font-size: 6rem;
+          &.small-menu {
+            display: none;
+          }
+          &.large-menu {
+            display: inline-block;
+          }
         }
       }
       .menu-buttons {
