@@ -1,0 +1,8 @@
+.notification {
+  height: 6rem;
+  left: 0;
+  position: absolute;
+  top: 6rem;
+  width: 100%;
+  &.alert { background-color: $app-red; }
+}
