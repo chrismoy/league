@@ -5,6 +5,6 @@ class Court < ActiveRecord::Base
   validates :img, presence: true
 
   def games_for_today
-    games.where(time: Time.zone.now.all_day)
+    games.where(time: Time.now.all_day)
   end
 end

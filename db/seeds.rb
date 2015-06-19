@@ -91,6 +91,11 @@ puts "#{organizations} Organizations added to the database"
 puts "#{parks} Parks added to the database"
 puts "#{courts} Courts added to the database"
 
+(1..7).each do |day|
+  TimeBlock.create!(day_of_week: day,
+                    start_time: Time.zone.now.)
+end
+
 #############################################################################
 #############################################################################
 ################################### END #####################################
