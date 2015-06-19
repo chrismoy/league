@@ -93,7 +93,8 @@ puts "#{courts} Courts added to the database"
 
 (1..7).each do |day|
   TimeBlock.create!(day_of_week: day,
-                    start_time: Time.zone.now.)
+                    start_time: Time.zone.now.beginning_of_day.change(hour: 6),
+                    end_time: Time.zone.now.beginning_of_day.change(hour: 6),)
 end
 
 #############################################################################
