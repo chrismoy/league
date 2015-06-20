@@ -5,19 +5,18 @@
 <%= hidden_field_tag :latitude, "", id: "latitude" %>
 <%= hidden_field_tag :longitude, "", id: "longitude" %>
 
-<script type="text/javascript">
-  var $latitudeField = $("#latitude");
-  var $longitudeField = $("#longitude");
-  getLocation();
-</script>
-
 <div class="loading">
   <p>
     LOADING...
     <span>Finding your location</span>
   </p>
-
 </div>
 
 <main id="location-content" class="content">
 </main>
+
+<script type="text/javascript">
+  var $latitudeField = $("#latitude");
+  var $longitudeField = $("#longitude");
+  getLocation();
+</script>

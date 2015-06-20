@@ -40,8 +40,3 @@ function refreshParks(position) {
     },
   });
 }
-
-$(document).ready(function(){
-  $(document).on("page:change", function() {});
-  $(window).resize(function() {});
-});
