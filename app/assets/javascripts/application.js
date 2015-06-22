@@ -17,6 +17,7 @@
 //= require foundation
 //= require turbolinks
 //= require location
+//= require time
 //= require home
 //= require events
 //= require close_button

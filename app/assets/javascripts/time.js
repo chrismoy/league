@@ -1,4 +1,6 @@
+var set_timezone = function() {
+  var tz = jstz.determine();
+  $.cookie('timezone', tz.name(), { path: '/' });
+};
 
-
-$(document).ready(ready);
-$(document).on('page:load', ready);
+$(document).ready(set_timezone);
