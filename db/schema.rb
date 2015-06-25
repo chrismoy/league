@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624161237) do
+ActiveRecord::Schema.define(version: 20150625043557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20150624161237) do
 
   add_index "parks", ["organization_id"], name: "index_parks_on_organization_id", using: :btree
 
-  create_table "social_registrations", force: :cascade do |t|
+  create_table "social_accounts", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20150624161237) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "social_registrations", ["user_id"], name: "index_social_registrations_on_user_id", using: :btree
+  add_index "social_accounts", ["user_id"], name: "index_social_accounts_on_user_id", using: :btree
 
   create_table "time_blocks", force: :cascade do |t|
     t.integer  "day_of_week"
@@ -127,6 +127,6 @@ ActiveRecord::Schema.define(version: 20150624161237) do
   add_foreign_key "messages", "games"
   add_foreign_key "messages", "users"
   add_foreign_key "parks", "organizations"
-  add_foreign_key "social_registrations", "users"
+  add_foreign_key "social_accounts", "users"
   add_foreign_key "users", "organizations"
 end

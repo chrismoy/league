@@ -1,6 +1,6 @@
-class CreateSocialRegistrations < ActiveRecord::Migration
+class CreateSocialAccounts < ActiveRecord::Migration
   def change
-    create_table :social_registrations do |t|
+    create_table :social_accounts do |t|
       t.references :user, index: true, foreign_key: true
       t.string :provider
       t.string :uid
