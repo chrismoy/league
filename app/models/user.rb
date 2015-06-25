@@ -93,6 +93,9 @@ class User < ActiveRecord::Base
       u.token = auth_hash.credentials.token
       u.secret = auth_hash.credentials.secret
     end
+
+    if user = User.find_by provider: auth_hash.provider, uid: auth_hash.uid, secret: auth_hash.credentials.secret
+
   end
 
   # Returns a dummy user
