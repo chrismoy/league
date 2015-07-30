@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'allstaff/home'
+
+  get 'allstaff/select'
+
+  get 'allstaff/portal'
+
+  get 'allstaff/capabilities'
+
   root                                   'parks#index'
   # root                                   'main_pages#landing'
   get     'help'                      => 'main_pages#help'
@@ -18,6 +26,7 @@ Rails.application.routes.draw do
   resources :parks, only: [:index, :show] do
     resources :games, only: [:index, :show, :create, :destroy]
   end
+
   resources :game_participations,   only: [:update, :destroy]
   resources :messages,              only: [:create]
 end

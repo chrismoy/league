@@ -4,8 +4,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params[:provider].nil?
-      user = User.find_by( email: params[:session][:email].downcase)
+    @email = params[:email].downcase if params[:email]
+    if auth_hash.nil?
+      user = User.find_by(email: @email)
       if user && user.authenticate(params[:session][:password])
         if user.activated?
           log_in user
@@ -22,8 +23,16 @@ class SessionsController < ApplicationController
         render 'new'
       end
     else
-      user = User.find_or_create_from_auth_hash auth_hash
-      log_in user
+      byebug
+      @social = SocialAccount.find_or_create_from_auth_hash auth_hash
+      user = User.find @social.user_id
+        if user
+          log_in user
+        else
+          message = "Turn down"
+          flash[:warning] = message
+          redirect_to root_url
+        end
       redirect_to root_url
     end
   end

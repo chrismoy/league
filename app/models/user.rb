@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :games
   has_many :messages, dependent: :destroy
+  has_many :social_accounts, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -93,9 +94,6 @@ class User < ActiveRecord::Base
       u.token = auth_hash.credentials.token
       u.secret = auth_hash.credentials.secret
     end
-
-    if user = User.find_by provider: auth_hash.provider, uid: auth_hash.uid, secret: auth_hash.credentials.secret
-
   end
 
   # Returns a dummy user

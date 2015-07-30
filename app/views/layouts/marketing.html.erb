@@ -14,6 +14,11 @@
 
     <%= render 'main_pages/shared/marketing_header' %>
 
+    <% flash.each do |message_type, message| %>
+      <%= render partial: '/shared/notification',
+                 locals: {message_type: message_type, message: message} %>
+    <% end %>
+
     <%= yield %>
 
   </body>
